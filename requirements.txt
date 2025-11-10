@@ -1,0 +1,3 @@
+## Project modules installed
+pandas
+bcrypt==4.2.0
