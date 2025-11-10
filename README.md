@@ -1,7 +1,12 @@
 # CST1510_CW2_M01088086-Saifana
 CST1510 Labwork from Week 06-12 (Coursework 2)
 
-# Week 6: Github Practice: Push and Pull
+# Week 6: GitHub Practice: Push and Pull
+Student Name: [Saifana Kuradiela Maryam] 
+Student ID: [M01088086]
+Course: CST1510 -CW2 - Multi-Domain Intelligence Platform
+## Project Description
+Practicing uploading the CST1510_CW2_M01088086_Saifana repository, and utilising the push/pull feature on a linked GitHub account.
 
 # Week 7: Secure Authentication System
 Student Name: [Saifana Kuradiela Maryam] 
