@@ -1,10 +1,14 @@
-# CST 1510 | Week 07 Lab | Password Encryption & User File Access
-# M01088086 | Saifana Kuradiela Maryam
+# CST1510 - Week 07 Lab File - Password Encryption & File Handling
+# M01088086 | Saifana Kuradiela Maryam | Year 1 BSc Information Technology
 USER_DATA_FILE = "users.txt"
 # Importing bcrypt functions to hash plain text password
 import bcrypt
 import os
 import string
+import secrets
+
+if not os.path.exists(USER_DATA_FILE):
+    open(USER_DATA_FILE, "w").close()
 
 # Function to hash password
 def hash_password(plain_text_password):
@@ -94,7 +98,7 @@ def validate_password(password):
         if flag:
             check += 25
     if check <= 25:
-        return False, "Weak Password."
+        return False, "Password Too Weak."
     elif check <= 50:
         return True, "Moderate Password."
     elif check <= 75:
@@ -113,6 +117,12 @@ def display_menu():
     print("[2] Login")
     print("[3] Exit")
     print("-"*50)
+
+# Function that creates session tokens
+def create_session(username):
+    token = secrets.token_hex(16)
+    # Store token with timestamp
+    return token
 
 # Function that calls main menu function, and respectively runs to go through password program
 def main():
@@ -159,7 +169,7 @@ def main():
             # Attempt login
             if login_user(username, password):
                 print("\nYou are now logged in.")
-
+                print(create_session(username))
                 # Optional: Ask if they want to logout or exit
                 input("\nPress Enter to return to main menu...")
 
@@ -174,4 +184,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
