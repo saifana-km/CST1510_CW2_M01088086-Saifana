@@ -1,3 +1,5 @@
+# CST 1510 | Week 07 Lab | Password Encryption & User File Access
+# M01088086 | Saifana Kuradiela Maryam
 USER_DATA_FILE = "users.txt"
 # Importing bcrypt functions to hash plain text password
 import bcrypt
@@ -172,3 +174,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
