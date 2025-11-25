@@ -1,0 +1,51 @@
+id,ticket_id,priority,status,category,subject,description,created_date,resolved_date,assigned_to,created_at
+1,TKT-1000,Medium,Open,Access,Issue 1,Auto-generated ticket 1,2024-07-23 05:47:50,,tech3,2024-05-01 02:26:07
+2,TKT-1001,High,Resolved,Hardware,Issue 2,Auto-generated ticket 2,2024-11-24 07:58:21,2023-10-10 09:53:11,tech3,2023-08-05 04:15:01
+3,TKT-1002,Medium,Investigating,Hardware,Issue 3,Auto-generated ticket 3,2024-11-12 09:48:00,,tech1,2024-08-22 10:41:27
+4,TKT-1003,Medium,Investigating,Software,Issue 4,Auto-generated ticket 4,2024-12-04 10:36:29,,tech3,2023-09-26 23:38:37
+5,TKT-1004,High,Open,Software,Issue 5,Auto-generated ticket 5,2023-08-23 00:31:50,,tech4,2023-12-19 13:31:49
+6,TKT-1005,Medium,Open,Network,Issue 6,Auto-generated ticket 6,2024-03-30 00:22:53,,tech2,2024-10-19 12:11:17
+7,TKT-1006,Critical,Closed,Hardware,Issue 7,Auto-generated ticket 7,2023-06-04 07:58:08,2023-10-06 18:13:10,tech3,2024-08-23 16:52:54
+8,TKT-1007,High,Open,Software,Issue 8,Auto-generated ticket 8,2023-03-05 23:09:50,,tech1,2024-02-08 15:44:18
+9,TKT-1008,High,Closed,Network,Issue 9,Auto-generated ticket 9,2024-05-29 17:54:06,2023-07-23 05:59:31,tech4,2024-11-14 18:11:47
+10,TKT-1009,Critical,Open,Security,Issue 10,Auto-generated ticket 10,2023-06-20 23:34:43,,tech4,2023-11-22 18:49:14
+11,TKT-1010,Medium,Resolved,Network,Issue 11,Auto-generated ticket 11,2023-12-14 06:32:50,2024-01-15 00:40:12,tech3,2023-10-01 09:28:16
+12,TKT-1011,High,Closed,Hardware,Issue 12,Auto-generated ticket 12,2023-09-08 08:34:57,2023-04-27 06:09:44,tech3,2023-04-17 17:16:30
+13,TKT-1012,Critical,Resolved,Software,Issue 13,Auto-generated ticket 13,2023-03-27 12:45:43,2024-10-08 10:46:17,tech2,2023-04-29 12:10:57
+14,TKT-1013,Medium,Open,Access,Issue 14,Auto-generated ticket 14,2023-08-06 04:17:06,,tech1,2023-08-12 12:49:08
+15,TKT-1014,High,Closed,Software,Issue 15,Auto-generated ticket 15,2023-11-09 19:16:36,2024-01-24 18:58:21,tech5,2024-06-05 12:22:21
+16,TKT-1015,Medium,Closed,Hardware,Issue 16,Auto-generated ticket 16,2023-04-16 22:08:15,2023-08-12 21:03:07,tech1,2024-06-21 12:33:43
+17,TKT-1016,Low,Resolved,Security,Issue 17,Auto-generated ticket 17,2024-12-03 18:35:22,2024-12-23 06:51:06,tech1,2024-04-22 10:12:44
+18,TKT-1017,Low,Investigating,Software,Issue 18,Auto-generated ticket 18,2023-05-31 09:04:44,,tech1,2023-05-06 00:41:13
+19,TKT-1018,Medium,Closed,Access,Issue 19,Auto-generated ticket 19,2024-12-09 14:20:43,2024-04-19 23:39:18,tech5,2024-04-16 04:35:43
+20,TKT-1019,High,Investigating,Hardware,Issue 20,Auto-generated ticket 20,2023-12-25 03:23:54,,tech4,2024-10-01 07:26:18
+21,TKT-1020,Critical,Resolved,Hardware,Issue 21,Auto-generated ticket 21,2024-10-21 17:05:30,2023-09-25 05:08:14,tech4,2024-09-27 06:31:27
+22,TKT-1021,Low,Open,Network,Issue 22,Auto-generated ticket 22,2023-04-14 14:29:37,,tech4,2024-11-23 16:27:53
+23,TKT-1022,Low,Investigating,Access,Issue 23,Auto-generated ticket 23,2023-08-25 17:56:45,,tech1,2024-01-22 11:35:25
+24,TKT-1023,Medium,Resolved,Hardware,Issue 24,Auto-generated ticket 24,2024-06-23 05:47:50,2024-08-04 13:06:48,tech1,2024-04-04 10:10:33
+25,TKT-1024,Medium,Resolved,Hardware,Issue 25,Auto-generated ticket 25,2024-09-01 23:43:01,2024-09-27 00:45:22,tech3,2023-06-08 10:40:47
+26,TKT-1025,Low,Open,Access,Issue 26,Auto-generated ticket 26,2024-05-02 23:30:33,,tech5,2023-07-22 17:12:52
+27,TKT-1026,Critical,Open,Access,Issue 27,Auto-generated ticket 27,2024-10-22 19:45:58,,tech5,2023-01-11 20:09:31
+28,TKT-1027,High,Open,Network,Issue 28,Auto-generated ticket 28,2024-02-12 01:13:38,,tech5,2023-12-18 12:32:07
+29,TKT-1028,High,Open,Access,Issue 29,Auto-generated ticket 29,2024-02-18 18:20:20,,tech3,2023-11-14 16:13:31
+30,TKT-1029,High,Closed,Software,Issue 30,Auto-generated ticket 30,2023-08-10 17:06:42,2024-05-11 19:13:12,tech3,2023-02-10 12:40:20
+31,TKT-1030,High,Open,Network,Issue 31,Auto-generated ticket 31,2023-06-02 16:40:02,,tech1,2024-03-09 21:27:26
+32,TKT-1031,Medium,Open,Security,Issue 32,Auto-generated ticket 32,2024-08-13 16:08:30,,tech1,2024-08-24 14:56:34
+33,TKT-1032,Medium,Closed,Network,Issue 33,Auto-generated ticket 33,2024-02-01 23:38:42,2024-01-09 15:33:04,tech2,2023-02-11 13:37:58
+34,TKT-1033,Critical,Open,Software,Issue 34,Auto-generated ticket 34,2023-06-25 16:08:02,,tech3,2024-02-25 04:13:52
+35,TKT-1034,Medium,Resolved,Access,Issue 35,Auto-generated ticket 35,2023-06-28 09:41:13,2023-08-24 01:25:36,tech2,2023-03-26 20:50:01
+36,TKT-1035,Critical,Closed,Software,Issue 36,Auto-generated ticket 36,2023-09-05 00:27:57,2023-04-01 17:04:25,tech3,2023-07-03 06:55:03
+37,TKT-1036,Medium,Investigating,Hardware,Issue 37,Auto-generated ticket 37,2024-10-07 22:53:14,,tech5,2023-11-19 03:56:35
+38,TKT-1037,Medium,Investigating,Network,Issue 38,Auto-generated ticket 38,2023-03-18 20:50:14,,tech3,2024-09-18 21:04:10
+39,TKT-1038,Medium,Closed,Network,Issue 39,Auto-generated ticket 39,2024-04-06 17:05:18,2024-03-19 17:49:19,tech4,2023-01-10 18:27:26
+40,TKT-1039,High,Investigating,Access,Issue 40,Auto-generated ticket 40,2023-02-20 16:58:33,,tech4,2023-06-06 21:41:53
+41,TKT-1040,High,Closed,Network,Issue 41,Auto-generated ticket 41,2023-11-04 09:56:11,2024-11-30 13:19:22,tech1,2023-05-17 18:43:22
+42,TKT-1041,Critical,Closed,Security,Issue 42,Auto-generated ticket 42,2023-04-23 16:56:11,2023-12-14 19:53:36,tech5,2024-04-10 01:17:25
+43,TKT-1042,Medium,Resolved,Hardware,Issue 43,Auto-generated ticket 43,2024-02-26 01:47:20,2023-03-04 12:30:24,tech2,2024-09-07 23:07:13
+44,TKT-1043,High,Open,Network,Issue 44,Auto-generated ticket 44,2024-03-05 21:51:53,,tech5,2023-09-29 22:51:26
+45,TKT-1044,Low,Open,Software,Issue 45,Auto-generated ticket 45,2024-11-06 16:40:37,,tech3,2023-07-25 20:01:19
+46,TKT-1045,Medium,Open,Security,Issue 46,Auto-generated ticket 46,2023-06-17 11:00:32,,tech4,2023-06-03 09:24:12
+47,TKT-1046,Critical,Open,Security,Issue 47,Auto-generated ticket 47,2023-10-26 16:14:00,,tech2,2024-11-28 01:29:31
+48,TKT-1047,Critical,Closed,Hardware,Issue 48,Auto-generated ticket 48,2024-02-24 02:29:58,2024-03-01 02:50:30,tech1,2023-08-24 06:59:04
+49,TKT-1048,Low,Open,Access,Issue 49,Auto-generated ticket 49,2023-10-27 08:32:07,,tech2,2023-04-10 05:19:43
+50,TKT-1049,Medium,Investigating,Hardware,Issue 50,Auto-generated ticket 50,2023-12-31 23:44:52,,tech4,2023-02-14 04:17:52

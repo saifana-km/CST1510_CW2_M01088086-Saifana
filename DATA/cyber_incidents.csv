@@ -1,0 +1,51 @@
+id,date,incident_type,severity,status,description,reported_by,created_at
+1,2023-06-11 10:40:03,Ransomware,Critical,Investigating,Auto-generated incident 1,user10,2024-07-27 09:02:22
+2,2023-08-22 03:52:09,Malware,Low,Resolved,Auto-generated incident 2,user6,2023-08-14 20:10:47
+3,2024-05-11 07:33:48,Phishing,Medium,Open,Auto-generated incident 3,user4,2023-08-07 21:33:48
+4,2023-11-27 04:25:32,Data Breach,Critical,Closed,Auto-generated incident 4,user10,2024-07-04 10:07:26
+5,2023-03-05 00:23:50,Ransomware,Medium,Open,Auto-generated incident 5,user8,2024-08-31 21:56:01
+6,2023-03-05 05:18:26,Phishing,High,Open,Auto-generated incident 6,user1,2024-09-26 08:41:50
+7,2023-10-08 16:04:37,Malware,Medium,Investigating,Auto-generated incident 7,user1,2023-01-04 08:13:31
+8,2024-03-15 08:51:11,Ransomware,Critical,Resolved,Auto-generated incident 8,user5,2024-12-15 20:52:13
+9,2024-04-08 11:25:41,Data Breach,High,Resolved,Auto-generated incident 9,user9,2024-06-20 21:50:42
+10,2024-11-23 20:52:55,Phishing,Medium,Resolved,Auto-generated incident 10,user1,2024-07-30 06:04:04
+11,2023-01-15 21:59:12,Data Breach,Low,Closed,Auto-generated incident 11,user3,2023-05-02 00:42:28
+12,2024-09-03 17:07:02,Data Breach,High,Closed,Auto-generated incident 12,user9,2023-05-30 08:11:26
+13,2024-05-01 14:34:59,DDoS,High,Resolved,Auto-generated incident 13,user8,2023-10-30 13:25:16
+14,2023-01-01 20:50:03,DDoS,Low,Resolved,Auto-generated incident 14,user4,2023-02-14 03:59:30
+15,2024-05-21 21:12:39,Data Breach,Critical,Resolved,Auto-generated incident 15,user5,2023-03-30 23:41:10
+16,2024-08-06 22:29:11,Phishing,Low,Resolved,Auto-generated incident 16,user6,2024-11-11 22:50:44
+17,2023-07-27 14:21:37,Data Breach,Low,Resolved,Auto-generated incident 17,user7,2023-04-12 05:54:09
+18,2024-01-15 18:19:11,Malware,Critical,Closed,Auto-generated incident 18,user8,2023-09-08 10:47:10
+19,2024-03-31 09:16:09,Phishing,High,Investigating,Auto-generated incident 19,user7,2024-03-20 04:33:47
+20,2024-02-14 10:02:20,Ransomware,Low,Investigating,Auto-generated incident 20,user8,2023-09-25 21:38:27
+21,2023-06-12 20:37:58,DDoS,Critical,Resolved,Auto-generated incident 21,user1,2024-09-05 15:20:37
+22,2024-03-31 05:35:23,Ransomware,High,Resolved,Auto-generated incident 22,user8,2023-10-05 14:37:32
+23,2024-07-14 21:29:32,Malware,Medium,Resolved,Auto-generated incident 23,user4,2023-02-11 04:27:21
+24,2024-07-08 00:33:25,DDoS,Low,Investigating,Auto-generated incident 24,user2,2024-10-12 14:31:27
+25,2024-10-16 17:10:41,DDoS,Medium,Resolved,Auto-generated incident 25,user4,2024-02-16 09:49:33
+26,2024-05-21 07:31:10,Ransomware,Medium,Closed,Auto-generated incident 26,user7,2023-02-14 08:22:22
+27,2024-08-05 21:40:32,Data Breach,Low,Open,Auto-generated incident 27,user10,2024-04-09 16:25:17
+28,2024-11-19 03:21:35,Malware,Medium,Resolved,Auto-generated incident 28,user9,2023-12-20 06:36:51
+29,2024-08-18 08:58:57,Ransomware,Low,Investigating,Auto-generated incident 29,user5,2023-05-30 03:19:15
+30,2023-04-22 09:37:18,Phishing,Critical,Closed,Auto-generated incident 30,user9,2024-03-02 00:00:10
+31,2024-11-03 00:09:08,DDoS,Low,Open,Auto-generated incident 31,user8,2024-12-08 06:22:50
+32,2023-12-13 15:24:51,Data Breach,Medium,Open,Auto-generated incident 32,user10,2024-12-14 18:57:35
+33,2024-03-10 05:29:06,Ransomware,Critical,Open,Auto-generated incident 33,user7,2023-12-07 11:36:02
+34,2024-05-25 08:28:20,Malware,High,Closed,Auto-generated incident 34,user7,2024-05-05 03:21:15
+35,2024-07-15 21:38:47,Ransomware,Critical,Resolved,Auto-generated incident 35,user8,2024-06-11 02:27:29
+36,2024-05-20 21:13:16,Ransomware,High,Open,Auto-generated incident 36,user7,2024-02-15 00:01:36
+37,2023-12-13 10:36:21,Ransomware,Critical,Open,Auto-generated incident 37,user7,2024-08-23 07:26:09
+38,2023-12-16 16:22:59,Phishing,High,Investigating,Auto-generated incident 38,user4,2023-05-01 21:33:57
+39,2023-09-04 11:45:06,DDoS,Low,Investigating,Auto-generated incident 39,user8,2024-06-03 12:45:40
+40,2023-04-16 01:44:08,Malware,Low,Investigating,Auto-generated incident 40,user1,2023-07-21 19:56:57
+41,2024-06-20 01:32:06,DDoS,Medium,Closed,Auto-generated incident 41,user3,2024-09-02 23:26:59
+42,2024-05-09 08:59:22,Phishing,Critical,Resolved,Auto-generated incident 42,user3,2023-03-30 23:13:58
+43,2023-10-30 00:34:43,Ransomware,Medium,Investigating,Auto-generated incident 43,user7,2023-10-17 04:24:48
+44,2024-07-22 03:42:38,Ransomware,Medium,Investigating,Auto-generated incident 44,user4,2023-09-09 04:29:03
+45,2023-01-28 18:48:29,Phishing,Low,Resolved,Auto-generated incident 45,user6,2024-04-25 20:35:27
+46,2024-02-17 00:33:46,Phishing,Critical,Resolved,Auto-generated incident 46,user1,2024-07-06 00:37:21
+47,2023-10-09 05:36:43,DDoS,High,Closed,Auto-generated incident 47,user8,2023-01-08 15:52:29
+48,2024-11-23 11:37:37,Phishing,High,Closed,Auto-generated incident 48,user8,2023-04-03 12:08:52
+49,2024-08-30 20:08:03,Malware,Low,Resolved,Auto-generated incident 49,user3,2023-02-22 09:35:00
+50,2023-11-19 23:26:05,Phishing,Medium,Closed,Auto-generated incident 50,user7,2023-02-28 07:19:48
