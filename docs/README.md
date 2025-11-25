@@ -14,7 +14,7 @@ Student ID: [M01088086]
 Course: CST1510 -CW2 - Multi-Domain Intelligence Platform
 ## Project Description
 A command-line authentication system implementing secure password hashing
-This system allows users to register accounts and log in with proper pass
+This system allows users to register accounts and log in with proper passwords and usernames
 ## Features
 - Secure password hashing using bcrypt with automatic salt generation
 - User registration with duplicate username prevention

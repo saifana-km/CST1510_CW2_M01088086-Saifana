@@ -1,4 +1,10 @@
 import sqlite3
+import os
+import pandas as pd
+from pathlib import Path
+from app.data.db import connect_database 
+from app.data.users import migrate_users_from_file
+DB_PATH = Path("DATA") / "intelligence_platform.db"
 
 def create_users_table(conn):
     cursor = conn.cursor()
@@ -88,6 +94,136 @@ def create_all_tables(conn):
     create_cyber_incidents_table(conn)
     create_datasets_metadata_table(conn)
     create_it_tickets_table(conn)
+
+def load_csv_to_table(conn, csv_path, table_name, if_exists='append'):
+    """
+    Load a CSV file into a database table using pandas.
+
+    Args:
+        conn: Database connection (SQLAlchemy engine or sqlite3 connection)
+        csv_path: Path to CSV file
+        table_name: Name of the target table
+        if_exists: Behavior if table already exists ('append' or 'replace')
+
+    Returns:
+        int: Number of rows loaded
+    """
+    # Step 1: Check if CSV file exists
+    if not os.path.exists(csv_path):
+        raise FileNotFoundError(f"CSV file not found: {csv_path}")
+
+    # Step 2: Read CSV into a DataFrame
+    df = pd.read_csv(csv_path)
+
+    # Step 3: Bulk insert into the database
+    df.to_sql(
+        name=table_name,
+        con=conn,
+        if_exists=if_exists,  # 'append' or 'replace'
+        index=False           # don't save DataFrame index as a column
+    )
+
+    # Step 4: Print success message and return row count
+    row_count = len(df)
+    print(f"✅ Successfully loaded {row_count} rows into '{table_name}'.")
+    return row_count
+
+
+def load_all_csv_data(conn, directory, if_exists='append'):
+    """
+    Load all CSV files from a directory into database tables.
+
+    Args:
+        conn: Database connection (SQLAlchemy engine or sqlite3 connection)
+        directory: Path to the folder containing CSV files
+        if_exists: Behavior if table already exists ('append' or 'replace')
+
+    Returns:
+        dict: Mapping of table_name -> number of rows loaded
+    """
+    results = {}
+    directory = Path(directory)
+
+    if not directory.exists():
+        raise FileNotFoundError(f"Directory not found: {directory}")
+
+    # Loop through all CSV files in the directory
+    for csv_file in directory.glob("*.csv"):
+        table_name = csv_file.stem   # use filename (without .csv) as table name
+        df = pd.read_csv(csv_file)
+
+        # Load into database
+        df.to_sql(
+            name=table_name,
+            con=conn,
+            if_exists=if_exists,
+            index=False
+        )
+
+        row_count = len(df)
+        results[table_name] = row_count
+        print(f"✅ Loaded {row_count} rows into '{table_name}' from {csv_file.name}")
+
+    return results
+
+
+def setup_database_complete():
+    """
+    Complete database setup:
+    1. Connect to database
+    2. Create all tables
+    3. Migrate users from users.txt
+    4. Load CSV data for all domains
+    5. Verify setup
+    """
+    print("\n" + "="*60)
+    print("STARTING COMPLETE DATABASE SETUP")
+    print("="*60)
+    
+    # Step 1: Connect
+    print("\n[1/5] Connecting to database...")
+    conn = connect_database()
+    print("       Connected")
+    
+    # Step 2: Create tables
+    print("\n[2/5] Creating database tables...")
+    create_all_tables(conn)
+    
+    # Step 3: Migrate users
+    print("\n[3/5] Migrating users from users.txt...")
+    user_count = migrate_users_from_file(conn)
+    print(f"       Migrated {user_count} users")
+    
+    # Step 4: Load CSV data
+    print("\n[4/5] Loading CSV data...")
+    total_rows = load_all_csv_data(conn, "app/data")
+    
+    # Step 5: Verify
+    print("\n[5/5] Verifying database setup...")
+    cursor = conn.cursor()
+    
+    # Count rows in each table
+    tables = ['users', 'cyber_incidents', 'datasets_metadata', 'it_tickets']
+    print("\n Database Summary:")
+    print(f"{'Table':<25} {'Row Count':<15}")
+    print("-" * 40)
+    
+    for table in tables:
+        cursor.execute(f"SELECT COUNT(*) FROM {table}")
+        count = cursor.fetchone()[0]
+        print(f"{table:<25} {count:<15}")
+    
+    conn.close()
+    
+    print("\n" + "="*60)
+    print(" DATABASE SETUP COMPLETE!")
+    print("="*60)
+    print(f"\n Database location: {DB_PATH.resolve()}")
+    print("\nYou're ready for Week 9 (Streamlit web interface)!")
+
+
+# Run the complete setup
+setup_database_complete()
 
 # Connect to the database
 conn = sqlite3.connect('DATA/intelligence_platform.db')
