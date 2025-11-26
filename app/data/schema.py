@@ -196,7 +196,7 @@ def setup_database_complete():
     
     # Step 4: Load CSV data
     print("\n[4/5] Loading CSV data...")
-    total_rows = load_all_csv_data(conn, "app/data")
+    total_rows = load_all_csv_data(conn, "app/DATA")
     
     # Step 5: Verify
     print("\n[5/5] Verifying database setup...")

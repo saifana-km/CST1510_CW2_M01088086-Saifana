@@ -1,5 +1,6 @@
 USER_DATA_FILE = "users.txt"
 # Importing bcrypt functions to hash plain text password
+from app.data.db import connect_database
 import bcrypt
 import os
 import string
@@ -54,15 +55,38 @@ def user_exists(username):
 
 # Function for user login, utilising verify_password() function
 def login_user(username, password):
-    with open(USER_DATA_FILE, "r") as f:
-        for line in f:
-            existing_user = line.strip().split(",")
-            if username == existing_user[0]:
-                hashed = existing_user[1].strip().encode('utf-8') 
-                return verify_password(password, hashed)
-            else:
-                print("Error: User does not exist.")
-    return False
+    """
+    Authenticate a user against the database.
+    
+    This is a COMPLETE IMPLEMENTATION as an example.
+    
+    Args:
+        username: User's login name
+        password: Plain text password to verify
+        
+    Returns:
+        tuple: (success: bool, message: str)
+    """
+    conn = connect_database()
+    cursor = conn.cursor()
+    
+    # Find user
+    cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+    user = cursor.fetchone()
+    conn.close()
+    
+    if not user:
+        return False, "Username not found."
+    
+    # Verify password (user[2] is password_hash column)
+    stored_hash = user[2]
+    password_bytes = password.encode('utf-8')
+    hash_bytes = stored_hash.encode('utf-8')
+    
+    if bcrypt.checkpw(password_bytes, hash_bytes):
+        return True, f"Welcome, {username}!"
+    else:
+        return False, "Invalid password."
 
 # Function to validate username
 def validate_username(username):

@@ -26,7 +26,7 @@ def insert_user(username, password_hash, role='user'):
     conn.commit()
     conn.close()
 
-def migrate_users_from_file(conn, filepath=DATA_DIR / "users.txt"):
+def migrate_users_from_file(conn, filepath=DATA_DIR / "users.csv"):
     """
     Migrate users from users.txt to the database.
     

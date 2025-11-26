@@ -14,7 +14,7 @@ def main():
     conn.close()
     
     # 2. Migrate users
-    migrate_users_from_file()
+    migrate_users_from_file(conn)
     
     # 3. Test authentication
     success, msg = register_user("alice", "SecurePass123!", "analyst")
@@ -40,3 +40,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
