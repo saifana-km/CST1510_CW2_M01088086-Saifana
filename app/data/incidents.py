@@ -26,42 +26,20 @@ def get_all_incidents():
     return df
 
 def update_incident_status(conn, incident_id, new_status):
-    # 1. Get cursor
     cursor = conn.cursor()
-
-    # 2. Write UPDATE SQL with parameterized query
     sql = "UPDATE cyber_incidents SET status = ? WHERE id = ?"
-
-    # 3. Execute query with parameters
     cursor.execute(sql, (new_status, incident_id))
-
-    # 4. Commit transaction
     conn.commit()
-
-    # 5. Return number of rows affected
     return cursor.rowcount
 
 def delete_incident(conn, incident_id):
-    # 1. Get cursor
     cursor = conn.cursor()
-
-    # 2. Write DELETE SQL with parameterized query
     sql = "DELETE FROM cyber_incidents WHERE id = ?"
-
-    # 3. Execute query with parameters
     cursor.execute(sql, (incident_id,))
-
-    # 4. Commit transaction
     conn.commit()
-
-    # 5. Return number of rows affected
     return cursor.rowcount
 
 def get_incidents_by_type_count(conn):
-    """
-    Count incidents by type.
-    Uses: SELECT, FROM, GROUP BY, ORDER BY
-    """
     query = """
     SELECT incident_type, COUNT(*) as count
     FROM cyber_incidents
@@ -72,10 +50,6 @@ def get_incidents_by_type_count(conn):
     return df
 
 def get_high_severity_by_status(conn):
-    """
-    Count high severity incidents by status.
-    Uses: SELECT, FROM, WHERE, GROUP BY, ORDER BY
-    """
     query = """
     SELECT status, COUNT(*) as count
     FROM cyber_incidents
@@ -87,10 +61,6 @@ def get_high_severity_by_status(conn):
     return df
 
 def get_incident_types_with_many_cases(conn, min_count=5):
-    """
-    Find incident types with more than min_count cases.
-    Uses: SELECT, FROM, GROUP BY, HAVING, ORDER BY
-    """
     query = """
     SELECT incident_type, COUNT(*) as count
     FROM cyber_incidents

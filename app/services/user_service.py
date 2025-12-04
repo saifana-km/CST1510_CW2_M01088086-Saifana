@@ -4,7 +4,7 @@ from app.data.db import connect_database
 from app.data.users import get_user_by_username, insert_user
 from app.data.schema import create_users_table
 import sqlite3
-DATA_DIR = Path("app/data")
+DATA_DIR = Path("DATA")
 
 def register_user(username, password, role="user"):
     """
@@ -79,7 +79,7 @@ def login_user(username, password):
     else:
         return False, "Invalid password."
 
-def migrate_users_from_file(conn, filepath=DATA_DIR / "users.txt"):
+def migrate_users_from_file(conn, filepath=DATA_DIR / "users.csv"):
     """
     Migrate users from users.txt to the database.
     
@@ -89,6 +89,8 @@ def migrate_users_from_file(conn, filepath=DATA_DIR / "users.txt"):
         conn: Database connection
         filepath: Path to users.txt file
     """
+    conn = connect_database()
+    
     if not filepath.exists():
         print(f"⚠️  File not found: {filepath}")
         print("   No users to migrate.")

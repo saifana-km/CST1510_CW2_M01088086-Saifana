@@ -96,63 +96,31 @@ def create_all_tables(conn):
     create_it_tickets_table(conn)
 
 def load_csv_to_table(conn, csv_path, table_name, if_exists='append'):
-    """
-    Load a CSV file into a database table using pandas.
-
-    Args:
-        conn: Database connection (SQLAlchemy engine or sqlite3 connection)
-        csv_path: Path to CSV file
-        table_name: Name of the target table
-        if_exists: Behavior if table already exists ('append' or 'replace')
-
-    Returns:
-        int: Number of rows loaded
-    """
-    # Step 1: Check if CSV file exists
     if not os.path.exists(csv_path):
         raise FileNotFoundError(f"CSV file not found: {csv_path}")
-
-    # Step 2: Read CSV into a DataFrame
     df = pd.read_csv(csv_path)
-
-    # Step 3: Bulk insert into the database
     df.to_sql(
         name=table_name,
         con=conn,
-        if_exists=if_exists,  # 'append' or 'replace'
-        index=False           # don't save DataFrame index as a column
+        if_exists=if_exists,  
+        index=False          
     )
-
-    # Step 4: Print success message and return row count
     row_count = len(df)
     print(f"✅ Successfully loaded {row_count} rows into '{table_name}'.")
     return row_count
 
 
 def load_all_csv_data(conn, directory, if_exists='append'):
-    """
-    Load all CSV files from a directory into database tables.
-
-    Args:
-        conn: Database connection (SQLAlchemy engine or sqlite3 connection)
-        directory: Path to the folder containing CSV files
-        if_exists: Behavior if table already exists ('append' or 'replace')
-
-    Returns:
-        dict: Mapping of table_name -> number of rows loaded
-    """
     results = {}
     directory = Path(directory)
 
     if not directory.exists():
         raise FileNotFoundError(f"Directory not found: {directory}")
 
-    # Loop through all CSV files in the directory
     for csv_file in directory.glob("*.csv"):
-        table_name = csv_file.stem   # use filename (without .csv) as table name
+        table_name = csv_file.stem
         df = pd.read_csv(csv_file)
 
-        # Load into database
         df.to_sql(
             name=table_name,
             con=conn,
@@ -196,7 +164,7 @@ def setup_database_complete():
     
     # Step 4: Load CSV data
     print("\n[4/5] Loading CSV data...")
-    total_rows = load_all_csv_data(conn, "app/DATA")
+    load_csv_to_table(conn, "DATA","it_tickets")
     
     # Step 5: Verify
     print("\n[5/5] Verifying database setup...")
@@ -221,15 +189,4 @@ def setup_database_complete():
     print(f"\n Database location: {DB_PATH.resolve()}")
     print("\nYou're ready for Week 9 (Streamlit web interface)!")
 
-
-# Run the complete setup
 setup_database_complete()
-
-# Connect to the database
-conn = sqlite3.connect('DATA/intelligence_platform.db')
-
-# Create all tables
-create_all_tables(conn)
-
-# Close the connection
-conn.close()

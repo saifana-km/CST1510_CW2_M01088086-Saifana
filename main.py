@@ -2,6 +2,8 @@ from app.data.db import connect_database
 from app.data.schema import create_all_tables
 from app.services.user_service import register_user, login_user, migrate_users_from_file
 from app.data.incidents import insert_incident, get_all_incidents
+from pathlib import Path
+DATA_DIR = Path("DATA")
 
 def main():
     print("=" * 60)
@@ -14,7 +16,7 @@ def main():
     conn.close()
     
     # 2. Migrate users
-    migrate_users_from_file(conn)
+    migrate_users_from_file(conn,filepath=DATA_DIR / "users.csv")
     
     # 3. Test authentication
     success, msg = register_user("alice", "SecurePass123!", "analyst")

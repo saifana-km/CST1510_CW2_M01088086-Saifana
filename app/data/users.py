@@ -1,7 +1,7 @@
 from app.data.db import connect_database 
 from pathlib import Path
 import sqlite3
-DATA_DIR = Path("app/data")
+DATA_DIR = Path("DATA")
 
 def get_user_by_username(username):
     """Retrieve user by username."""
@@ -26,7 +26,7 @@ def insert_user(username, password_hash, role='user'):
     conn.commit()
     conn.close()
 
-def migrate_users_from_file(conn, filepath=DATA_DIR / "users.csv"):
+def migrate_users_from_file(conn, filepath=DATA_DIR / "users.txt"):
     """
     Migrate users from users.txt to the database.
     
