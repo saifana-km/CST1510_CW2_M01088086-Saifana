@@ -1,51 +1,501 @@
-id,date,incident_type,severity,status,description,reported_by,created_at
-1,2023-06-11 10:40:03,Ransomware,Critical,Investigating,Auto-generated incident 1,user10,2024-07-27 09:02:22
-2,2023-08-22 03:52:09,Malware,Low,Resolved,Auto-generated incident 2,user6,2023-08-14 20:10:47
-3,2024-05-11 07:33:48,Phishing,Medium,Open,Auto-generated incident 3,user4,2023-08-07 21:33:48
-4,2023-11-27 04:25:32,Data Breach,Critical,Closed,Auto-generated incident 4,user10,2024-07-04 10:07:26
-5,2023-03-05 00:23:50,Ransomware,Medium,Open,Auto-generated incident 5,user8,2024-08-31 21:56:01
-6,2023-03-05 05:18:26,Phishing,High,Open,Auto-generated incident 6,user1,2024-09-26 08:41:50
-7,2023-10-08 16:04:37,Malware,Medium,Investigating,Auto-generated incident 7,user1,2023-01-04 08:13:31
-8,2024-03-15 08:51:11,Ransomware,Critical,Resolved,Auto-generated incident 8,user5,2024-12-15 20:52:13
-9,2024-04-08 11:25:41,Data Breach,High,Resolved,Auto-generated incident 9,user9,2024-06-20 21:50:42
-10,2024-11-23 20:52:55,Phishing,Medium,Resolved,Auto-generated incident 10,user1,2024-07-30 06:04:04
-11,2023-01-15 21:59:12,Data Breach,Low,Closed,Auto-generated incident 11,user3,2023-05-02 00:42:28
-12,2024-09-03 17:07:02,Data Breach,High,Closed,Auto-generated incident 12,user9,2023-05-30 08:11:26
-13,2024-05-01 14:34:59,DDoS,High,Resolved,Auto-generated incident 13,user8,2023-10-30 13:25:16
-14,2023-01-01 20:50:03,DDoS,Low,Resolved,Auto-generated incident 14,user4,2023-02-14 03:59:30
-15,2024-05-21 21:12:39,Data Breach,Critical,Resolved,Auto-generated incident 15,user5,2023-03-30 23:41:10
-16,2024-08-06 22:29:11,Phishing,Low,Resolved,Auto-generated incident 16,user6,2024-11-11 22:50:44
-17,2023-07-27 14:21:37,Data Breach,Low,Resolved,Auto-generated incident 17,user7,2023-04-12 05:54:09
-18,2024-01-15 18:19:11,Malware,Critical,Closed,Auto-generated incident 18,user8,2023-09-08 10:47:10
-19,2024-03-31 09:16:09,Phishing,High,Investigating,Auto-generated incident 19,user7,2024-03-20 04:33:47
-20,2024-02-14 10:02:20,Ransomware,Low,Investigating,Auto-generated incident 20,user8,2023-09-25 21:38:27
-21,2023-06-12 20:37:58,DDoS,Critical,Resolved,Auto-generated incident 21,user1,2024-09-05 15:20:37
-22,2024-03-31 05:35:23,Ransomware,High,Resolved,Auto-generated incident 22,user8,2023-10-05 14:37:32
-23,2024-07-14 21:29:32,Malware,Medium,Resolved,Auto-generated incident 23,user4,2023-02-11 04:27:21
-24,2024-07-08 00:33:25,DDoS,Low,Investigating,Auto-generated incident 24,user2,2024-10-12 14:31:27
-25,2024-10-16 17:10:41,DDoS,Medium,Resolved,Auto-generated incident 25,user4,2024-02-16 09:49:33
-26,2024-05-21 07:31:10,Ransomware,Medium,Closed,Auto-generated incident 26,user7,2023-02-14 08:22:22
-27,2024-08-05 21:40:32,Data Breach,Low,Open,Auto-generated incident 27,user10,2024-04-09 16:25:17
-28,2024-11-19 03:21:35,Malware,Medium,Resolved,Auto-generated incident 28,user9,2023-12-20 06:36:51
-29,2024-08-18 08:58:57,Ransomware,Low,Investigating,Auto-generated incident 29,user5,2023-05-30 03:19:15
-30,2023-04-22 09:37:18,Phishing,Critical,Closed,Auto-generated incident 30,user9,2024-03-02 00:00:10
-31,2024-11-03 00:09:08,DDoS,Low,Open,Auto-generated incident 31,user8,2024-12-08 06:22:50
-32,2023-12-13 15:24:51,Data Breach,Medium,Open,Auto-generated incident 32,user10,2024-12-14 18:57:35
-33,2024-03-10 05:29:06,Ransomware,Critical,Open,Auto-generated incident 33,user7,2023-12-07 11:36:02
-34,2024-05-25 08:28:20,Malware,High,Closed,Auto-generated incident 34,user7,2024-05-05 03:21:15
-35,2024-07-15 21:38:47,Ransomware,Critical,Resolved,Auto-generated incident 35,user8,2024-06-11 02:27:29
-36,2024-05-20 21:13:16,Ransomware,High,Open,Auto-generated incident 36,user7,2024-02-15 00:01:36
-37,2023-12-13 10:36:21,Ransomware,Critical,Open,Auto-generated incident 37,user7,2024-08-23 07:26:09
-38,2023-12-16 16:22:59,Phishing,High,Investigating,Auto-generated incident 38,user4,2023-05-01 21:33:57
-39,2023-09-04 11:45:06,DDoS,Low,Investigating,Auto-generated incident 39,user8,2024-06-03 12:45:40
-40,2023-04-16 01:44:08,Malware,Low,Investigating,Auto-generated incident 40,user1,2023-07-21 19:56:57
-41,2024-06-20 01:32:06,DDoS,Medium,Closed,Auto-generated incident 41,user3,2024-09-02 23:26:59
-42,2024-05-09 08:59:22,Phishing,Critical,Resolved,Auto-generated incident 42,user3,2023-03-30 23:13:58
-43,2023-10-30 00:34:43,Ransomware,Medium,Investigating,Auto-generated incident 43,user7,2023-10-17 04:24:48
-44,2024-07-22 03:42:38,Ransomware,Medium,Investigating,Auto-generated incident 44,user4,2023-09-09 04:29:03
-45,2023-01-28 18:48:29,Phishing,Low,Resolved,Auto-generated incident 45,user6,2024-04-25 20:35:27
-46,2024-02-17 00:33:46,Phishing,Critical,Resolved,Auto-generated incident 46,user1,2024-07-06 00:37:21
-47,2023-10-09 05:36:43,DDoS,High,Closed,Auto-generated incident 47,user8,2023-01-08 15:52:29
-48,2024-11-23 11:37:37,Phishing,High,Closed,Auto-generated incident 48,user8,2023-04-03 12:08:52
-49,2024-08-30 20:08:03,Malware,Low,Resolved,Auto-generated incident 49,user3,2023-02-22 09:35:00
-50,2023-11-19 23:26:05,Phishing,Medium,Closed,Auto-generated incident 50,user7,2023-02-28 07:19:48
+date,incident_type,severity,status,description,reported_by,created_at
+2025-07-07,Ransomware,Low,Investigating,Data exfiltration suspected,IT Admin,2025-07-07 23:43:57
+2025-07-20,Unauthorized Access,Medium,Open,Detected unusual traffic,IT Admin,2025-07-20 10:43:57
+2025-07-12,Phishing Attack,Critical,Open,Suspicious login attempt,Security Engineer,2025-07-12 23:43:57
+2025-09-01,Unauthorized Access,Medium,Closed,Data exfiltration suspected,Security Engineer,2025-09-02 06:43:57
+2025-11-23,Malware Infection,Critical,Investigating,Malware signature found,Security Engineer,2025-11-24 19:43:57
+2025-08-15,DDoS Attack,Medium,Resolved,Suspicious login attempt,SOC Analyst,2025-08-16 22:43:57
+2025-06-23,Phishing Attack,High,Resolved,Suspicious login attempt,SOC Analyst,2025-06-24 14:43:57
+2025-10-23,Ransomware,High,Resolved,Malware signature found,IT Admin,2025-10-24 21:43:57
+2025-07-11,DDoS Attack,High,Resolved,Suspicious login attempt,Security Engineer,2025-07-12 04:43:57
+2025-08-04,Data Breach,Medium,Resolved,Data exfiltration suspected,Security Engineer,2025-08-05 15:43:57
+2025-09-02,Phishing Attack,Critical,Resolved,Detected unusual traffic,SOC Analyst,2025-09-03 21:43:57
+2025-10-05,Phishing Attack,Medium,Closed,Detected unusual traffic,IT Admin,2025-10-05 10:43:57
+2025-09-03,Data Breach,Critical,Closed,Suspicious login attempt,Employee,2025-09-03 18:43:57
+2025-08-08,Unauthorized Access,Medium,Investigating,Data exfiltration suspected,IT Admin,2025-08-09 22:43:57
+2025-11-24,DDoS Attack,Medium,Open,Malware signature found,Employee,2025-11-24 18:43:57
+2025-09-09,Data Breach,Low,Resolved,Malware signature found,SOC Analyst,2025-09-10 01:43:57
+2025-09-20,Phishing Attack,High,Closed,Detected unusual traffic,Employee,2025-09-20 22:43:57
+2025-08-16,Malware Infection,Low,Closed,Detected unusual traffic,SOC Analyst,2025-08-17 04:43:57
+2025-07-30,Malware Infection,Critical,Open,Detected unusual traffic,Security Engineer,2025-07-31 12:43:57
+2025-10-08,Unauthorized Access,Critical,Resolved,Data exfiltration suspected,SOC Analyst,2025-10-09 02:43:57
+2025-08-24,Malware Infection,Critical,Closed,Malware signature found,IT Admin,2025-08-25 18:43:57
+2025-07-06,Unauthorized Access,Medium,Investigating,Malware signature found,IT Admin,2025-07-06 13:43:57
+2025-09-06,DDoS Attack,Low,Investigating,Data exfiltration suspected,Employee,2025-09-07 17:43:57
+2025-09-21,Unauthorized Access,Low,Investigating,Detected unusual traffic,IT Admin,2025-09-21 07:43:57
+2025-09-11,Ransomware,Medium,Resolved,Malware signature found,Employee,2025-09-12 09:43:57
+2025-07-13,Ransomware,High,Investigating,Suspicious login attempt,SOC Analyst,2025-07-14 11:43:57
+2025-07-13,Data Breach,Medium,Open,Detected unusual traffic,Security Engineer,2025-07-14 17:43:57
+2025-09-22,Ransomware,Critical,Resolved,Data exfiltration suspected,Security Engineer,2025-09-22 23:43:57
+2025-10-08,Unauthorized Access,High,Investigating,Suspicious login attempt,IT Admin,2025-10-09 04:43:57
+2025-07-15,Data Breach,High,Open,Detected unusual traffic,SOC Analyst,2025-07-15 06:43:57
+2025-07-22,DDoS Attack,Critical,Investigating,Detected unusual traffic,Employee,2025-07-22 04:43:57
+2025-09-17,DDoS Attack,Medium,Resolved,Data exfiltration suspected,SOC Analyst,2025-09-18 00:43:57
+2025-08-07,Data Breach,Critical,Open,Suspicious login attempt,SOC Analyst,2025-08-08 08:43:57
+2025-10-14,Unauthorized Access,Low,Open,Suspicious login attempt,Employee,2025-10-15 07:43:57
+2025-08-12,Data Breach,Medium,Investigating,Suspicious login attempt,Security Engineer,2025-08-12 08:43:57
+2025-07-18,Unauthorized Access,Critical,Open,Data exfiltration suspected,SOC Analyst,2025-07-20 03:43:57
+2025-07-03,Phishing Attack,Low,Closed,Suspicious login attempt,Security Engineer,2025-07-04 05:43:57
+2025-11-10,Ransomware,Critical,Open,Detected unusual traffic,Employee,2025-11-11 16:43:57
+2025-09-19,Unauthorized Access,Medium,Open,Detected unusual traffic,Employee,2025-09-20 07:43:57
+2025-10-22,Ransomware,Medium,Closed,Suspicious login attempt,Employee,2025-10-24 02:43:57
+2025-06-14,Unauthorized Access,High,Resolved,Suspicious login attempt,SOC Analyst,2025-06-14 20:43:57
+2025-07-06,Unauthorized Access,Medium,Open,Malware signature found,IT Admin,2025-07-06 11:43:57
+2025-10-10,Ransomware,Critical,Open,Detected unusual traffic,IT Admin,2025-10-10 12:43:57
+2025-11-22,Phishing Attack,High,Closed,Suspicious login attempt,SOC Analyst,2025-11-23 21:43:57
+2025-09-29,DDoS Attack,Critical,Closed,Suspicious login attempt,SOC Analyst,2025-09-29 07:43:57
+2025-08-17,Malware Infection,Medium,Resolved,Suspicious login attempt,IT Admin,2025-08-19 02:43:57
+2025-08-23,Malware Infection,Medium,Open,Detected unusual traffic,Security Engineer,2025-08-24 16:43:57
+2025-10-13,Data Breach,Low,Resolved,Data exfiltration suspected,IT Admin,2025-10-13 09:43:57
+2025-11-26,DDoS Attack,High,Open,Detected unusual traffic,IT Admin,2025-11-26 09:43:57
+2025-07-18,Phishing Attack,Critical,Closed,Suspicious login attempt,Security Engineer,2025-07-18 06:43:57
+2025-09-11,Unauthorized Access,Critical,Resolved,Data exfiltration suspected,Employee,2025-09-11 09:43:57
+2025-06-13,Malware Infection,High,Investigating,Data exfiltration suspected,SOC Analyst,2025-06-14 08:43:57
+2025-07-16,Unauthorized Access,Low,Investigating,Data exfiltration suspected,Employee,2025-07-16 05:43:57
+2025-07-11,DDoS Attack,Low,Closed,Malware signature found,SOC Analyst,2025-07-11 23:43:57
+2025-06-09,Data Breach,Critical,Investigating,Malware signature found,Employee,2025-06-10 09:43:57
+2025-09-06,Malware Infection,Medium,Resolved,Detected unusual traffic,IT Admin,2025-09-07 07:43:57
+2025-11-23,Malware Infection,Medium,Resolved,Detected unusual traffic,Security Engineer,2025-11-23 13:43:57
+2025-10-29,Malware Infection,Low,Closed,Suspicious login attempt,IT Admin,2025-10-31 00:43:57
+2025-07-01,DDoS Attack,Low,Closed,Suspicious login attempt,IT Admin,2025-07-02 13:43:57
+2025-10-23,Ransomware,Medium,Open,Data exfiltration suspected,Employee,2025-10-24 13:43:57
+2025-06-13,Malware Infection,High,Open,Data exfiltration suspected,IT Admin,2025-06-15 02:43:57
+2025-07-06,Phishing Attack,Medium,Resolved,Data exfiltration suspected,SOC Analyst,2025-07-06 15:43:57
+2025-09-10,Ransomware,Critical,Resolved,Detected unusual traffic,IT Admin,2025-09-11 07:43:57
+2025-09-21,Phishing Attack,High,Resolved,Data exfiltration suspected,Security Engineer,2025-09-21 22:43:57
+2025-10-31,Ransomware,Critical,Closed,Malware signature found,Employee,2025-11-02 03:43:57
+2025-06-16,Malware Infection,Critical,Investigating,Suspicious login attempt,Security Engineer,2025-06-17 08:43:57
+2025-07-17,Malware Infection,Medium,Closed,Data exfiltration suspected,Employee,2025-07-18 01:43:57
+2025-10-31,Data Breach,Medium,Investigating,Data exfiltration suspected,IT Admin,2025-10-31 14:43:57
+2025-10-28,Malware Infection,High,Investigating,Detected unusual traffic,IT Admin,2025-10-28 09:43:57
+2025-11-16,Ransomware,Low,Investigating,Detected unusual traffic,Employee,2025-11-17 01:43:57
+2025-07-26,Malware Infection,High,Open,Suspicious login attempt,SOC Analyst,2025-07-26 16:43:57
+2025-06-23,Malware Infection,High,Investigating,Detected unusual traffic,SOC Analyst,2025-06-24 11:43:57
+2025-09-09,DDoS Attack,Low,Resolved,Malware signature found,IT Admin,2025-09-09 05:43:57
+2025-07-27,DDoS Attack,Low,Investigating,Malware signature found,IT Admin,2025-07-27 05:43:57
+2025-06-20,DDoS Attack,High,Investigating,Data exfiltration suspected,Employee,2025-06-20 19:43:57
+2025-08-10,Ransomware,Medium,Resolved,Data exfiltration suspected,SOC Analyst,2025-08-10 23:43:57
+2025-08-01,Ransomware,High,Open,Detected unusual traffic,SOC Analyst,2025-08-01 04:43:57
+2025-07-29,Ransomware,Medium,Closed,Detected unusual traffic,SOC Analyst,2025-07-30 21:43:57
+2025-09-09,Data Breach,Critical,Resolved,Malware signature found,Security Engineer,2025-09-10 02:43:57
+2025-11-23,Ransomware,High,Investigating,Data exfiltration suspected,SOC Analyst,2025-11-23 22:43:57
+2025-11-12,Phishing Attack,Medium,Investigating,Data exfiltration suspected,Employee,2025-11-13 18:43:57
+2025-06-26,Unauthorized Access,Critical,Closed,Detected unusual traffic,SOC Analyst,2025-06-26 08:43:57
+2025-07-23,Ransomware,Low,Closed,Suspicious login attempt,SOC Analyst,2025-07-23 15:43:57
+2025-10-12,Data Breach,Medium,Closed,Suspicious login attempt,IT Admin,2025-10-12 07:43:57
+2025-06-16,Malware Infection,High,Resolved,Detected unusual traffic,IT Admin,2025-06-17 17:43:57
+2025-06-18,Unauthorized Access,Medium,Open,Data exfiltration suspected,Employee,2025-06-19 05:43:57
+2025-10-07,Malware Infection,Medium,Open,Malware signature found,Employee,2025-10-09 03:43:57
+2025-08-27,Unauthorized Access,Medium,Resolved,Malware signature found,SOC Analyst,2025-08-28 21:43:57
+2025-07-04,Malware Infection,Medium,Investigating,Detected unusual traffic,SOC Analyst,2025-07-05 20:43:57
+2025-09-30,DDoS Attack,Medium,Resolved,Data exfiltration suspected,IT Admin,2025-09-30 21:43:57
+2025-09-06,Unauthorized Access,Low,Investigating,Malware signature found,Security Engineer,2025-09-06 06:43:57
+2025-06-08,Ransomware,Low,Investigating,Detected unusual traffic,SOC Analyst,2025-06-09 07:43:57
+2025-07-12,DDoS Attack,Critical,Closed,Data exfiltration suspected,IT Admin,2025-07-13 03:43:57
+2025-07-01,Phishing Attack,Low,Open,Detected unusual traffic,SOC Analyst,2025-07-02 19:43:57
+2025-10-18,Malware Infection,High,Resolved,Malware signature found,Security Engineer,2025-10-18 21:43:57
+2025-07-01,Phishing Attack,Medium,Resolved,Suspicious login attempt,Employee,2025-07-01 10:43:57
+2025-10-15,DDoS Attack,High,Open,Data exfiltration suspected,IT Admin,2025-10-16 08:43:57
+2025-11-03,Unauthorized Access,Medium,Investigating,Data exfiltration suspected,Employee,2025-11-03 14:43:57
+2025-09-15,Malware Infection,High,Open,Malware signature found,SOC Analyst,2025-09-16 17:43:57
+2025-08-22,DDoS Attack,High,Closed,Data exfiltration suspected,Employee,2025-08-22 16:43:57
+2025-06-12,DDoS Attack,High,Investigating,Malware signature found,Employee,2025-06-12 21:43:57
+2025-08-26,Phishing Attack,Critical,Open,Data exfiltration suspected,Employee,2025-08-26 20:43:57
+2025-08-25,Unauthorized Access,High,Open,Data exfiltration suspected,Employee,2025-08-26 14:43:57
+2025-07-24,Data Breach,Low,Resolved,Suspicious login attempt,Employee,2025-07-26 02:43:57
+2025-07-14,Phishing Attack,Medium,Resolved,Detected unusual traffic,Employee,2025-07-15 07:43:57
+2025-09-28,Data Breach,High,Closed,Detected unusual traffic,Employee,2025-09-29 05:43:57
+2025-06-28,Phishing Attack,High,Investigating,Malware signature found,SOC Analyst,2025-06-28 07:43:57
+2025-11-08,Ransomware,High,Resolved,Suspicious login attempt,Employee,2025-11-08 18:43:57
+2025-08-11,Unauthorized Access,Medium,Investigating,Detected unusual traffic,SOC Analyst,2025-08-12 15:43:57
+2025-07-26,Data Breach,Medium,Investigating,Suspicious login attempt,SOC Analyst,2025-07-26 20:43:57
+2025-06-15,Malware Infection,Medium,Closed,Suspicious login attempt,Security Engineer,2025-06-16 02:43:57
+2025-06-28,Unauthorized Access,Critical,Closed,Malware signature found,Employee,2025-06-28 13:43:57
+2025-06-15,Phishing Attack,High,Open,Detected unusual traffic,IT Admin,2025-06-16 20:43:57
+2025-11-24,Ransomware,Critical,Investigating,Data exfiltration suspected,Security Engineer,2025-11-24 20:43:57
+2025-09-30,Malware Infection,High,Resolved,Data exfiltration suspected,IT Admin,2025-09-30 12:43:57
+2025-09-13,Data Breach,Medium,Closed,Suspicious login attempt,Security Engineer,2025-09-14 07:43:57
+2025-08-21,DDoS Attack,Medium,Resolved,Suspicious login attempt,SOC Analyst,2025-08-21 16:43:57
+2025-09-12,DDoS Attack,Low,Investigating,Malware signature found,Employee,2025-09-13 17:43:57
+2025-06-21,Ransomware,Critical,Resolved,Detected unusual traffic,SOC Analyst,2025-06-22 04:43:57
+2025-06-08,Data Breach,Low,Resolved,Detected unusual traffic,Security Engineer,2025-06-08 16:43:57
+2025-07-20,Data Breach,High,Investigating,Data exfiltration suspected,SOC Analyst,2025-07-20 13:43:57
+2025-10-14,Phishing Attack,Low,Open,Suspicious login attempt,SOC Analyst,2025-10-16 02:43:57
+2025-07-21,Ransomware,Medium,Resolved,Data exfiltration suspected,Employee,2025-07-21 04:43:57
+2025-09-13,Malware Infection,Medium,Resolved,Detected unusual traffic,IT Admin,2025-09-14 00:43:57
+2025-10-09,Unauthorized Access,Medium,Closed,Suspicious login attempt,Employee,2025-10-10 18:43:57
+2025-09-15,Data Breach,Medium,Closed,Suspicious login attempt,Security Engineer,2025-09-15 18:43:57
+2025-10-24,Data Breach,High,Open,Malware signature found,Security Engineer,2025-10-26 00:43:57
+2025-11-13,Malware Infection,Critical,Open,Data exfiltration suspected,IT Admin,2025-11-14 19:43:57
+2025-09-29,Unauthorized Access,Critical,Resolved,Malware signature found,Security Engineer,2025-09-30 17:43:57
+2025-08-26,Unauthorized Access,High,Closed,Data exfiltration suspected,Security Engineer,2025-08-26 14:43:57
+2025-07-28,Ransomware,Medium,Closed,Data exfiltration suspected,SOC Analyst,2025-07-29 00:43:57
+2025-10-08,Ransomware,Critical,Investigating,Detected unusual traffic,IT Admin,2025-10-09 12:43:57
+2025-08-15,Malware Infection,Low,Resolved,Suspicious login attempt,Security Engineer,2025-08-16 01:43:57
+2025-11-05,Malware Infection,Low,Resolved,Malware signature found,SOC Analyst,2025-11-06 15:43:57
+2025-08-14,Ransomware,High,Investigating,Detected unusual traffic,Employee,2025-08-15 14:43:57
+2025-11-22,Unauthorized Access,Critical,Open,Data exfiltration suspected,Security Engineer,2025-11-22 19:43:57
+2025-09-23,Ransomware,Low,Resolved,Data exfiltration suspected,Security Engineer,2025-09-23 10:43:57
+2025-10-04,Ransomware,High,Closed,Detected unusual traffic,Employee,2025-10-05 06:43:57
+2025-10-03,Data Breach,Medium,Closed,Malware signature found,IT Admin,2025-10-04 06:43:57
+2025-09-27,Malware Infection,High,Investigating,Malware signature found,Security Engineer,2025-09-29 02:43:57
+2025-07-01,DDoS Attack,Critical,Investigating,Detected unusual traffic,Security Engineer,2025-07-01 07:43:57
+2025-11-21,Ransomware,Critical,Open,Malware signature found,Employee,2025-11-22 09:43:57
+2025-10-01,Ransomware,High,Investigating,Detected unusual traffic,Security Engineer,2025-10-01 18:43:57
+2025-07-21,DDoS Attack,High,Open,Data exfiltration suspected,SOC Analyst,2025-07-22 20:43:57
+2025-10-05,DDoS Attack,Critical,Resolved,Detected unusual traffic,SOC Analyst,2025-10-06 14:43:57
+2025-07-07,Data Breach,Low,Resolved,Suspicious login attempt,Employee,2025-07-08 12:43:57
+2025-11-28,DDoS Attack,Low,Open,Data exfiltration suspected,SOC Analyst,2025-11-29 11:43:57
+2025-11-27,Unauthorized Access,Critical,Resolved,Detected unusual traffic,SOC Analyst,2025-11-29 00:43:57
+2025-10-06,Phishing Attack,Low,Resolved,Data exfiltration suspected,SOC Analyst,2025-10-06 08:43:57
+2025-07-23,Data Breach,Low,Resolved,Suspicious login attempt,SOC Analyst,2025-07-23 05:43:57
+2025-10-19,DDoS Attack,Critical,Closed,Data exfiltration suspected,IT Admin,2025-10-20 02:43:57
+2025-07-11,Ransomware,Critical,Resolved,Suspicious login attempt,SOC Analyst,2025-07-11 11:43:57
+2025-06-30,Data Breach,Low,Closed,Detected unusual traffic,SOC Analyst,2025-07-01 18:43:57
+2025-08-31,Data Breach,Low,Open,Detected unusual traffic,IT Admin,2025-08-31 07:43:57
+2025-10-06,Malware Infection,Medium,Investigating,Malware signature found,Employee,2025-10-08 03:43:57
+2025-09-15,DDoS Attack,High,Resolved,Data exfiltration suspected,SOC Analyst,2025-09-16 16:43:57
+2025-08-20,Malware Infection,Medium,Closed,Data exfiltration suspected,SOC Analyst,2025-08-21 21:43:57
+2025-09-17,Unauthorized Access,High,Investigating,Detected unusual traffic,SOC Analyst,2025-09-18 15:43:57
+2025-07-31,Unauthorized Access,High,Investigating,Data exfiltration suspected,IT Admin,2025-08-02 02:43:57
+2025-10-20,Phishing Attack,High,Open,Malware signature found,Security Engineer,2025-10-20 15:43:57
+2025-08-11,Phishing Attack,Critical,Resolved,Data exfiltration suspected,Security Engineer,2025-08-11 11:43:57
+2025-10-14,Unauthorized Access,Critical,Resolved,Malware signature found,IT Admin,2025-10-15 20:43:57
+2025-06-13,Unauthorized Access,Medium,Closed,Data exfiltration suspected,SOC Analyst,2025-06-14 06:43:57
+2025-09-23,DDoS Attack,High,Open,Malware signature found,Security Engineer,2025-09-23 16:43:57
+2025-09-15,Unauthorized Access,Medium,Investigating,Suspicious login attempt,IT Admin,2025-09-16 08:43:57
+2025-07-10,DDoS Attack,Low,Open,Data exfiltration suspected,Employee,2025-07-12 00:43:57
+2025-11-23,Malware Infection,High,Resolved,Suspicious login attempt,Employee,2025-11-24 03:43:57
+2025-10-03,Malware Infection,High,Investigating,Suspicious login attempt,SOC Analyst,2025-10-04 07:43:57
+2025-11-21,DDoS Attack,Low,Open,Suspicious login attempt,Security Engineer,2025-11-21 06:43:57
+2025-12-03,DDoS Attack,High,Resolved,Detected unusual traffic,Employee,2025-12-04 01:43:57
+2025-10-12,Ransomware,Critical,Open,Data exfiltration suspected,SOC Analyst,2025-10-12 19:43:57
+2025-10-15,Unauthorized Access,High,Investigating,Data exfiltration suspected,IT Admin,2025-10-16 10:43:57
+2025-10-11,Unauthorized Access,High,Open,Detected unusual traffic,SOC Analyst,2025-10-12 22:43:57
+2025-10-24,Malware Infection,High,Resolved,Malware signature found,Security Engineer,2025-10-25 00:43:57
+2025-07-26,Phishing Attack,Critical,Investigating,Suspicious login attempt,Security Engineer,2025-07-27 20:43:57
+2025-11-08,Data Breach,Low,Closed,Detected unusual traffic,SOC Analyst,2025-11-08 12:43:57
+2025-11-01,Unauthorized Access,Critical,Resolved,Data exfiltration suspected,Security Engineer,2025-11-01 22:43:57
+2025-09-24,Malware Infection,Low,Resolved,Detected unusual traffic,Security Engineer,2025-09-25 14:43:57
+2025-08-19,Malware Infection,Medium,Closed,Detected unusual traffic,SOC Analyst,2025-08-20 08:43:57
+2025-10-22,Malware Infection,Low,Open,Detected unusual traffic,SOC Analyst,2025-10-23 08:43:57
+2025-08-25,DDoS Attack,Low,Open,Data exfiltration suspected,Employee,2025-08-25 23:43:57
+2025-10-23,DDoS Attack,Low,Open,Data exfiltration suspected,IT Admin,2025-10-24 03:43:57
+2025-06-14,Phishing Attack,Low,Closed,Suspicious login attempt,IT Admin,2025-06-14 10:43:57
+2025-06-28,Unauthorized Access,Low,Open,Detected unusual traffic,Security Engineer,2025-06-29 01:43:57
+2025-06-28,Data Breach,Medium,Resolved,Suspicious login attempt,Employee,2025-06-29 02:43:57
+2025-09-05,Phishing Attack,Medium,Resolved,Detected unusual traffic,SOC Analyst,2025-09-06 19:43:57
+2025-08-09,Phishing Attack,High,Resolved,Data exfiltration suspected,SOC Analyst,2025-08-11 00:43:57
+2025-12-02,Phishing Attack,Critical,Closed,Malware signature found,IT Admin,2025-12-02 07:43:57
+2025-09-07,Malware Infection,Medium,Closed,Detected unusual traffic,Security Engineer,2025-09-07 12:43:57
+2025-09-27,DDoS Attack,Critical,Closed,Suspicious login attempt,IT Admin,2025-09-29 01:43:57
+2025-12-05,Malware Infection,Low,Investigating,Suspicious login attempt,Security Engineer,2025-12-06 06:43:57
+2025-08-12,Ransomware,High,Investigating,Malware signature found,SOC Analyst,2025-08-13 17:43:57
+2025-10-11,Ransomware,High,Resolved,Detected unusual traffic,SOC Analyst,2025-10-12 17:43:57
+2025-11-01,Unauthorized Access,Critical,Investigating,Data exfiltration suspected,Security Engineer,2025-11-02 04:43:57
+2025-11-26,Data Breach,Critical,Open,Data exfiltration suspected,SOC Analyst,2025-11-26 15:43:57
+2025-06-14,Ransomware,High,Investigating,Suspicious login attempt,IT Admin,2025-06-14 11:43:57
+2025-08-15,Data Breach,Low,Investigating,Detected unusual traffic,SOC Analyst,2025-08-15 05:43:57
+2025-07-16,Malware Infection,High,Resolved,Data exfiltration suspected,IT Admin,2025-07-16 19:43:57
+2025-06-10,DDoS Attack,Low,Resolved,Detected unusual traffic,Employee,2025-06-11 03:43:57
+2025-07-30,Data Breach,Medium,Investigating,Malware signature found,IT Admin,2025-07-31 16:43:57
+2025-09-23,Malware Infection,Low,Investigating,Suspicious login attempt,Security Engineer,2025-09-23 18:43:57
+2025-08-07,Malware Infection,Critical,Investigating,Detected unusual traffic,IT Admin,2025-08-07 18:43:57
+2025-09-23,Malware Infection,Critical,Investigating,Data exfiltration suspected,Employee,2025-09-24 07:43:57
+2025-06-12,Data Breach,High,Investigating,Detected unusual traffic,SOC Analyst,2025-06-12 17:43:57
+2025-06-19,Phishing Attack,High,Closed,Suspicious login attempt,SOC Analyst,2025-06-20 04:43:57
+2025-12-05,Ransomware,Critical,Closed,Suspicious login attempt,Employee,2025-12-05 06:43:57
+2025-06-21,Data Breach,Low,Investigating,Suspicious login attempt,Security Engineer,2025-06-21 21:43:57
+2025-09-11,Phishing Attack,Low,Investigating,Malware signature found,IT Admin,2025-09-13 03:43:57
+2025-10-28,DDoS Attack,Medium,Closed,Data exfiltration suspected,IT Admin,2025-10-29 14:43:57
+2025-10-28,Malware Infection,Low,Resolved,Detected unusual traffic,SOC Analyst,2025-10-29 21:43:57
+2025-10-16,Malware Infection,Medium,Resolved,Malware signature found,SOC Analyst,2025-10-16 12:43:57
+2025-09-11,Data Breach,High,Closed,Malware signature found,IT Admin,2025-09-11 04:43:57
+2025-10-03,Phishing Attack,Medium,Investigating,Malware signature found,SOC Analyst,2025-10-04 12:43:57
+2025-07-20,DDoS Attack,Critical,Investigating,Suspicious login attempt,Employee,2025-07-20 14:43:57
+2025-06-19,Unauthorized Access,Medium,Investigating,Malware signature found,IT Admin,2025-06-19 13:43:57
+2025-08-04,Phishing Attack,Low,Investigating,Detected unusual traffic,Security Engineer,2025-08-04 13:43:57
+2025-07-16,Phishing Attack,Low,Closed,Suspicious login attempt,Security Engineer,2025-07-17 21:43:57
+2025-09-07,Unauthorized Access,Medium,Open,Malware signature found,SOC Analyst,2025-09-07 16:43:57
+2025-06-28,Phishing Attack,High,Investigating,Detected unusual traffic,Employee,2025-06-29 23:43:57
+2025-09-25,Ransomware,High,Investigating,Data exfiltration suspected,Employee,2025-09-26 20:43:57
+2025-06-19,DDoS Attack,Medium,Investigating,Data exfiltration suspected,Security Engineer,2025-06-19 06:43:57
+2025-11-16,Phishing Attack,High,Closed,Detected unusual traffic,SOC Analyst,2025-11-17 15:43:57
+2025-08-29,Phishing Attack,High,Investigating,Suspicious login attempt,IT Admin,2025-08-29 21:43:57
+2025-09-14,Ransomware,Medium,Investigating,Suspicious login attempt,Security Engineer,2025-09-14 23:43:57
+2025-11-17,Unauthorized Access,Low,Closed,Data exfiltration suspected,IT Admin,2025-11-17 11:43:57
+2025-08-09,Data Breach,Low,Closed,Data exfiltration suspected,Employee,2025-08-09 13:43:57
+2025-07-29,Unauthorized Access,Critical,Open,Malware signature found,Security Engineer,2025-07-29 08:43:57
+2025-10-31,Data Breach,Low,Resolved,Detected unusual traffic,Security Engineer,2025-10-31 05:43:57
+2025-11-18,Unauthorized Access,Critical,Closed,Data exfiltration suspected,Employee,2025-11-18 19:43:57
+2025-06-08,DDoS Attack,Critical,Closed,Suspicious login attempt,IT Admin,2025-06-09 12:43:57
+2025-07-15,Malware Infection,Critical,Resolved,Suspicious login attempt,Employee,2025-07-16 23:43:57
+2025-08-11,Phishing Attack,Low,Investigating,Data exfiltration suspected,Security Engineer,2025-08-12 23:43:57
+2025-09-06,Malware Infection,Critical,Open,Suspicious login attempt,Security Engineer,2025-09-06 09:43:57
+2025-06-10,Unauthorized Access,Medium,Closed,Detected unusual traffic,Security Engineer,2025-06-10 09:43:57
+2025-10-08,Data Breach,High,Investigating,Suspicious login attempt,SOC Analyst,2025-10-08 12:43:57
+2025-07-22,DDoS Attack,High,Resolved,Data exfiltration suspected,Security Engineer,2025-07-23 15:43:57
+2025-11-30,Malware Infection,Medium,Closed,Detected unusual traffic,IT Admin,2025-12-01 15:43:57
+2025-09-13,Data Breach,Low,Open,Data exfiltration suspected,SOC Analyst,2025-09-14 13:43:57
+2025-11-15,Data Breach,Low,Open,Suspicious login attempt,IT Admin,2025-11-15 18:43:57
+2025-10-17,DDoS Attack,Critical,Resolved,Data exfiltration suspected,SOC Analyst,2025-10-17 19:43:57
+2025-07-19,Unauthorized Access,High,Investigating,Suspicious login attempt,Employee,2025-07-19 15:43:57
+2025-08-03,DDoS Attack,Low,Resolved,Suspicious login attempt,Security Engineer,2025-08-03 10:43:57
+2025-07-21,Unauthorized Access,Medium,Open,Suspicious login attempt,IT Admin,2025-07-22 07:43:57
+2025-06-13,DDoS Attack,High,Investigating,Suspicious login attempt,Security Engineer,2025-06-13 06:43:57
+2025-11-17,Unauthorized Access,Critical,Open,Detected unusual traffic,IT Admin,2025-11-18 05:43:57
+2025-07-05,DDoS Attack,Low,Open,Data exfiltration suspected,Employee,2025-07-06 06:43:57
+2025-11-02,Phishing Attack,Medium,Resolved,Data exfiltration suspected,Employee,2025-11-02 04:43:57
+2025-11-07,Data Breach,Low,Investigating,Data exfiltration suspected,IT Admin,2025-11-07 09:43:57
+2025-09-25,Malware Infection,Low,Investigating,Malware signature found,Employee,2025-09-25 21:43:57
+2025-07-04,Malware Infection,Low,Investigating,Detected unusual traffic,SOC Analyst,2025-07-05 07:43:57
+2025-10-14,Ransomware,Medium,Investigating,Suspicious login attempt,SOC Analyst,2025-10-15 07:43:57
+2025-10-05,Data Breach,Low,Open,Malware signature found,IT Admin,2025-10-06 22:43:57
+2025-09-04,Malware Infection,High,Resolved,Detected unusual traffic,Employee,2025-09-05 19:43:57
+2025-09-20,Malware Infection,High,Resolved,Data exfiltration suspected,SOC Analyst,2025-09-20 08:43:57
+2025-11-05,Ransomware,Medium,Open,Detected unusual traffic,Employee,2025-11-05 09:43:57
+2025-10-11,Unauthorized Access,Critical,Open,Detected unusual traffic,SOC Analyst,2025-10-12 12:43:57
+2025-10-26,DDoS Attack,High,Open,Malware signature found,SOC Analyst,2025-10-27 07:43:57
+2025-10-12,Phishing Attack,Critical,Resolved,Malware signature found,Employee,2025-10-14 03:43:57
+2025-08-27,Data Breach,Critical,Resolved,Malware signature found,Employee,2025-08-28 14:43:57
+2025-10-27,Phishing Attack,Low,Investigating,Suspicious login attempt,Security Engineer,2025-10-27 14:43:57
+2025-09-11,Malware Infection,Low,Open,Detected unusual traffic,SOC Analyst,2025-09-12 01:43:57
+2025-08-05,DDoS Attack,High,Investigating,Suspicious login attempt,IT Admin,2025-08-06 16:43:57
+2025-08-20,Unauthorized Access,High,Investigating,Detected unusual traffic,Employee,2025-08-21 13:43:57
+2025-07-23,Ransomware,Low,Open,Suspicious login attempt,Employee,2025-07-24 09:43:57
+2025-07-13,Data Breach,High,Investigating,Suspicious login attempt,Security Engineer,2025-07-15 03:43:57
+2025-07-27,Phishing Attack,High,Investigating,Detected unusual traffic,IT Admin,2025-07-27 19:43:57
+2025-09-15,Phishing Attack,Critical,Open,Data exfiltration suspected,Security Engineer,2025-09-15 05:43:57
+2025-07-17,DDoS Attack,Critical,Closed,Malware signature found,Employee,2025-07-18 16:43:57
+2025-06-16,Phishing Attack,High,Open,Suspicious login attempt,IT Admin,2025-06-18 02:43:57
+2025-07-14,Ransomware,Critical,Open,Malware signature found,IT Admin,2025-07-14 14:43:57
+2025-11-22,Malware Infection,High,Resolved,Malware signature found,SOC Analyst,2025-11-23 01:43:57
+2025-07-12,Unauthorized Access,Critical,Investigating,Detected unusual traffic,Security Engineer,2025-07-13 08:43:57
+2025-07-13,Phishing Attack,Critical,Resolved,Data exfiltration suspected,SOC Analyst,2025-07-14 22:43:57
+2025-11-04,Phishing Attack,High,Investigating,Malware signature found,Security Engineer,2025-11-05 19:43:57
+2025-06-23,DDoS Attack,Low,Resolved,Data exfiltration suspected,Employee,2025-06-24 08:43:57
+2025-09-27,DDoS Attack,Critical,Resolved,Suspicious login attempt,Employee,2025-09-28 03:43:57
+2025-11-12,Malware Infection,Medium,Closed,Data exfiltration suspected,Security Engineer,2025-11-13 19:43:57
+2025-08-09,Phishing Attack,Low,Closed,Suspicious login attempt,IT Admin,2025-08-09 03:43:57
+2025-09-11,DDoS Attack,Medium,Closed,Suspicious login attempt,SOC Analyst,2025-09-11 17:43:57
+2025-11-07,Data Breach,Low,Closed,Suspicious login attempt,IT Admin,2025-11-08 15:43:57
+2025-08-23,Unauthorized Access,Critical,Open,Detected unusual traffic,IT Admin,2025-08-24 16:43:57
+2025-11-07,Malware Infection,Low,Investigating,Detected unusual traffic,SOC Analyst,2025-11-07 17:43:57
+2025-11-21,Data Breach,Low,Resolved,Suspicious login attempt,Security Engineer,2025-11-22 19:43:57
+2025-07-13,Malware Infection,Critical,Closed,Malware signature found,IT Admin,2025-07-14 17:43:57
+2025-11-06,Malware Infection,Medium,Closed,Detected unusual traffic,Employee,2025-11-06 16:43:57
+2025-06-14,Phishing Attack,Medium,Investigating,Data exfiltration suspected,Employee,2025-06-15 19:43:57
+2025-06-20,Phishing Attack,High,Investigating,Malware signature found,SOC Analyst,2025-06-21 09:43:57
+2025-08-16,Unauthorized Access,High,Investigating,Detected unusual traffic,SOC Analyst,2025-08-17 06:43:57
+2025-07-31,Unauthorized Access,High,Closed,Malware signature found,Employee,2025-08-01 13:43:57
+2025-08-29,Phishing Attack,Low,Open,Malware signature found,Security Engineer,2025-08-30 01:43:57
+2025-06-27,Malware Infection,Low,Open,Suspicious login attempt,Security Engineer,2025-06-27 16:43:57
+2025-08-24,Phishing Attack,Critical,Open,Data exfiltration suspected,IT Admin,2025-08-24 15:43:57
+2025-07-16,Malware Infection,Medium,Closed,Data exfiltration suspected,Employee,2025-07-17 18:43:57
+2025-11-06,Ransomware,Critical,Open,Data exfiltration suspected,Employee,2025-11-08 03:43:57
+2025-07-10,DDoS Attack,High,Open,Detected unusual traffic,Employee,2025-07-10 13:43:57
+2025-11-15,Malware Infection,Critical,Investigating,Malware signature found,SOC Analyst,2025-11-15 18:43:57
+2025-10-15,Data Breach,High,Closed,Detected unusual traffic,SOC Analyst,2025-10-16 17:43:57
+2025-11-15,DDoS Attack,Medium,Investigating,Detected unusual traffic,Employee,2025-11-16 12:43:57
+2025-10-17,Data Breach,Low,Open,Detected unusual traffic,SOC Analyst,2025-10-18 04:43:57
+2025-10-30,DDoS Attack,Low,Resolved,Malware signature found,IT Admin,2025-10-30 19:43:57
+2025-07-19,Malware Infection,Low,Resolved,Data exfiltration suspected,SOC Analyst,2025-07-19 11:43:57
+2025-08-06,Ransomware,Critical,Investigating,Data exfiltration suspected,Security Engineer,2025-08-07 21:43:57
+2025-07-01,Unauthorized Access,High,Closed,Suspicious login attempt,IT Admin,2025-07-02 23:43:57
+2025-10-09,Malware Infection,Medium,Open,Data exfiltration suspected,IT Admin,2025-10-09 03:43:57
+2025-09-22,Phishing Attack,Low,Investigating,Malware signature found,Security Engineer,2025-09-23 12:43:57
+2025-10-29,Malware Infection,Critical,Investigating,Suspicious login attempt,IT Admin,2025-10-30 22:43:57
+2025-07-25,DDoS Attack,High,Closed,Malware signature found,SOC Analyst,2025-07-25 05:43:57
+2025-07-30,Malware Infection,Medium,Open,Data exfiltration suspected,IT Admin,2025-08-01 02:43:57
+2025-11-04,Ransomware,High,Investigating,Detected unusual traffic,Security Engineer,2025-11-05 18:43:57
+2025-07-16,Data Breach,Critical,Closed,Malware signature found,Security Engineer,2025-07-17 16:43:57
+2025-09-14,Unauthorized Access,High,Investigating,Suspicious login attempt,SOC Analyst,2025-09-14 12:43:57
+2025-07-13,Data Breach,Low,Investigating,Malware signature found,Employee,2025-07-14 17:43:57
+2025-10-21,Data Breach,High,Resolved,Malware signature found,Security Engineer,2025-10-21 17:43:57
+2025-11-21,Ransomware,High,Investigating,Detected unusual traffic,SOC Analyst,2025-11-22 12:43:57
+2025-11-02,DDoS Attack,Low,Resolved,Malware signature found,SOC Analyst,2025-11-02 23:43:57
+2025-10-16,Ransomware,Medium,Investigating,Malware signature found,Security Engineer,2025-10-18 03:43:57
+2025-10-19,Phishing Attack,Critical,Closed,Data exfiltration suspected,Employee,2025-10-19 10:43:57
+2025-09-23,DDoS Attack,Low,Resolved,Malware signature found,SOC Analyst,2025-09-24 15:43:57
+2025-08-01,Ransomware,Low,Open,Suspicious login attempt,IT Admin,2025-08-02 00:43:57
+2025-07-26,Malware Infection,High,Closed,Detected unusual traffic,SOC Analyst,2025-07-27 00:43:57
+2025-10-22,DDoS Attack,Low,Closed,Suspicious login attempt,Employee,2025-10-23 18:43:57
+2025-07-18,Ransomware,Medium,Open,Malware signature found,Employee,2025-07-18 22:43:57
+2025-08-08,DDoS Attack,Critical,Closed,Detected unusual traffic,Security Engineer,2025-08-08 04:43:57
+2025-10-10,Ransomware,High,Closed,Suspicious login attempt,SOC Analyst,2025-10-11 11:43:57
+2025-09-20,Unauthorized Access,Critical,Closed,Detected unusual traffic,IT Admin,2025-09-21 12:43:57
+2025-10-03,Malware Infection,Medium,Closed,Suspicious login attempt,Employee,2025-10-04 16:43:57
+2025-08-13,Unauthorized Access,Medium,Resolved,Data exfiltration suspected,Employee,2025-08-14 18:43:57
+2025-12-04,Unauthorized Access,Low,Closed,Malware signature found,Security Engineer,2025-12-04 06:43:57
+2025-11-30,Phishing Attack,High,Investigating,Malware signature found,Employee,2025-11-30 03:43:57
+2025-09-06,Unauthorized Access,Critical,Closed,Malware signature found,Employee,2025-09-07 17:43:57
+2025-11-30,DDoS Attack,Critical,Resolved,Suspicious login attempt,Employee,2025-12-01 11:43:57
+2025-06-27,Phishing Attack,Low,Resolved,Suspicious login attempt,SOC Analyst,2025-06-28 04:43:57
+2025-07-21,Unauthorized Access,High,Resolved,Malware signature found,Employee,2025-07-23 01:43:57
+2025-11-14,Ransomware,Low,Closed,Malware signature found,IT Admin,2025-11-15 18:43:57
+2025-07-02,Data Breach,High,Open,Malware signature found,SOC Analyst,2025-07-03 23:43:57
+2025-11-17,Phishing Attack,Low,Closed,Detected unusual traffic,Security Engineer,2025-11-17 11:43:57
+2025-08-29,Unauthorized Access,High,Investigating,Malware signature found,IT Admin,2025-08-29 07:43:57
+2025-06-11,Data Breach,Low,Open,Data exfiltration suspected,Security Engineer,2025-06-12 02:43:57
+2025-09-02,Malware Infection,High,Investigating,Data exfiltration suspected,Employee,2025-09-02 14:43:57
+2025-11-14,Phishing Attack,Critical,Open,Suspicious login attempt,IT Admin,2025-11-15 18:43:57
+2025-09-19,DDoS Attack,Critical,Resolved,Suspicious login attempt,SOC Analyst,2025-09-20 10:43:57
+2025-06-28,Data Breach,Low,Resolved,Suspicious login attempt,Employee,2025-06-29 04:43:57
+2025-11-09,DDoS Attack,Medium,Open,Detected unusual traffic,IT Admin,2025-11-10 22:43:57
+2025-10-10,Malware Infection,Low,Investigating,Detected unusual traffic,IT Admin,2025-10-12 03:43:57
+2025-08-07,Malware Infection,High,Open,Malware signature found,IT Admin,2025-08-08 23:43:57
+2025-11-06,Phishing Attack,Low,Closed,Data exfiltration suspected,Security Engineer,2025-11-07 01:43:57
+2025-10-23,Malware Infection,High,Closed,Detected unusual traffic,IT Admin,2025-10-24 13:43:57
+2025-07-06,Unauthorized Access,Low,Investigating,Malware signature found,Security Engineer,2025-07-06 20:43:57
+2025-09-06,Malware Infection,Critical,Open,Data exfiltration suspected,Employee,2025-09-08 02:43:57
+2025-11-09,DDoS Attack,High,Closed,Suspicious login attempt,Security Engineer,2025-11-09 10:43:57
+2025-11-29,Phishing Attack,Medium,Open,Malware signature found,Security Engineer,2025-11-29 17:43:57
+2025-07-01,Malware Infection,Critical,Resolved,Malware signature found,IT Admin,2025-07-02 07:43:57
+2025-08-18,DDoS Attack,High,Investigating,Malware signature found,IT Admin,2025-08-18 14:43:57
+2025-06-21,DDoS Attack,High,Open,Detected unusual traffic,SOC Analyst,2025-06-21 22:43:57
+2025-08-31,Ransomware,Critical,Open,Suspicious login attempt,Security Engineer,2025-08-31 07:43:57
+2025-09-30,Phishing Attack,Critical,Resolved,Malware signature found,Security Engineer,2025-09-30 08:43:57
+2025-07-26,Phishing Attack,Low,Investigating,Detected unusual traffic,Security Engineer,2025-07-26 16:43:57
+2025-10-19,Data Breach,Medium,Closed,Suspicious login attempt,IT Admin,2025-10-19 22:43:57
+2025-10-31,Ransomware,Low,Investigating,Data exfiltration suspected,IT Admin,2025-11-01 10:43:57
+2025-11-07,Unauthorized Access,Low,Investigating,Data exfiltration suspected,SOC Analyst,2025-11-08 18:43:57
+2025-11-17,Data Breach,High,Resolved,Suspicious login attempt,SOC Analyst,2025-11-17 20:43:57
+2025-10-29,Malware Infection,Medium,Open,Suspicious login attempt,IT Admin,2025-10-30 14:43:57
+2025-11-08,Data Breach,Critical,Resolved,Detected unusual traffic,SOC Analyst,2025-11-08 20:43:57
+2025-07-21,Data Breach,Low,Closed,Malware signature found,Security Engineer,2025-07-22 00:43:57
+2025-10-11,Unauthorized Access,Medium,Closed,Malware signature found,IT Admin,2025-10-11 20:43:57
+2025-06-20,Unauthorized Access,Critical,Resolved,Suspicious login attempt,IT Admin,2025-06-20 21:43:57
+2025-11-19,Ransomware,High,Resolved,Data exfiltration suspected,IT Admin,2025-11-20 22:43:57
+2025-08-19,DDoS Attack,Critical,Open,Suspicious login attempt,Security Engineer,2025-08-20 06:43:57
+2025-11-22,DDoS Attack,Critical,Investigating,Suspicious login attempt,SOC Analyst,2025-11-23 15:43:57
+2025-10-02,Unauthorized Access,Low,Open,Detected unusual traffic,SOC Analyst,2025-10-03 18:43:57
+2025-07-03,Ransomware,Low,Open,Data exfiltration suspected,Security Engineer,2025-07-03 12:43:57
+2025-08-25,Ransomware,High,Investigating,Data exfiltration suspected,Security Engineer,2025-08-25 12:43:57
+2025-06-19,DDoS Attack,Critical,Closed,Suspicious login attempt,IT Admin,2025-06-20 10:43:57
+2025-11-27,Data Breach,Critical,Open,Malware signature found,IT Admin,2025-11-28 18:43:57
+2025-06-29,Data Breach,Low,Open,Suspicious login attempt,Employee,2025-06-30 12:43:57
+2025-07-18,DDoS Attack,Critical,Resolved,Malware signature found,Security Engineer,2025-07-18 17:43:57
+2025-11-07,Ransomware,Low,Open,Detected unusual traffic,Security Engineer,2025-11-07 11:43:57
+2025-08-27,DDoS Attack,Medium,Closed,Data exfiltration suspected,IT Admin,2025-08-27 03:43:57
+2025-09-22,Phishing Attack,Critical,Resolved,Detected unusual traffic,IT Admin,2025-09-23 23:43:57
+2025-09-23,Unauthorized Access,Medium,Closed,Detected unusual traffic,SOC Analyst,2025-09-24 04:43:57
+2025-06-10,DDoS Attack,High,Resolved,Suspicious login attempt,Employee,2025-06-10 17:43:57
+2025-10-15,Phishing Attack,High,Open,Data exfiltration suspected,Employee,2025-10-16 02:43:57
+2025-09-14,Phishing Attack,Medium,Closed,Suspicious login attempt,Employee,2025-09-15 10:43:57
+2025-08-11,Data Breach,Medium,Open,Malware signature found,Security Engineer,2025-08-11 19:43:57
+2025-10-21,Ransomware,High,Investigating,Data exfiltration suspected,Employee,2025-10-22 17:43:57
+2025-09-04,Data Breach,High,Resolved,Suspicious login attempt,Security Engineer,2025-09-06 00:43:57
+2025-09-02,Phishing Attack,Critical,Closed,Malware signature found,Employee,2025-09-04 00:43:57
+2025-07-24,Malware Infection,Critical,Closed,Malware signature found,Employee,2025-07-24 08:43:57
+2025-08-26,Unauthorized Access,Critical,Resolved,Malware signature found,SOC Analyst,2025-08-26 17:43:57
+2025-08-27,Malware Infection,Low,Closed,Data exfiltration suspected,SOC Analyst,2025-08-27 05:43:57
+2025-08-21,Malware Infection,Critical,Open,Data exfiltration suspected,Security Engineer,2025-08-22 23:43:57
+2025-07-14,Unauthorized Access,High,Resolved,Data exfiltration suspected,Employee,2025-07-15 06:43:57
+2025-10-25,Unauthorized Access,Medium,Resolved,Detected unusual traffic,SOC Analyst,2025-10-25 20:43:57
+2025-10-02,Phishing Attack,Critical,Investigating,Detected unusual traffic,SOC Analyst,2025-10-03 06:43:57
+2025-07-09,Phishing Attack,Medium,Resolved,Suspicious login attempt,Security Engineer,2025-07-09 03:43:57
+2025-09-02,Data Breach,High,Open,Malware signature found,IT Admin,2025-09-02 05:43:57
+2025-10-31,Unauthorized Access,Medium,Investigating,Detected unusual traffic,SOC Analyst,2025-10-31 03:43:57
+2025-07-18,Ransomware,Medium,Resolved,Suspicious login attempt,Employee,2025-07-20 02:43:57
+2025-08-21,Phishing Attack,Critical,Open,Suspicious login attempt,Security Engineer,2025-08-21 22:43:57
+2025-11-16,Unauthorized Access,High,Investigating,Malware signature found,Security Engineer,2025-11-17 18:43:57
+2025-08-13,Unauthorized Access,Critical,Resolved,Detected unusual traffic,Security Engineer,2025-08-13 16:43:57
+2025-11-26,Data Breach,Low,Resolved,Data exfiltration suspected,SOC Analyst,2025-11-27 20:43:57
+2025-08-26,Ransomware,Medium,Closed,Data exfiltration suspected,Security Engineer,2025-08-27 01:43:57
+2025-07-27,Data Breach,Critical,Closed,Suspicious login attempt,IT Admin,2025-07-28 12:43:57
+2025-11-07,DDoS Attack,Medium,Resolved,Suspicious login attempt,IT Admin,2025-11-07 22:43:57
+2025-06-13,DDoS Attack,High,Investigating,Malware signature found,IT Admin,2025-06-14 21:43:57
+2025-10-11,Ransomware,High,Open,Malware signature found,Security Engineer,2025-10-11 04:43:57
+2025-09-25,DDoS Attack,High,Closed,Detected unusual traffic,IT Admin,2025-09-26 12:43:57
+2025-08-10,Unauthorized Access,Critical,Investigating,Data exfiltration suspected,IT Admin,2025-08-12 02:43:57
+2025-08-04,Ransomware,High,Closed,Malware signature found,Employee,2025-08-05 11:43:57
+2025-11-02,Phishing Attack,High,Closed,Malware signature found,Security Engineer,2025-11-02 05:43:57
+2025-11-30,Unauthorized Access,Low,Resolved,Suspicious login attempt,Security Engineer,2025-12-01 19:43:57
+2025-09-14,Phishing Attack,Low,Closed,Suspicious login attempt,Security Engineer,2025-09-14 08:43:57
+2025-06-10,Unauthorized Access,High,Open,Malware signature found,SOC Analyst,2025-06-10 13:43:57
+2025-10-27,DDoS Attack,Medium,Resolved,Malware signature found,Security Engineer,2025-10-28 23:43:57
+2025-07-06,Unauthorized Access,High,Resolved,Detected unusual traffic,Security Engineer,2025-07-07 22:43:57
+2025-08-12,Phishing Attack,Medium,Closed,Malware signature found,Security Engineer,2025-08-12 19:43:57
+2025-07-30,Unauthorized Access,Low,Resolved,Suspicious login attempt,IT Admin,2025-07-31 11:43:57
+2025-11-22,Ransomware,Critical,Open,Data exfiltration suspected,Employee,2025-11-23 04:43:57
+2025-12-04,Unauthorized Access,Medium,Open,Detected unusual traffic,Security Engineer,2025-12-05 00:43:57
+2025-06-13,Unauthorized Access,Medium,Investigating,Suspicious login attempt,SOC Analyst,2025-06-13 07:43:57
+2025-11-04,Ransomware,High,Resolved,Suspicious login attempt,SOC Analyst,2025-11-05 23:43:57
+2025-09-21,Ransomware,High,Resolved,Suspicious login attempt,SOC Analyst,2025-09-22 09:43:57
+2025-11-14,Unauthorized Access,Medium,Closed,Data exfiltration suspected,Employee,2025-11-15 04:43:57
+2025-10-07,Unauthorized Access,Medium,Resolved,Malware signature found,IT Admin,2025-10-07 07:43:57
+2025-11-03,DDoS Attack,Low,Investigating,Detected unusual traffic,Employee,2025-11-04 10:43:57
+2025-10-03,Unauthorized Access,High,Investigating,Data exfiltration suspected,Employee,2025-10-03 06:43:57
+2025-10-12,Phishing Attack,High,Closed,Detected unusual traffic,IT Admin,2025-10-13 05:43:57
+2025-08-30,Malware Infection,Critical,Open,Suspicious login attempt,SOC Analyst,2025-08-30 07:43:57
+2025-10-11,DDoS Attack,Medium,Open,Suspicious login attempt,Employee,2025-10-11 22:43:57
+2025-11-11,Unauthorized Access,Critical,Investigating,Malware signature found,Security Engineer,2025-11-12 20:43:57
+2025-08-16,Ransomware,Low,Closed,Data exfiltration suspected,Security Engineer,2025-08-17 12:43:57
+2025-11-08,Data Breach,Medium,Open,Data exfiltration suspected,IT Admin,2025-11-09 03:43:57
+2025-10-14,Phishing Attack,High,Investigating,Data exfiltration suspected,SOC Analyst,2025-10-14 10:43:57
+2025-07-14,DDoS Attack,Medium,Closed,Suspicious login attempt,Employee,2025-07-15 23:43:57
+2025-08-09,Malware Infection,Low,Open,Suspicious login attempt,Security Engineer,2025-08-10 20:43:57
+2025-07-23,Data Breach,High,Resolved,Detected unusual traffic,Employee,2025-07-25 00:43:57
+2025-07-20,DDoS Attack,High,Investigating,Data exfiltration suspected,SOC Analyst,2025-07-20 05:43:57
+2025-07-20,Ransomware,High,Investigating,Detected unusual traffic,SOC Analyst,2025-07-21 00:43:57
+2025-07-31,Data Breach,Medium,Open,Suspicious login attempt,Employee,2025-07-31 09:43:57
+2025-09-30,Ransomware,Critical,Resolved,Malware signature found,Security Engineer,2025-09-30 04:43:57
+2025-10-09,Unauthorized Access,Critical,Closed,Data exfiltration suspected,SOC Analyst,2025-10-09 21:43:57
+2025-10-07,Ransomware,Critical,Open,Data exfiltration suspected,IT Admin,2025-10-08 22:43:57
+2025-11-06,Unauthorized Access,High,Open,Detected unusual traffic,IT Admin,2025-11-07 13:43:57
+2025-07-07,DDoS Attack,Medium,Closed,Malware signature found,IT Admin,2025-07-07 18:43:57
+2025-11-30,Malware Infection,High,Resolved,Malware signature found,Security Engineer,2025-11-30 06:43:57
+2025-08-11,Malware Infection,Medium,Investigating,Data exfiltration suspected,SOC Analyst,2025-08-11 05:43:57
+2025-11-06,Phishing Attack,Low,Open,Detected unusual traffic,Employee,2025-11-06 16:43:57
+2025-07-07,Malware Infection,Critical,Investigating,Detected unusual traffic,Security Engineer,2025-07-07 14:43:57
+2025-11-24,Data Breach,Critical,Closed,Malware signature found,IT Admin,2025-11-25 14:43:57
+2025-09-04,Ransomware,High,Investigating,Detected unusual traffic,Employee,2025-09-04 10:43:57
+2025-08-10,Unauthorized Access,Critical,Open,Data exfiltration suspected,SOC Analyst,2025-08-10 15:43:57
+2025-07-01,DDoS Attack,Medium,Investigating,Suspicious login attempt,Security Engineer,2025-07-02 08:43:57
+2025-07-06,Unauthorized Access,High,Resolved,Malware signature found,IT Admin,2025-07-06 05:43:57
+2025-11-08,Ransomware,Critical,Investigating,Detected unusual traffic,IT Admin,2025-11-08 14:43:57
+2025-07-29,Data Breach,Low,Open,Suspicious login attempt,SOC Analyst,2025-07-30 11:43:57
+2025-09-09,Phishing Attack,Low,Closed,Data exfiltration suspected,Employee,2025-09-11 01:43:57
+2025-12-04,Ransomware,Critical,Investigating,Data exfiltration suspected,IT Admin,2025-12-05 05:43:57
+2025-11-19,Phishing Attack,High,Resolved,Malware signature found,IT Admin,2025-11-20 06:43:57
+2025-06-23,Data Breach,Critical,Resolved,Detected unusual traffic,SOC Analyst,2025-06-24 21:43:57
+2025-10-21,Phishing Attack,Medium,Investigating,Detected unusual traffic,Employee,2025-10-21 19:43:57
+2025-11-21,Data Breach,High,Investigating,Suspicious login attempt,IT Admin,2025-11-22 23:43:57
+2025-07-31,Phishing Attack,Low,Closed,Detected unusual traffic,IT Admin,2025-07-31 07:43:57
+2025-09-27,DDoS Attack,Critical,Investigating,Detected unusual traffic,SOC Analyst,2025-09-27 21:43:57
+2025-10-07,DDoS Attack,Critical,Closed,Suspicious login attempt,IT Admin,2025-10-07 23:43:57
+2025-06-27,Data Breach,Medium,Closed,Suspicious login attempt,IT Admin,2025-06-27 22:43:57
+2025-07-09,DDoS Attack,Medium,Resolved,Malware signature found,IT Admin,2025-07-10 06:43:57
+2025-08-16,Unauthorized Access,High,Investigating,Detected unusual traffic,IT Admin,2025-08-17 11:43:57
+2025-11-12,Unauthorized Access,Critical,Investigating,Suspicious login attempt,Security Engineer,2025-11-14 00:43:57
+2025-06-28,Malware Infection,High,Resolved,Data exfiltration suspected,Security Engineer,2025-06-30 01:43:57
+2025-11-16,Malware Infection,High,Open,Data exfiltration suspected,SOC Analyst,2025-11-16 21:43:57
+2025-11-04,DDoS Attack,Critical,Investigating,Malware signature found,IT Admin,2025-11-04 17:43:57
+2025-07-22,Unauthorized Access,Medium,Open,Detected unusual traffic,SOC Analyst,2025-07-23 07:43:57
+2025-07-20,Data Breach,Medium,Open,Detected unusual traffic,Employee,2025-07-20 03:43:57
+2025-07-05,Unauthorized Access,Medium,Open,Suspicious login attempt,Security Engineer,2025-07-06 08:43:57
+2025-09-20,Data Breach,High,Open,Malware signature found,Security Engineer,2025-09-21 13:43:57
+2025-07-17,Phishing Attack,Medium,Open,Data exfiltration suspected,Security Engineer,2025-07-17 13:43:57
+2025-11-07,DDoS Attack,Medium,Resolved,Data exfiltration suspected,IT Admin,2025-11-08 10:43:57
+2025-10-11,Phishing Attack,Low,Resolved,Detected unusual traffic,IT Admin,2025-10-12 04:43:57
+2025-10-20,Phishing Attack,Low,Resolved,Suspicious login attempt,IT Admin,2025-10-21 02:43:57
+2025-10-03,Data Breach,Low,Investigating,Detected unusual traffic,Employee,2025-10-04 20:43:57
+2025-10-29,Data Breach,Medium,Investigating,Data exfiltration suspected,Employee,2025-10-30 10:43:57
+2025-08-05,DDoS Attack,Critical,Open,Malware signature found,Employee,2025-08-05 23:43:57
+2025-12-05,Unauthorized Access,Low,Resolved,Data exfiltration suspected,Employee,2025-12-06 23:43:57
+2025-09-21,Unauthorized Access,Low,Closed,Detected unusual traffic,Employee,2025-09-22 13:43:57
+2025-09-21,Ransomware,High,Closed,Suspicious login attempt,Security Engineer,2025-09-22 01:43:57
+2025-08-17,DDoS Attack,Low,Resolved,Detected unusual traffic,IT Admin,2025-08-17 14:43:57
+2025-06-25,Malware Infection,Medium,Investigating,Data exfiltration suspected,SOC Analyst,2025-06-25 21:43:57
+2025-12-03,Malware Infection,High,Investigating,Malware signature found,Security Engineer,2025-12-04 11:43:57
+2025-11-27,DDoS Attack,Medium,Closed,Suspicious login attempt,Employee,2025-11-28 18:43:57
+2025-11-18,DDoS Attack,Low,Investigating,Malware signature found,IT Admin,2025-11-20 01:43:57
+2025-12-01,DDoS Attack,Low,Closed,Detected unusual traffic,IT Admin,2025-12-02 03:43:57
+2025-09-17,Phishing Attack,Medium,Investigating,Detected unusual traffic,Employee,2025-09-17 05:43:57
+2025-09-21,Data Breach,Low,Resolved,Detected unusual traffic,Security Engineer,2025-09-22 07:43:57
+2025-11-07,Data Breach,Medium,Closed,Data exfiltration suspected,Employee,2025-11-08 10:43:57
+2025-11-06,DDoS Attack,Low,Investigating,Detected unusual traffic,IT Admin,2025-11-07 01:43:57
+2025-07-22,DDoS Attack,Low,Closed,Detected unusual traffic,IT Admin,2025-07-23 04:43:57
+2025-06-25,DDoS Attack,Low,Investigating,Suspicious login attempt,Security Engineer,2025-06-26 02:43:57
+2025-07-19,Data Breach,High,Closed,Suspicious login attempt,Security Engineer,2025-07-20 02:43:57
+2025-11-08,DDoS Attack,Low,Closed,Data exfiltration suspected,SOC Analyst,2025-11-08 14:43:57

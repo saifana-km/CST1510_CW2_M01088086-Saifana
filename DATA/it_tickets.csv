@@ -1,51 +1,501 @@
-id,ticket_id,priority,status,category,subject,description,created_date,resolved_date,assigned_to,created_at
-1,TKT-1000,Medium,Open,Access,Issue 1,Auto-generated ticket 1,2024-07-23 05:47:50,,tech3,2024-05-01 02:26:07
-2,TKT-1001,High,Resolved,Hardware,Issue 2,Auto-generated ticket 2,2024-11-24 07:58:21,2023-10-10 09:53:11,tech3,2023-08-05 04:15:01
-3,TKT-1002,Medium,Investigating,Hardware,Issue 3,Auto-generated ticket 3,2024-11-12 09:48:00,,tech1,2024-08-22 10:41:27
-4,TKT-1003,Medium,Investigating,Software,Issue 4,Auto-generated ticket 4,2024-12-04 10:36:29,,tech3,2023-09-26 23:38:37
-5,TKT-1004,High,Open,Software,Issue 5,Auto-generated ticket 5,2023-08-23 00:31:50,,tech4,2023-12-19 13:31:49
-6,TKT-1005,Medium,Open,Network,Issue 6,Auto-generated ticket 6,2024-03-30 00:22:53,,tech2,2024-10-19 12:11:17
-7,TKT-1006,Critical,Closed,Hardware,Issue 7,Auto-generated ticket 7,2023-06-04 07:58:08,2023-10-06 18:13:10,tech3,2024-08-23 16:52:54
-8,TKT-1007,High,Open,Software,Issue 8,Auto-generated ticket 8,2023-03-05 23:09:50,,tech1,2024-02-08 15:44:18
-9,TKT-1008,High,Closed,Network,Issue 9,Auto-generated ticket 9,2024-05-29 17:54:06,2023-07-23 05:59:31,tech4,2024-11-14 18:11:47
-10,TKT-1009,Critical,Open,Security,Issue 10,Auto-generated ticket 10,2023-06-20 23:34:43,,tech4,2023-11-22 18:49:14
-11,TKT-1010,Medium,Resolved,Network,Issue 11,Auto-generated ticket 11,2023-12-14 06:32:50,2024-01-15 00:40:12,tech3,2023-10-01 09:28:16
-12,TKT-1011,High,Closed,Hardware,Issue 12,Auto-generated ticket 12,2023-09-08 08:34:57,2023-04-27 06:09:44,tech3,2023-04-17 17:16:30
-13,TKT-1012,Critical,Resolved,Software,Issue 13,Auto-generated ticket 13,2023-03-27 12:45:43,2024-10-08 10:46:17,tech2,2023-04-29 12:10:57
-14,TKT-1013,Medium,Open,Access,Issue 14,Auto-generated ticket 14,2023-08-06 04:17:06,,tech1,2023-08-12 12:49:08
-15,TKT-1014,High,Closed,Software,Issue 15,Auto-generated ticket 15,2023-11-09 19:16:36,2024-01-24 18:58:21,tech5,2024-06-05 12:22:21
-16,TKT-1015,Medium,Closed,Hardware,Issue 16,Auto-generated ticket 16,2023-04-16 22:08:15,2023-08-12 21:03:07,tech1,2024-06-21 12:33:43
-17,TKT-1016,Low,Resolved,Security,Issue 17,Auto-generated ticket 17,2024-12-03 18:35:22,2024-12-23 06:51:06,tech1,2024-04-22 10:12:44
-18,TKT-1017,Low,Investigating,Software,Issue 18,Auto-generated ticket 18,2023-05-31 09:04:44,,tech1,2023-05-06 00:41:13
-19,TKT-1018,Medium,Closed,Access,Issue 19,Auto-generated ticket 19,2024-12-09 14:20:43,2024-04-19 23:39:18,tech5,2024-04-16 04:35:43
-20,TKT-1019,High,Investigating,Hardware,Issue 20,Auto-generated ticket 20,2023-12-25 03:23:54,,tech4,2024-10-01 07:26:18
-21,TKT-1020,Critical,Resolved,Hardware,Issue 21,Auto-generated ticket 21,2024-10-21 17:05:30,2023-09-25 05:08:14,tech4,2024-09-27 06:31:27
-22,TKT-1021,Low,Open,Network,Issue 22,Auto-generated ticket 22,2023-04-14 14:29:37,,tech4,2024-11-23 16:27:53
-23,TKT-1022,Low,Investigating,Access,Issue 23,Auto-generated ticket 23,2023-08-25 17:56:45,,tech1,2024-01-22 11:35:25
-24,TKT-1023,Medium,Resolved,Hardware,Issue 24,Auto-generated ticket 24,2024-06-23 05:47:50,2024-08-04 13:06:48,tech1,2024-04-04 10:10:33
-25,TKT-1024,Medium,Resolved,Hardware,Issue 25,Auto-generated ticket 25,2024-09-01 23:43:01,2024-09-27 00:45:22,tech3,2023-06-08 10:40:47
-26,TKT-1025,Low,Open,Access,Issue 26,Auto-generated ticket 26,2024-05-02 23:30:33,,tech5,2023-07-22 17:12:52
-27,TKT-1026,Critical,Open,Access,Issue 27,Auto-generated ticket 27,2024-10-22 19:45:58,,tech5,2023-01-11 20:09:31
-28,TKT-1027,High,Open,Network,Issue 28,Auto-generated ticket 28,2024-02-12 01:13:38,,tech5,2023-12-18 12:32:07
-29,TKT-1028,High,Open,Access,Issue 29,Auto-generated ticket 29,2024-02-18 18:20:20,,tech3,2023-11-14 16:13:31
-30,TKT-1029,High,Closed,Software,Issue 30,Auto-generated ticket 30,2023-08-10 17:06:42,2024-05-11 19:13:12,tech3,2023-02-10 12:40:20
-31,TKT-1030,High,Open,Network,Issue 31,Auto-generated ticket 31,2023-06-02 16:40:02,,tech1,2024-03-09 21:27:26
-32,TKT-1031,Medium,Open,Security,Issue 32,Auto-generated ticket 32,2024-08-13 16:08:30,,tech1,2024-08-24 14:56:34
-33,TKT-1032,Medium,Closed,Network,Issue 33,Auto-generated ticket 33,2024-02-01 23:38:42,2024-01-09 15:33:04,tech2,2023-02-11 13:37:58
-34,TKT-1033,Critical,Open,Software,Issue 34,Auto-generated ticket 34,2023-06-25 16:08:02,,tech3,2024-02-25 04:13:52
-35,TKT-1034,Medium,Resolved,Access,Issue 35,Auto-generated ticket 35,2023-06-28 09:41:13,2023-08-24 01:25:36,tech2,2023-03-26 20:50:01
-36,TKT-1035,Critical,Closed,Software,Issue 36,Auto-generated ticket 36,2023-09-05 00:27:57,2023-04-01 17:04:25,tech3,2023-07-03 06:55:03
-37,TKT-1036,Medium,Investigating,Hardware,Issue 37,Auto-generated ticket 37,2024-10-07 22:53:14,,tech5,2023-11-19 03:56:35
-38,TKT-1037,Medium,Investigating,Network,Issue 38,Auto-generated ticket 38,2023-03-18 20:50:14,,tech3,2024-09-18 21:04:10
-39,TKT-1038,Medium,Closed,Network,Issue 39,Auto-generated ticket 39,2024-04-06 17:05:18,2024-03-19 17:49:19,tech4,2023-01-10 18:27:26
-40,TKT-1039,High,Investigating,Access,Issue 40,Auto-generated ticket 40,2023-02-20 16:58:33,,tech4,2023-06-06 21:41:53
-41,TKT-1040,High,Closed,Network,Issue 41,Auto-generated ticket 41,2023-11-04 09:56:11,2024-11-30 13:19:22,tech1,2023-05-17 18:43:22
-42,TKT-1041,Critical,Closed,Security,Issue 42,Auto-generated ticket 42,2023-04-23 16:56:11,2023-12-14 19:53:36,tech5,2024-04-10 01:17:25
-43,TKT-1042,Medium,Resolved,Hardware,Issue 43,Auto-generated ticket 43,2024-02-26 01:47:20,2023-03-04 12:30:24,tech2,2024-09-07 23:07:13
-44,TKT-1043,High,Open,Network,Issue 44,Auto-generated ticket 44,2024-03-05 21:51:53,,tech5,2023-09-29 22:51:26
-45,TKT-1044,Low,Open,Software,Issue 45,Auto-generated ticket 45,2024-11-06 16:40:37,,tech3,2023-07-25 20:01:19
-46,TKT-1045,Medium,Open,Security,Issue 46,Auto-generated ticket 46,2023-06-17 11:00:32,,tech4,2023-06-03 09:24:12
-47,TKT-1046,Critical,Open,Security,Issue 47,Auto-generated ticket 47,2023-10-26 16:14:00,,tech2,2024-11-28 01:29:31
-48,TKT-1047,Critical,Closed,Hardware,Issue 48,Auto-generated ticket 48,2024-02-24 02:29:58,2024-03-01 02:50:30,tech1,2023-08-24 06:59:04
-49,TKT-1048,Low,Open,Access,Issue 49,Auto-generated ticket 49,2023-10-27 08:32:07,,tech2,2023-04-10 05:19:43
-50,TKT-1049,Medium,Investigating,Hardware,Issue 50,Auto-generated ticket 50,2023-12-31 23:44:52,,tech4,2023-02-14 04:17:52
+ticket_id,priority,status,category,subject,description,created_date,resolved_date,assigned_to,created_at
+TCK-0001,Critical,Closed,Security,Slow performance,Slow performance reported by user 458,2025-11-27,2025-12-06,Frank,2025-11-27 03:45:11
+TCK-0002,Low,Closed,Other,Slow performance,Slow performance reported by user 379,2025-07-25,2025-08-04,Charlie,2025-07-25 03:45:11
+TCK-0003,Critical,Closed,Software,Slow performance,Slow performance reported by user 810,2025-06-19,2025-06-23,Frank,2025-06-19 03:45:11
+TCK-0004,Critical,Investigating,Access,Email not working,Email not working reported by user 478,2025-09-12,,David,2025-09-12 03:45:11
+TCK-0005,Low,Closed,Access,System outage,System outage reported by user 495,2025-07-31,2025-08-10,Frank,2025-07-31 03:45:11
+TCK-0006,Medium,Open,Network,Printer error,Printer error reported by user 735,2025-11-21,,Eve,2025-11-21 03:45:11
+TCK-0007,Low,Open,Access,Printer error,Printer error reported by user 280,2025-10-23,,Charlie,2025-10-23 03:45:11
+TCK-0008,Low,Investigating,Security,Printer error,Printer error reported by user 444,2025-12-01,,Eve,2025-12-01 03:45:11
+TCK-0009,Low,Resolved,Network,Printer error,Printer error reported by user 670,2025-11-14,2025-11-16,Charlie,2025-11-14 03:45:11
+TCK-0010,High,Resolved,Network,Email not working,Email not working reported by user 986,2025-07-12,2025-07-18,Eve,2025-07-12 03:45:11
+TCK-0011,Critical,Investigating,Other,System outage,System outage reported by user 926,2025-12-01,,Bob,2025-12-01 03:45:11
+TCK-0012,High,Closed,Software,Email not working,Email not working reported by user 623,2025-09-25,2025-10-03,Charlie,2025-09-25 03:45:11
+TCK-0013,High,Open,Software,VPN failure,VPN failure reported by user 390,2025-11-07,,Frank,2025-11-07 03:45:11
+TCK-0014,Low,Investigating,Access,Printer error,Printer error reported by user 538,2025-06-28,,Frank,2025-06-28 03:45:11
+TCK-0015,Critical,Open,Security,VPN failure,VPN failure reported by user 415,2025-09-17,,Charlie,2025-09-17 03:45:11
+TCK-0016,Medium,Closed,Hardware,Slow performance,Slow performance reported by user 942,2025-09-01,2025-09-04,Charlie,2025-09-01 03:45:11
+TCK-0017,High,Resolved,Access,Email not working,Email not working reported by user 729,2025-07-27,2025-08-06,Bob,2025-07-27 03:45:11
+TCK-0018,Medium,Open,Access,Slow performance,Slow performance reported by user 470,2025-11-11,,Charlie,2025-11-11 03:45:11
+TCK-0019,High,Open,Access,VPN failure,VPN failure reported by user 582,2025-08-17,,Charlie,2025-08-17 03:45:11
+TCK-0020,High,Resolved,Access,Email not working,Email not working reported by user 218,2025-11-15,2025-11-16,Bob,2025-11-15 03:45:11
+TCK-0021,Low,Open,Security,Slow performance,Slow performance reported by user 807,2025-10-21,,David,2025-10-21 03:45:11
+TCK-0022,High,Investigating,Security,Login issue,Login issue reported by user 859,2025-10-31,,Eve,2025-10-31 03:45:11
+TCK-0023,Low,Investigating,Security,Printer error,Printer error reported by user 333,2025-08-24,,Bob,2025-08-24 03:45:11
+TCK-0024,Low,Open,Software,VPN failure,VPN failure reported by user 717,2025-08-14,,Bob,2025-08-14 03:45:11
+TCK-0025,Critical,Resolved,Security,Email not working,Email not working reported by user 987,2025-08-24,2025-09-01,Bob,2025-08-24 03:45:11
+TCK-0026,Medium,Resolved,Software,System outage,System outage reported by user 341,2025-11-21,2025-11-26,Charlie,2025-11-21 03:45:11
+TCK-0027,Critical,Investigating,Access,Email not working,Email not working reported by user 355,2025-07-04,,Charlie,2025-07-04 03:45:11
+TCK-0028,Medium,Resolved,Access,Slow performance,Slow performance reported by user 828,2025-09-27,2025-10-03,Frank,2025-09-27 03:45:11
+TCK-0029,Low,Open,Other,VPN failure,VPN failure reported by user 769,2025-09-09,,Charlie,2025-09-09 03:45:11
+TCK-0030,Medium,Resolved,Network,Login issue,Login issue reported by user 233,2025-10-15,2025-10-16,Bob,2025-10-15 03:45:11
+TCK-0031,Low,Resolved,Hardware,Slow performance,Slow performance reported by user 771,2025-09-29,2025-10-05,Alice,2025-09-29 03:45:11
+TCK-0032,Medium,Open,Network,Email not working,Email not working reported by user 397,2025-09-29,,Alice,2025-09-29 03:45:11
+TCK-0033,Low,Open,Network,Email not working,Email not working reported by user 974,2025-08-06,,Bob,2025-08-06 03:45:11
+TCK-0034,High,Open,Security,Printer error,Printer error reported by user 290,2025-08-14,,Frank,2025-08-14 03:45:11
+TCK-0035,Low,Closed,Access,Slow performance,Slow performance reported by user 121,2025-07-03,2025-07-12,Alice,2025-07-03 03:45:11
+TCK-0036,Medium,Resolved,Hardware,VPN failure,VPN failure reported by user 992,2025-11-25,2025-11-29,Eve,2025-11-25 03:45:11
+TCK-0037,Critical,Closed,Security,Printer error,Printer error reported by user 710,2025-08-22,2025-08-30,David,2025-08-22 03:45:11
+TCK-0038,Critical,Closed,Security,Email not working,Email not working reported by user 819,2025-10-09,2025-10-10,Eve,2025-10-09 03:45:11
+TCK-0039,Low,Closed,Hardware,VPN failure,VPN failure reported by user 419,2025-09-10,2025-09-14,Alice,2025-09-10 03:45:11
+TCK-0040,Medium,Open,Network,Printer error,Printer error reported by user 842,2025-07-13,,Charlie,2025-07-13 03:45:11
+TCK-0041,Critical,Open,Hardware,System outage,System outage reported by user 289,2025-08-03,,Frank,2025-08-03 03:45:11
+TCK-0042,Low,Resolved,Software,Email not working,Email not working reported by user 920,2025-11-05,2025-11-12,Bob,2025-11-05 03:45:11
+TCK-0043,High,Resolved,Access,VPN failure,VPN failure reported by user 718,2025-08-16,2025-08-21,Frank,2025-08-16 03:45:11
+TCK-0044,Low,Closed,Other,Email not working,Email not working reported by user 189,2025-09-17,2025-09-19,David,2025-09-17 03:45:11
+TCK-0045,Critical,Investigating,Access,Login issue,Login issue reported by user 303,2025-10-20,,Eve,2025-10-20 03:45:11
+TCK-0046,Critical,Open,Hardware,Printer error,Printer error reported by user 169,2025-08-01,,Charlie,2025-08-01 03:45:11
+TCK-0047,High,Resolved,Software,Login issue,Login issue reported by user 183,2025-10-10,2025-10-19,Eve,2025-10-10 03:45:11
+TCK-0048,High,Closed,Software,Login issue,Login issue reported by user 859,2025-06-19,2025-06-28,Charlie,2025-06-19 03:45:11
+TCK-0049,Low,Investigating,Security,Slow performance,Slow performance reported by user 370,2025-09-06,,Frank,2025-09-06 03:45:11
+TCK-0050,Low,Open,Software,Email not working,Email not working reported by user 271,2025-07-04,,Bob,2025-07-04 03:45:11
+TCK-0051,High,Closed,Security,VPN failure,VPN failure reported by user 478,2025-09-30,2025-10-05,Frank,2025-09-30 03:45:11
+TCK-0052,High,Open,Other,Slow performance,Slow performance reported by user 301,2025-11-21,,Bob,2025-11-21 03:45:11
+TCK-0053,High,Closed,Access,Login issue,Login issue reported by user 754,2025-11-01,2025-11-06,Bob,2025-11-01 03:45:11
+TCK-0054,Critical,Investigating,Software,VPN failure,VPN failure reported by user 558,2025-11-17,,Frank,2025-11-17 03:45:11
+TCK-0055,Medium,Investigating,Software,Printer error,Printer error reported by user 518,2025-09-16,,Frank,2025-09-16 03:45:11
+TCK-0056,Critical,Open,Network,VPN failure,VPN failure reported by user 479,2025-09-24,,Alice,2025-09-24 03:45:11
+TCK-0057,Medium,Investigating,Software,VPN failure,VPN failure reported by user 488,2025-11-30,,Charlie,2025-11-30 03:45:11
+TCK-0058,Medium,Closed,Software,Printer error,Printer error reported by user 973,2025-10-16,2025-10-22,Eve,2025-10-16 03:45:11
+TCK-0059,Critical,Resolved,Security,Login issue,Login issue reported by user 530,2025-11-29,2025-12-06,David,2025-11-29 03:45:11
+TCK-0060,Medium,Open,Hardware,Printer error,Printer error reported by user 791,2025-06-15,,David,2025-06-15 03:45:11
+TCK-0061,Low,Open,Software,VPN failure,VPN failure reported by user 598,2025-08-18,,Bob,2025-08-18 03:45:11
+TCK-0062,Medium,Open,Security,VPN failure,VPN failure reported by user 815,2025-07-09,,Frank,2025-07-09 03:45:11
+TCK-0063,Low,Investigating,Access,Slow performance,Slow performance reported by user 758,2025-07-31,,Charlie,2025-07-31 03:45:11
+TCK-0064,High,Investigating,Network,System outage,System outage reported by user 328,2025-07-18,,Alice,2025-07-18 03:45:11
+TCK-0065,Low,Closed,Security,Printer error,Printer error reported by user 925,2025-07-08,2025-07-13,David,2025-07-08 03:45:11
+TCK-0066,Critical,Investigating,Access,Printer error,Printer error reported by user 729,2025-09-11,,Alice,2025-09-11 03:45:11
+TCK-0067,Critical,Resolved,Hardware,System outage,System outage reported by user 865,2025-08-20,2025-08-25,Alice,2025-08-20 03:45:11
+TCK-0068,Medium,Resolved,Network,System outage,System outage reported by user 424,2025-11-22,2025-11-25,Eve,2025-11-22 03:45:11
+TCK-0069,Critical,Open,Other,Email not working,Email not working reported by user 233,2025-06-09,,David,2025-06-09 03:45:11
+TCK-0070,High,Closed,Network,Email not working,Email not working reported by user 745,2025-07-28,2025-07-29,Eve,2025-07-28 03:45:11
+TCK-0071,Low,Resolved,Network,Slow performance,Slow performance reported by user 293,2025-06-12,2025-06-13,Eve,2025-06-12 03:45:11
+TCK-0072,Critical,Investigating,Access,System outage,System outage reported by user 540,2025-08-15,,Bob,2025-08-15 03:45:11
+TCK-0073,Low,Resolved,Hardware,Email not working,Email not working reported by user 189,2025-08-10,2025-08-14,Eve,2025-08-10 03:45:11
+TCK-0074,High,Investigating,Software,Login issue,Login issue reported by user 840,2025-10-31,,Bob,2025-10-31 03:45:11
+TCK-0075,High,Open,Network,Login issue,Login issue reported by user 762,2025-08-31,,Bob,2025-08-31 03:45:11
+TCK-0076,High,Open,Access,System outage,System outage reported by user 158,2025-08-03,,Alice,2025-08-03 03:45:11
+TCK-0077,Low,Resolved,Access,Slow performance,Slow performance reported by user 521,2025-07-12,2025-07-21,Alice,2025-07-12 03:45:11
+TCK-0078,Critical,Resolved,Other,Printer error,Printer error reported by user 133,2025-11-27,2025-12-01,Alice,2025-11-27 03:45:11
+TCK-0079,Medium,Open,Access,Printer error,Printer error reported by user 383,2025-11-26,,Alice,2025-11-26 03:45:11
+TCK-0080,High,Closed,Software,Slow performance,Slow performance reported by user 725,2025-08-14,2025-08-22,Alice,2025-08-14 03:45:11
+TCK-0081,Critical,Resolved,Access,Slow performance,Slow performance reported by user 773,2025-08-19,2025-08-25,Bob,2025-08-19 03:45:11
+TCK-0082,High,Resolved,Other,System outage,System outage reported by user 150,2025-10-07,2025-10-17,David,2025-10-07 03:45:11
+TCK-0083,Low,Closed,Access,Email not working,Email not working reported by user 323,2025-11-26,2025-11-30,Eve,2025-11-26 03:45:11
+TCK-0084,High,Investigating,Other,Email not working,Email not working reported by user 697,2025-07-18,,Charlie,2025-07-18 03:45:11
+TCK-0085,Low,Investigating,Hardware,VPN failure,VPN failure reported by user 500,2025-06-26,,Frank,2025-06-26 03:45:11
+TCK-0086,Medium,Resolved,Hardware,System outage,System outage reported by user 591,2025-09-02,2025-09-06,Alice,2025-09-02 03:45:11
+TCK-0087,Low,Closed,Software,Printer error,Printer error reported by user 284,2025-06-16,2025-06-17,Eve,2025-06-16 03:45:11
+TCK-0088,High,Closed,Network,Slow performance,Slow performance reported by user 410,2025-07-29,2025-08-05,David,2025-07-29 03:45:11
+TCK-0089,High,Resolved,Access,VPN failure,VPN failure reported by user 242,2025-09-08,2025-09-11,David,2025-09-08 03:45:11
+TCK-0090,Critical,Closed,Access,Printer error,Printer error reported by user 951,2025-11-20,2025-11-27,Frank,2025-11-20 03:45:11
+TCK-0091,Critical,Investigating,Access,Printer error,Printer error reported by user 771,2025-06-13,,Frank,2025-06-13 03:45:11
+TCK-0092,Medium,Investigating,Security,Printer error,Printer error reported by user 795,2025-08-05,,Frank,2025-08-05 03:45:11
+TCK-0093,High,Open,Hardware,Login issue,Login issue reported by user 276,2025-09-06,,Charlie,2025-09-06 03:45:11
+TCK-0094,Low,Investigating,Hardware,Email not working,Email not working reported by user 776,2025-09-20,,David,2025-09-20 03:45:11
+TCK-0095,Medium,Investigating,Hardware,System outage,System outage reported by user 388,2025-11-11,,Alice,2025-11-11 03:45:11
+TCK-0096,Low,Investigating,Software,VPN failure,VPN failure reported by user 344,2025-06-25,,David,2025-06-25 03:45:11
+TCK-0097,Medium,Closed,Access,VPN failure,VPN failure reported by user 196,2025-11-05,2025-11-13,Frank,2025-11-05 03:45:11
+TCK-0098,Medium,Open,Hardware,Printer error,Printer error reported by user 615,2025-09-12,,Eve,2025-09-12 03:45:11
+TCK-0099,Medium,Closed,Security,VPN failure,VPN failure reported by user 213,2025-09-24,2025-09-28,Charlie,2025-09-24 03:45:11
+TCK-0100,High,Investigating,Security,Email not working,Email not working reported by user 259,2025-06-28,,Alice,2025-06-28 03:45:11
+TCK-0101,Medium,Investigating,Security,Email not working,Email not working reported by user 470,2025-10-03,,Alice,2025-10-03 03:45:11
+TCK-0102,High,Investigating,Access,Login issue,Login issue reported by user 518,2025-06-12,,Bob,2025-06-12 03:45:11
+TCK-0103,Critical,Resolved,Network,Slow performance,Slow performance reported by user 936,2025-10-16,2025-10-26,Charlie,2025-10-16 03:45:11
+TCK-0104,Critical,Investigating,Access,VPN failure,VPN failure reported by user 265,2025-11-28,,Frank,2025-11-28 03:45:11
+TCK-0105,High,Resolved,Access,System outage,System outage reported by user 793,2025-11-26,2025-12-06,Bob,2025-11-26 03:45:11
+TCK-0106,Low,Open,Access,System outage,System outage reported by user 830,2025-09-14,,Frank,2025-09-14 03:45:11
+TCK-0107,Low,Resolved,Security,System outage,System outage reported by user 317,2025-10-04,2025-10-12,Frank,2025-10-04 03:45:11
+TCK-0108,Critical,Open,Other,System outage,System outage reported by user 919,2025-08-19,,Charlie,2025-08-19 03:45:11
+TCK-0109,Critical,Resolved,Software,Slow performance,Slow performance reported by user 989,2025-11-27,2025-12-04,Eve,2025-11-27 03:45:11
+TCK-0110,Low,Investigating,Other,Login issue,Login issue reported by user 831,2025-08-13,,Frank,2025-08-13 03:45:11
+TCK-0111,Medium,Resolved,Access,Email not working,Email not working reported by user 358,2025-08-16,2025-08-20,Alice,2025-08-16 03:45:11
+TCK-0112,Low,Resolved,Network,Printer error,Printer error reported by user 207,2025-11-27,2025-12-02,David,2025-11-27 03:45:11
+TCK-0113,Low,Open,Other,Printer error,Printer error reported by user 280,2025-09-30,,Eve,2025-09-30 03:45:11
+TCK-0114,Critical,Resolved,Network,System outage,System outage reported by user 171,2025-09-02,2025-09-06,David,2025-09-02 03:45:11
+TCK-0115,Medium,Closed,Other,System outage,System outage reported by user 704,2025-09-01,2025-09-08,Charlie,2025-09-01 03:45:11
+TCK-0116,Critical,Closed,Access,System outage,System outage reported by user 778,2025-06-16,2025-06-24,Eve,2025-06-16 03:45:11
+TCK-0117,High,Resolved,Security,Login issue,Login issue reported by user 132,2025-07-02,2025-07-07,Alice,2025-07-02 03:45:11
+TCK-0118,Critical,Resolved,Security,Slow performance,Slow performance reported by user 118,2025-09-17,2025-09-20,Charlie,2025-09-17 03:45:11
+TCK-0119,High,Resolved,Software,Slow performance,Slow performance reported by user 986,2025-09-15,2025-09-25,Frank,2025-09-15 03:45:11
+TCK-0120,High,Open,Software,Login issue,Login issue reported by user 612,2025-08-05,,Eve,2025-08-05 03:45:11
+TCK-0121,Low,Investigating,Access,Login issue,Login issue reported by user 247,2025-06-27,,David,2025-06-27 03:45:11
+TCK-0122,Critical,Resolved,Access,Login issue,Login issue reported by user 393,2025-10-25,2025-10-29,David,2025-10-25 03:45:11
+TCK-0123,Medium,Open,Access,Slow performance,Slow performance reported by user 557,2025-07-27,,Frank,2025-07-27 03:45:11
+TCK-0124,Medium,Resolved,Access,Email not working,Email not working reported by user 933,2025-09-16,2025-09-26,Charlie,2025-09-16 03:45:11
+TCK-0125,Low,Open,Security,Printer error,Printer error reported by user 829,2025-07-19,,Alice,2025-07-19 03:45:11
+TCK-0126,Critical,Investigating,Hardware,Slow performance,Slow performance reported by user 679,2025-09-07,,Frank,2025-09-07 03:45:11
+TCK-0127,High,Closed,Hardware,Slow performance,Slow performance reported by user 801,2025-10-08,2025-10-18,Bob,2025-10-08 03:45:11
+TCK-0128,Critical,Investigating,Access,Printer error,Printer error reported by user 200,2025-09-03,,Alice,2025-09-03 03:45:11
+TCK-0129,Critical,Investigating,Hardware,Login issue,Login issue reported by user 320,2025-07-23,,Bob,2025-07-23 03:45:11
+TCK-0130,High,Investigating,Network,Login issue,Login issue reported by user 195,2025-11-16,,Alice,2025-11-16 03:45:11
+TCK-0131,Medium,Open,Network,VPN failure,VPN failure reported by user 970,2025-07-13,,David,2025-07-13 03:45:11
+TCK-0132,Low,Closed,Other,System outage,System outage reported by user 806,2025-08-08,2025-08-11,Eve,2025-08-08 03:45:11
+TCK-0133,High,Open,Software,System outage,System outage reported by user 811,2025-10-11,,Eve,2025-10-11 03:45:11
+TCK-0134,Low,Investigating,Hardware,Login issue,Login issue reported by user 894,2025-10-27,,David,2025-10-27 03:45:11
+TCK-0135,High,Closed,Access,Email not working,Email not working reported by user 236,2025-08-05,2025-08-08,Alice,2025-08-05 03:45:11
+TCK-0136,Medium,Investigating,Software,Slow performance,Slow performance reported by user 909,2025-08-18,,David,2025-08-18 03:45:11
+TCK-0137,Medium,Closed,Access,Printer error,Printer error reported by user 150,2025-08-21,2025-08-31,Charlie,2025-08-21 03:45:11
+TCK-0138,Critical,Open,Software,Printer error,Printer error reported by user 711,2025-10-27,,Alice,2025-10-27 03:45:11
+TCK-0139,Critical,Investigating,Other,Email not working,Email not working reported by user 627,2025-10-04,,David,2025-10-04 03:45:11
+TCK-0140,Low,Closed,Security,System outage,System outage reported by user 248,2025-11-09,2025-11-15,Bob,2025-11-09 03:45:11
+TCK-0141,High,Closed,Security,Email not working,Email not working reported by user 278,2025-07-27,2025-08-02,Frank,2025-07-27 03:45:11
+TCK-0142,Medium,Closed,Software,VPN failure,VPN failure reported by user 784,2025-08-11,2025-08-12,Alice,2025-08-11 03:45:11
+TCK-0143,Low,Resolved,Other,Email not working,Email not working reported by user 935,2025-07-24,2025-07-30,Bob,2025-07-24 03:45:11
+TCK-0144,Critical,Resolved,Hardware,System outage,System outage reported by user 338,2025-11-11,2025-11-19,Charlie,2025-11-11 03:45:11
+TCK-0145,Medium,Closed,Access,Printer error,Printer error reported by user 166,2025-11-19,2025-11-29,Frank,2025-11-19 03:45:11
+TCK-0146,Medium,Investigating,Network,Login issue,Login issue reported by user 616,2025-09-23,,Frank,2025-09-23 03:45:11
+TCK-0147,Low,Investigating,Software,Slow performance,Slow performance reported by user 208,2025-11-28,,David,2025-11-28 03:45:11
+TCK-0148,High,Closed,Network,Email not working,Email not working reported by user 273,2025-11-06,2025-11-13,Frank,2025-11-06 03:45:11
+TCK-0149,Low,Open,Other,System outage,System outage reported by user 664,2025-09-09,,Alice,2025-09-09 03:45:11
+TCK-0150,High,Investigating,Access,Login issue,Login issue reported by user 592,2025-08-17,,Alice,2025-08-17 03:45:11
+TCK-0151,Critical,Closed,Software,System outage,System outage reported by user 214,2025-07-25,2025-08-04,Frank,2025-07-25 03:45:11
+TCK-0152,Medium,Resolved,Other,Slow performance,Slow performance reported by user 303,2025-10-06,2025-10-08,Bob,2025-10-06 03:45:11
+TCK-0153,High,Open,Other,Login issue,Login issue reported by user 860,2025-09-02,,Alice,2025-09-02 03:45:11
+TCK-0154,Low,Investigating,Access,VPN failure,VPN failure reported by user 390,2025-07-22,,Alice,2025-07-22 03:45:11
+TCK-0155,Low,Closed,Access,Slow performance,Slow performance reported by user 497,2025-07-28,2025-08-06,Frank,2025-07-28 03:45:11
+TCK-0156,Medium,Open,Network,System outage,System outage reported by user 683,2025-11-16,,Bob,2025-11-16 03:45:11
+TCK-0157,Low,Open,Network,System outage,System outage reported by user 998,2025-06-17,,Bob,2025-06-17 03:45:11
+TCK-0158,Low,Open,Access,Slow performance,Slow performance reported by user 966,2025-11-03,,Charlie,2025-11-03 03:45:11
+TCK-0159,Critical,Investigating,Network,Login issue,Login issue reported by user 290,2025-11-04,,Eve,2025-11-04 03:45:11
+TCK-0160,High,Closed,Access,Login issue,Login issue reported by user 651,2025-06-17,2025-06-18,Bob,2025-06-17 03:45:11
+TCK-0161,Low,Resolved,Other,Login issue,Login issue reported by user 821,2025-10-18,2025-10-23,Bob,2025-10-18 03:45:11
+TCK-0162,Critical,Open,Other,Printer error,Printer error reported by user 358,2025-12-01,,Frank,2025-12-01 03:45:11
+TCK-0163,Medium,Closed,Software,VPN failure,VPN failure reported by user 290,2025-09-22,2025-09-26,David,2025-09-22 03:45:11
+TCK-0164,Critical,Closed,Security,System outage,System outage reported by user 809,2025-06-30,2025-07-03,Alice,2025-06-30 03:45:11
+TCK-0165,Medium,Resolved,Other,Email not working,Email not working reported by user 557,2025-07-09,2025-07-14,Eve,2025-07-09 03:45:11
+TCK-0166,Low,Open,Hardware,System outage,System outage reported by user 170,2025-07-22,,Alice,2025-07-22 03:45:11
+TCK-0167,Medium,Closed,Software,Login issue,Login issue reported by user 475,2025-06-14,2025-06-17,David,2025-06-14 03:45:11
+TCK-0168,Low,Open,Hardware,Printer error,Printer error reported by user 272,2025-06-15,,Frank,2025-06-15 03:45:11
+TCK-0169,Low,Resolved,Security,VPN failure,VPN failure reported by user 411,2025-10-31,2025-11-09,Eve,2025-10-31 03:45:11
+TCK-0170,Low,Closed,Access,System outage,System outage reported by user 577,2025-10-13,2025-10-19,Frank,2025-10-13 03:45:11
+TCK-0171,Medium,Closed,Access,System outage,System outage reported by user 826,2025-10-31,2025-11-05,Eve,2025-10-31 03:45:11
+TCK-0172,High,Resolved,Access,VPN failure,VPN failure reported by user 824,2025-09-09,2025-09-17,David,2025-09-09 03:45:11
+TCK-0173,Medium,Resolved,Software,VPN failure,VPN failure reported by user 367,2025-07-04,2025-07-07,Alice,2025-07-04 03:45:11
+TCK-0174,Medium,Resolved,Other,Email not working,Email not working reported by user 349,2025-10-05,2025-10-08,Eve,2025-10-05 03:45:11
+TCK-0175,Medium,Investigating,Security,Login issue,Login issue reported by user 321,2025-11-18,,Frank,2025-11-18 03:45:11
+TCK-0176,High,Open,Access,Slow performance,Slow performance reported by user 421,2025-10-03,,David,2025-10-03 03:45:11
+TCK-0177,High,Resolved,Other,Printer error,Printer error reported by user 224,2025-09-13,2025-09-17,Eve,2025-09-13 03:45:11
+TCK-0178,Critical,Closed,Security,VPN failure,VPN failure reported by user 917,2025-11-04,2025-11-11,Charlie,2025-11-04 03:45:11
+TCK-0179,Medium,Resolved,Access,Slow performance,Slow performance reported by user 145,2025-10-11,2025-10-15,Bob,2025-10-11 03:45:11
+TCK-0180,Low,Resolved,Access,VPN failure,VPN failure reported by user 265,2025-10-28,2025-11-01,Charlie,2025-10-28 03:45:11
+TCK-0181,Critical,Open,Software,System outage,System outage reported by user 158,2025-08-29,,Eve,2025-08-29 03:45:11
+TCK-0182,Medium,Resolved,Network,System outage,System outage reported by user 438,2025-10-04,2025-10-07,Bob,2025-10-04 03:45:11
+TCK-0183,Low,Resolved,Other,Printer error,Printer error reported by user 262,2025-08-23,2025-08-28,Eve,2025-08-23 03:45:11
+TCK-0184,Low,Open,Hardware,VPN failure,VPN failure reported by user 981,2025-07-19,,Eve,2025-07-19 03:45:11
+TCK-0185,Low,Open,Network,Slow performance,Slow performance reported by user 820,2025-09-18,,Frank,2025-09-18 03:45:11
+TCK-0186,Low,Closed,Hardware,Printer error,Printer error reported by user 267,2025-06-14,2025-06-23,Frank,2025-06-14 03:45:11
+TCK-0187,High,Investigating,Network,Printer error,Printer error reported by user 963,2025-07-29,,David,2025-07-29 03:45:11
+TCK-0188,Low,Investigating,Security,Email not working,Email not working reported by user 351,2025-10-30,,Alice,2025-10-30 03:45:11
+TCK-0189,High,Closed,Security,System outage,System outage reported by user 193,2025-06-08,2025-06-11,Bob,2025-06-08 03:45:11
+TCK-0190,Medium,Closed,Security,VPN failure,VPN failure reported by user 700,2025-06-20,2025-06-28,Alice,2025-06-20 03:45:11
+TCK-0191,Critical,Open,Software,Printer error,Printer error reported by user 713,2025-10-23,,Eve,2025-10-23 03:45:11
+TCK-0192,High,Open,Hardware,Slow performance,Slow performance reported by user 320,2025-10-13,,David,2025-10-13 03:45:11
+TCK-0193,Critical,Investigating,Access,System outage,System outage reported by user 492,2025-06-14,,Bob,2025-06-14 03:45:11
+TCK-0194,Critical,Investigating,Other,System outage,System outage reported by user 944,2025-06-13,,Frank,2025-06-13 03:45:11
+TCK-0195,High,Resolved,Hardware,Printer error,Printer error reported by user 584,2025-09-15,2025-09-17,Eve,2025-09-15 03:45:11
+TCK-0196,Medium,Closed,Software,VPN failure,VPN failure reported by user 622,2025-11-12,2025-11-13,David,2025-11-12 03:45:11
+TCK-0197,Critical,Open,Access,VPN failure,VPN failure reported by user 608,2025-10-10,,Charlie,2025-10-10 03:45:11
+TCK-0198,Low,Resolved,Access,Email not working,Email not working reported by user 803,2025-10-10,2025-10-11,David,2025-10-10 03:45:11
+TCK-0199,Low,Closed,Security,Printer error,Printer error reported by user 384,2025-10-20,2025-10-26,Bob,2025-10-20 03:45:11
+TCK-0200,Medium,Resolved,Access,System outage,System outage reported by user 197,2025-09-21,2025-10-01,Frank,2025-09-21 03:45:11
+TCK-0201,Medium,Closed,Access,VPN failure,VPN failure reported by user 942,2025-08-06,2025-08-10,Charlie,2025-08-06 03:45:11
+TCK-0202,Critical,Open,Hardware,Slow performance,Slow performance reported by user 904,2025-10-16,,David,2025-10-16 03:45:11
+TCK-0203,Critical,Open,Hardware,Login issue,Login issue reported by user 110,2025-09-17,,Alice,2025-09-17 03:45:11
+TCK-0204,Low,Closed,Software,Slow performance,Slow performance reported by user 471,2025-11-29,2025-12-03,Alice,2025-11-29 03:45:11
+TCK-0205,High,Investigating,Security,System outage,System outage reported by user 823,2025-09-02,,Charlie,2025-09-02 03:45:11
+TCK-0206,Critical,Investigating,Hardware,Email not working,Email not working reported by user 214,2025-07-18,,Alice,2025-07-18 03:45:11
+TCK-0207,High,Open,Software,Printer error,Printer error reported by user 504,2025-08-13,,Alice,2025-08-13 03:45:11
+TCK-0208,Medium,Open,Network,Printer error,Printer error reported by user 208,2025-08-06,,Frank,2025-08-06 03:45:11
+TCK-0209,High,Open,Other,VPN failure,VPN failure reported by user 418,2025-09-07,,Frank,2025-09-07 03:45:11
+TCK-0210,Low,Open,Network,System outage,System outage reported by user 811,2025-10-06,,David,2025-10-06 03:45:11
+TCK-0211,Medium,Open,Other,Login issue,Login issue reported by user 853,2025-11-16,,Eve,2025-11-16 03:45:11
+TCK-0212,High,Investigating,Access,System outage,System outage reported by user 982,2025-06-28,,Frank,2025-06-28 03:45:11
+TCK-0213,Low,Closed,Hardware,Login issue,Login issue reported by user 155,2025-08-23,2025-08-24,Alice,2025-08-23 03:45:11
+TCK-0214,Medium,Resolved,Hardware,VPN failure,VPN failure reported by user 987,2025-06-19,2025-06-26,Charlie,2025-06-19 03:45:11
+TCK-0215,Medium,Open,Software,VPN failure,VPN failure reported by user 388,2025-12-04,,Alice,2025-12-04 03:45:11
+TCK-0216,High,Investigating,Network,Printer error,Printer error reported by user 113,2025-08-12,,Alice,2025-08-12 03:45:11
+TCK-0217,Medium,Resolved,Network,System outage,System outage reported by user 575,2025-08-27,2025-08-30,Eve,2025-08-27 03:45:11
+TCK-0218,Critical,Resolved,Access,System outage,System outage reported by user 293,2025-08-21,2025-08-23,Eve,2025-08-21 03:45:11
+TCK-0219,Low,Investigating,Network,Slow performance,Slow performance reported by user 580,2025-07-19,,Bob,2025-07-19 03:45:11
+TCK-0220,High,Open,Hardware,System outage,System outage reported by user 433,2025-08-19,,David,2025-08-19 03:45:11
+TCK-0221,Low,Investigating,Hardware,VPN failure,VPN failure reported by user 955,2025-09-21,,Frank,2025-09-21 03:45:11
+TCK-0222,High,Investigating,Network,Email not working,Email not working reported by user 873,2025-09-26,,David,2025-09-26 03:45:11
+TCK-0223,High,Investigating,Hardware,Email not working,Email not working reported by user 283,2025-11-01,,David,2025-11-01 03:45:11
+TCK-0224,Critical,Open,Network,System outage,System outage reported by user 876,2025-06-11,,Eve,2025-06-11 03:45:11
+TCK-0225,High,Closed,Hardware,Login issue,Login issue reported by user 154,2025-12-01,2025-12-04,Frank,2025-12-01 03:45:11
+TCK-0226,High,Investigating,Hardware,VPN failure,VPN failure reported by user 834,2025-06-14,,Alice,2025-06-14 03:45:11
+TCK-0227,High,Resolved,Network,Printer error,Printer error reported by user 774,2025-08-26,2025-08-31,Eve,2025-08-26 03:45:11
+TCK-0228,Low,Closed,Software,Printer error,Printer error reported by user 515,2025-06-25,2025-07-02,Frank,2025-06-25 03:45:11
+TCK-0229,Low,Resolved,Access,Login issue,Login issue reported by user 328,2025-11-01,2025-11-07,Eve,2025-11-01 03:45:11
+TCK-0230,Low,Resolved,Security,Slow performance,Slow performance reported by user 350,2025-06-20,2025-06-24,Alice,2025-06-20 03:45:11
+TCK-0231,High,Open,Network,System outage,System outage reported by user 601,2025-07-07,,David,2025-07-07 03:45:11
+TCK-0232,Critical,Investigating,Access,Printer error,Printer error reported by user 723,2025-09-02,,David,2025-09-02 03:45:11
+TCK-0233,Low,Open,Security,Slow performance,Slow performance reported by user 892,2025-08-12,,Alice,2025-08-12 03:45:11
+TCK-0234,Medium,Open,Other,Printer error,Printer error reported by user 461,2025-07-02,,David,2025-07-02 03:45:11
+TCK-0235,Critical,Open,Access,Printer error,Printer error reported by user 420,2025-11-08,,Eve,2025-11-08 03:45:11
+TCK-0236,High,Open,Network,Login issue,Login issue reported by user 239,2025-08-24,,Eve,2025-08-24 03:45:11
+TCK-0237,Low,Closed,Security,Slow performance,Slow performance reported by user 687,2025-07-25,2025-07-28,Frank,2025-07-25 03:45:11
+TCK-0238,Low,Open,Access,System outage,System outage reported by user 388,2025-10-18,,Bob,2025-10-18 03:45:11
+TCK-0239,Low,Investigating,Network,Printer error,Printer error reported by user 515,2025-11-18,,Eve,2025-11-18 03:45:11
+TCK-0240,Critical,Open,Network,Slow performance,Slow performance reported by user 740,2025-07-10,,Frank,2025-07-10 03:45:11
+TCK-0241,High,Closed,Hardware,Printer error,Printer error reported by user 809,2025-07-12,2025-07-15,Charlie,2025-07-12 03:45:11
+TCK-0242,High,Open,Hardware,Login issue,Login issue reported by user 332,2025-11-09,,Frank,2025-11-09 03:45:11
+TCK-0243,High,Resolved,Hardware,Email not working,Email not working reported by user 462,2025-11-23,2025-11-30,Charlie,2025-11-23 03:45:11
+TCK-0244,Critical,Open,Network,Email not working,Email not working reported by user 148,2025-06-27,,David,2025-06-27 03:45:11
+TCK-0245,Critical,Investigating,Network,Email not working,Email not working reported by user 448,2025-08-03,,Eve,2025-08-03 03:45:11
+TCK-0246,Critical,Open,Network,Slow performance,Slow performance reported by user 965,2025-07-26,,Bob,2025-07-26 03:45:11
+TCK-0247,High,Investigating,Software,Login issue,Login issue reported by user 403,2025-08-13,,Frank,2025-08-13 03:45:11
+TCK-0248,High,Investigating,Security,System outage,System outage reported by user 190,2025-06-24,,Frank,2025-06-24 03:45:11
+TCK-0249,Low,Resolved,Software,Email not working,Email not working reported by user 284,2025-10-07,2025-10-12,Charlie,2025-10-07 03:45:11
+TCK-0250,Critical,Open,Other,Printer error,Printer error reported by user 757,2025-10-19,,David,2025-10-19 03:45:11
+TCK-0251,Medium,Open,Network,Slow performance,Slow performance reported by user 603,2025-08-31,,Frank,2025-08-31 03:45:11
+TCK-0252,Medium,Closed,Access,System outage,System outage reported by user 233,2025-09-13,2025-09-19,Charlie,2025-09-13 03:45:11
+TCK-0253,Low,Investigating,Security,Printer error,Printer error reported by user 476,2025-07-20,,Alice,2025-07-20 03:45:11
+TCK-0254,High,Resolved,Access,Login issue,Login issue reported by user 823,2025-10-05,2025-10-11,Frank,2025-10-05 03:45:11
+TCK-0255,Low,Investigating,Network,Slow performance,Slow performance reported by user 151,2025-07-26,,Eve,2025-07-26 03:45:11
+TCK-0256,Low,Closed,Security,Printer error,Printer error reported by user 818,2025-07-13,2025-07-22,David,2025-07-13 03:45:11
+TCK-0257,High,Investigating,Hardware,System outage,System outage reported by user 668,2025-06-20,,Frank,2025-06-20 03:45:11
+TCK-0258,Critical,Closed,Software,Email not working,Email not working reported by user 883,2025-11-05,2025-11-11,David,2025-11-05 03:45:11
+TCK-0259,Critical,Investigating,Software,VPN failure,VPN failure reported by user 310,2025-09-13,,Bob,2025-09-13 03:45:11
+TCK-0260,High,Open,Hardware,Email not working,Email not working reported by user 559,2025-07-31,,Charlie,2025-07-31 03:45:11
+TCK-0261,Medium,Investigating,Network,Printer error,Printer error reported by user 576,2025-10-13,,Eve,2025-10-13 03:45:11
+TCK-0262,High,Resolved,Other,Login issue,Login issue reported by user 150,2025-10-06,2025-10-14,Eve,2025-10-06 03:45:11
+TCK-0263,Critical,Open,Network,Printer error,Printer error reported by user 785,2025-09-17,,Alice,2025-09-17 03:45:11
+TCK-0264,Low,Resolved,Other,VPN failure,VPN failure reported by user 207,2025-09-23,2025-09-29,Eve,2025-09-23 03:45:11
+TCK-0265,Medium,Resolved,Access,Printer error,Printer error reported by user 618,2025-09-29,2025-10-02,Bob,2025-09-29 03:45:11
+TCK-0266,High,Closed,Access,Printer error,Printer error reported by user 373,2025-08-26,2025-09-04,Eve,2025-08-26 03:45:11
+TCK-0267,Critical,Resolved,Software,System outage,System outage reported by user 497,2025-07-04,2025-07-12,Eve,2025-07-04 03:45:11
+TCK-0268,Critical,Closed,Software,System outage,System outage reported by user 360,2025-10-04,2025-10-14,David,2025-10-04 03:45:11
+TCK-0269,High,Investigating,Security,Login issue,Login issue reported by user 606,2025-06-18,,David,2025-06-18 03:45:11
+TCK-0270,High,Closed,Other,VPN failure,VPN failure reported by user 643,2025-07-01,2025-07-04,Bob,2025-07-01 03:45:11
+TCK-0271,Critical,Closed,Network,System outage,System outage reported by user 780,2025-10-20,2025-10-26,Bob,2025-10-20 03:45:11
+TCK-0272,Critical,Closed,Access,Slow performance,Slow performance reported by user 801,2025-12-02,2025-12-03,Alice,2025-12-02 03:45:11
+TCK-0273,Medium,Investigating,Security,Slow performance,Slow performance reported by user 931,2025-10-05,,Eve,2025-10-05 03:45:11
+TCK-0274,High,Closed,Hardware,Email not working,Email not working reported by user 583,2025-09-13,2025-09-23,David,2025-09-13 03:45:11
+TCK-0275,High,Investigating,Security,Email not working,Email not working reported by user 649,2025-09-28,,David,2025-09-28 03:45:11
+TCK-0276,Medium,Closed,Hardware,VPN failure,VPN failure reported by user 272,2025-11-17,2025-11-19,Eve,2025-11-17 03:45:11
+TCK-0277,Medium,Resolved,Software,Printer error,Printer error reported by user 855,2025-11-02,2025-11-04,Alice,2025-11-02 03:45:11
+TCK-0278,Medium,Open,Security,Printer error,Printer error reported by user 732,2025-07-30,,Eve,2025-07-30 03:45:11
+TCK-0279,Low,Resolved,Hardware,Slow performance,Slow performance reported by user 412,2025-07-10,2025-07-17,Eve,2025-07-10 03:45:11
+TCK-0280,Low,Closed,Other,VPN failure,VPN failure reported by user 306,2025-09-08,2025-09-17,Frank,2025-09-08 03:45:11
+TCK-0281,Low,Closed,Other,Slow performance,Slow performance reported by user 544,2025-11-29,2025-12-05,David,2025-11-29 03:45:11
+TCK-0282,Critical,Open,Hardware,Printer error,Printer error reported by user 756,2025-07-25,,Charlie,2025-07-25 03:45:11
+TCK-0283,Critical,Closed,Hardware,VPN failure,VPN failure reported by user 183,2025-08-08,2025-08-18,Frank,2025-08-08 03:45:11
+TCK-0284,Medium,Open,Software,Printer error,Printer error reported by user 393,2025-11-01,,David,2025-11-01 03:45:11
+TCK-0285,High,Closed,Security,Email not working,Email not working reported by user 919,2025-10-04,2025-10-05,Frank,2025-10-04 03:45:11
+TCK-0286,Medium,Closed,Access,Slow performance,Slow performance reported by user 888,2025-10-29,2025-11-01,Bob,2025-10-29 03:45:11
+TCK-0287,High,Resolved,Software,System outage,System outage reported by user 474,2025-12-03,2025-12-09,Eve,2025-12-03 03:45:11
+TCK-0288,Low,Resolved,Access,Slow performance,Slow performance reported by user 661,2025-12-01,2025-12-08,David,2025-12-01 03:45:11
+TCK-0289,Medium,Open,Software,System outage,System outage reported by user 664,2025-11-06,,David,2025-11-06 03:45:11
+TCK-0290,Critical,Resolved,Hardware,Email not working,Email not working reported by user 295,2025-09-14,2025-09-22,Frank,2025-09-14 03:45:11
+TCK-0291,High,Closed,Other,Printer error,Printer error reported by user 916,2025-10-12,2025-10-16,Bob,2025-10-12 03:45:11
+TCK-0292,High,Open,Network,VPN failure,VPN failure reported by user 494,2025-07-23,,Eve,2025-07-23 03:45:11
+TCK-0293,High,Closed,Network,Printer error,Printer error reported by user 931,2025-11-06,2025-11-09,Charlie,2025-11-06 03:45:11
+TCK-0294,Low,Investigating,Software,Slow performance,Slow performance reported by user 266,2025-10-25,,Bob,2025-10-25 03:45:11
+TCK-0295,High,Open,Hardware,Slow performance,Slow performance reported by user 505,2025-10-16,,Frank,2025-10-16 03:45:11
+TCK-0296,High,Investigating,Network,VPN failure,VPN failure reported by user 234,2025-08-03,,David,2025-08-03 03:45:11
+TCK-0297,Low,Open,Software,Slow performance,Slow performance reported by user 641,2025-09-03,,Charlie,2025-09-03 03:45:11
+TCK-0298,High,Resolved,Network,VPN failure,VPN failure reported by user 643,2025-07-08,2025-07-11,Charlie,2025-07-08 03:45:11
+TCK-0299,Critical,Open,Other,Printer error,Printer error reported by user 286,2025-11-19,,Charlie,2025-11-19 03:45:11
+TCK-0300,Low,Investigating,Access,Email not working,Email not working reported by user 143,2025-06-30,,Eve,2025-06-30 03:45:11
+TCK-0301,Low,Investigating,Access,Email not working,Email not working reported by user 625,2025-08-26,,Frank,2025-08-26 03:45:11
+TCK-0302,Low,Resolved,Access,Slow performance,Slow performance reported by user 297,2025-08-31,2025-09-01,David,2025-08-31 03:45:11
+TCK-0303,Critical,Investigating,Other,Slow performance,Slow performance reported by user 421,2025-06-20,,Bob,2025-06-20 03:45:11
+TCK-0304,High,Resolved,Network,Slow performance,Slow performance reported by user 135,2025-08-18,2025-08-22,Bob,2025-08-18 03:45:11
+TCK-0305,Low,Resolved,Security,Slow performance,Slow performance reported by user 478,2025-08-08,2025-08-17,Eve,2025-08-08 03:45:11
+TCK-0306,Low,Investigating,Other,Slow performance,Slow performance reported by user 559,2025-09-11,,Alice,2025-09-11 03:45:11
+TCK-0307,High,Resolved,Other,Email not working,Email not working reported by user 927,2025-09-07,2025-09-08,Frank,2025-09-07 03:45:11
+TCK-0308,Low,Investigating,Hardware,Login issue,Login issue reported by user 182,2025-10-29,,Eve,2025-10-29 03:45:11
+TCK-0309,Medium,Open,Software,Login issue,Login issue reported by user 631,2025-10-28,,Charlie,2025-10-28 03:45:11
+TCK-0310,Medium,Resolved,Hardware,System outage,System outage reported by user 678,2025-09-25,2025-10-03,Frank,2025-09-25 03:45:11
+TCK-0311,Low,Closed,Access,System outage,System outage reported by user 681,2025-10-26,2025-10-29,Frank,2025-10-26 03:45:11
+TCK-0312,Critical,Closed,Network,VPN failure,VPN failure reported by user 753,2025-10-27,2025-11-06,Frank,2025-10-27 03:45:11
+TCK-0313,High,Open,Network,Printer error,Printer error reported by user 344,2025-09-21,,Bob,2025-09-21 03:45:11
+TCK-0314,Critical,Resolved,Hardware,System outage,System outage reported by user 584,2025-11-30,2025-12-10,David,2025-11-30 03:45:11
+TCK-0315,Medium,Open,Access,Email not working,Email not working reported by user 376,2025-11-21,,Frank,2025-11-21 03:45:11
+TCK-0316,Low,Resolved,Access,Printer error,Printer error reported by user 560,2025-09-01,2025-09-05,Frank,2025-09-01 03:45:11
+TCK-0317,Medium,Investigating,Hardware,Email not working,Email not working reported by user 784,2025-06-30,,Bob,2025-06-30 03:45:11
+TCK-0318,Medium,Resolved,Security,Email not working,Email not working reported by user 238,2025-06-09,2025-06-14,Charlie,2025-06-09 03:45:11
+TCK-0319,Low,Open,Other,Printer error,Printer error reported by user 827,2025-08-01,,Alice,2025-08-01 03:45:11
+TCK-0320,Low,Resolved,Hardware,Slow performance,Slow performance reported by user 442,2025-09-23,2025-09-25,Bob,2025-09-23 03:45:11
+TCK-0321,High,Resolved,Access,VPN failure,VPN failure reported by user 623,2025-09-24,2025-10-02,Frank,2025-09-24 03:45:11
+TCK-0322,Critical,Investigating,Other,Slow performance,Slow performance reported by user 788,2025-09-03,,Frank,2025-09-03 03:45:11
+TCK-0323,High,Closed,Other,Printer error,Printer error reported by user 114,2025-08-16,2025-08-21,David,2025-08-16 03:45:11
+TCK-0324,Critical,Investigating,Access,Printer error,Printer error reported by user 787,2025-07-19,,Frank,2025-07-19 03:45:11
+TCK-0325,Low,Investigating,Access,Login issue,Login issue reported by user 308,2025-09-24,,Bob,2025-09-24 03:45:11
+TCK-0326,Medium,Open,Hardware,Email not working,Email not working reported by user 149,2025-10-06,,Alice,2025-10-06 03:45:11
+TCK-0327,Critical,Investigating,Hardware,Printer error,Printer error reported by user 622,2025-07-03,,Alice,2025-07-03 03:45:11
+TCK-0328,Low,Resolved,Other,System outage,System outage reported by user 170,2025-10-07,2025-10-16,Charlie,2025-10-07 03:45:11
+TCK-0329,Low,Closed,Other,Login issue,Login issue reported by user 577,2025-10-03,2025-10-10,Eve,2025-10-03 03:45:11
+TCK-0330,Critical,Resolved,Software,Login issue,Login issue reported by user 715,2025-10-31,2025-11-08,Frank,2025-10-31 03:45:11
+TCK-0331,Medium,Investigating,Access,Email not working,Email not working reported by user 700,2025-09-02,,Bob,2025-09-02 03:45:11
+TCK-0332,Low,Investigating,Other,Printer error,Printer error reported by user 115,2025-12-02,,David,2025-12-02 03:45:11
+TCK-0333,Low,Investigating,Software,Email not working,Email not working reported by user 946,2025-08-14,,David,2025-08-14 03:45:11
+TCK-0334,Critical,Resolved,Other,Printer error,Printer error reported by user 566,2025-10-29,2025-11-05,Frank,2025-10-29 03:45:11
+TCK-0335,Medium,Open,Access,Login issue,Login issue reported by user 252,2025-11-30,,David,2025-11-30 03:45:11
+TCK-0336,Critical,Closed,Hardware,Slow performance,Slow performance reported by user 678,2025-06-24,2025-06-28,Charlie,2025-06-24 03:45:11
+TCK-0337,Low,Resolved,Other,Login issue,Login issue reported by user 782,2025-10-09,2025-10-15,Alice,2025-10-09 03:45:11
+TCK-0338,High,Closed,Access,System outage,System outage reported by user 548,2025-07-04,2025-07-06,Bob,2025-07-04 03:45:11
+TCK-0339,Medium,Investigating,Hardware,Email not working,Email not working reported by user 581,2025-07-12,,Bob,2025-07-12 03:45:11
+TCK-0340,Medium,Investigating,Network,Email not working,Email not working reported by user 440,2025-10-24,,Frank,2025-10-24 03:45:11
+TCK-0341,Critical,Investigating,Access,System outage,System outage reported by user 328,2025-07-08,,Frank,2025-07-08 03:45:11
+TCK-0342,Low,Open,Other,VPN failure,VPN failure reported by user 288,2025-08-21,,David,2025-08-21 03:45:11
+TCK-0343,Medium,Investigating,Security,System outage,System outage reported by user 604,2025-10-28,,Charlie,2025-10-28 03:45:11
+TCK-0344,Critical,Open,Other,System outage,System outage reported by user 919,2025-11-14,,David,2025-11-14 03:45:11
+TCK-0345,Low,Closed,Hardware,Login issue,Login issue reported by user 506,2025-08-21,2025-08-24,David,2025-08-21 03:45:11
+TCK-0346,Critical,Investigating,Access,Email not working,Email not working reported by user 296,2025-06-22,,Bob,2025-06-22 03:45:11
+TCK-0347,Critical,Closed,Access,VPN failure,VPN failure reported by user 322,2025-07-27,2025-07-31,Frank,2025-07-27 03:45:11
+TCK-0348,Critical,Open,Access,Slow performance,Slow performance reported by user 414,2025-06-20,,Alice,2025-06-20 03:45:11
+TCK-0349,Medium,Closed,Security,VPN failure,VPN failure reported by user 654,2025-10-04,2025-10-10,Frank,2025-10-04 03:45:11
+TCK-0350,Medium,Closed,Software,VPN failure,VPN failure reported by user 454,2025-07-01,2025-07-02,Eve,2025-07-01 03:45:11
+TCK-0351,Low,Open,Hardware,Login issue,Login issue reported by user 109,2025-10-12,,Charlie,2025-10-12 03:45:11
+TCK-0352,Critical,Resolved,Network,Slow performance,Slow performance reported by user 505,2025-12-01,2025-12-04,Frank,2025-12-01 03:45:11
+TCK-0353,Medium,Investigating,Network,Email not working,Email not working reported by user 183,2025-06-30,,Bob,2025-06-30 03:45:11
+TCK-0354,Critical,Open,Access,Email not working,Email not working reported by user 261,2025-09-07,,David,2025-09-07 03:45:11
+TCK-0355,Critical,Resolved,Software,VPN failure,VPN failure reported by user 898,2025-11-08,2025-11-17,Alice,2025-11-08 03:45:11
+TCK-0356,Low,Closed,Hardware,Email not working,Email not working reported by user 740,2025-10-03,2025-10-12,Alice,2025-10-03 03:45:11
+TCK-0357,Critical,Open,Hardware,Printer error,Printer error reported by user 664,2025-07-26,,Frank,2025-07-26 03:45:11
+TCK-0358,High,Closed,Access,Login issue,Login issue reported by user 131,2025-09-22,2025-09-28,Alice,2025-09-22 03:45:11
+TCK-0359,Medium,Investigating,Security,System outage,System outage reported by user 795,2025-07-04,,Charlie,2025-07-04 03:45:11
+TCK-0360,Critical,Open,Software,Printer error,Printer error reported by user 369,2025-08-09,,Alice,2025-08-09 03:45:11
+TCK-0361,Medium,Closed,Other,Slow performance,Slow performance reported by user 820,2025-10-11,2025-10-21,Bob,2025-10-11 03:45:11
+TCK-0362,Low,Investigating,Security,System outage,System outage reported by user 187,2025-09-12,,Bob,2025-09-12 03:45:11
+TCK-0363,High,Closed,Network,Email not working,Email not working reported by user 556,2025-10-21,2025-10-31,Charlie,2025-10-21 03:45:11
+TCK-0364,Medium,Closed,Security,VPN failure,VPN failure reported by user 560,2025-08-19,2025-08-23,David,2025-08-19 03:45:11
+TCK-0365,Critical,Resolved,Network,System outage,System outage reported by user 812,2025-06-30,2025-07-10,Frank,2025-06-30 03:45:11
+TCK-0366,Low,Investigating,Software,Login issue,Login issue reported by user 596,2025-07-26,,Eve,2025-07-26 03:45:11
+TCK-0367,Low,Open,Hardware,System outage,System outage reported by user 977,2025-11-02,,Bob,2025-11-02 03:45:11
+TCK-0368,Low,Closed,Hardware,Slow performance,Slow performance reported by user 614,2025-09-15,2025-09-16,Charlie,2025-09-15 03:45:11
+TCK-0369,Critical,Open,Other,System outage,System outage reported by user 199,2025-07-23,,David,2025-07-23 03:45:11
+TCK-0370,High,Open,Security,Login issue,Login issue reported by user 658,2025-07-04,,Charlie,2025-07-04 03:45:11
+TCK-0371,Low,Closed,Hardware,Login issue,Login issue reported by user 713,2025-09-01,2025-09-10,Eve,2025-09-01 03:45:11
+TCK-0372,Medium,Open,Access,Printer error,Printer error reported by user 359,2025-06-09,,Frank,2025-06-09 03:45:11
+TCK-0373,Medium,Resolved,Software,Email not working,Email not working reported by user 595,2025-11-19,2025-11-25,Eve,2025-11-19 03:45:11
+TCK-0374,Low,Investigating,Other,Email not working,Email not working reported by user 683,2025-07-28,,Eve,2025-07-28 03:45:11
+TCK-0375,Medium,Open,Other,VPN failure,VPN failure reported by user 954,2025-11-24,,Alice,2025-11-24 03:45:11
+TCK-0376,Medium,Investigating,Other,Printer error,Printer error reported by user 404,2025-11-10,,Frank,2025-11-10 03:45:11
+TCK-0377,Medium,Investigating,Hardware,System outage,System outage reported by user 686,2025-08-15,,Charlie,2025-08-15 03:45:11
+TCK-0378,Critical,Investigating,Other,Email not working,Email not working reported by user 496,2025-06-16,,Bob,2025-06-16 03:45:11
+TCK-0379,Critical,Investigating,Access,Slow performance,Slow performance reported by user 221,2025-06-17,,Frank,2025-06-17 03:45:11
+TCK-0380,Low,Open,Access,System outage,System outage reported by user 351,2025-08-19,,Charlie,2025-08-19 03:45:11
+TCK-0381,High,Open,Hardware,Printer error,Printer error reported by user 778,2025-10-30,,Alice,2025-10-30 03:45:11
+TCK-0382,High,Investigating,Other,Login issue,Login issue reported by user 461,2025-07-24,,Eve,2025-07-24 03:45:11
+TCK-0383,High,Open,Access,VPN failure,VPN failure reported by user 656,2025-07-19,,Eve,2025-07-19 03:45:11
+TCK-0384,Medium,Open,Other,VPN failure,VPN failure reported by user 512,2025-06-17,,Bob,2025-06-17 03:45:11
+TCK-0385,Critical,Open,Access,Printer error,Printer error reported by user 494,2025-06-10,,David,2025-06-10 03:45:11
+TCK-0386,Critical,Open,Security,Printer error,Printer error reported by user 306,2025-11-15,,Bob,2025-11-15 03:45:11
+TCK-0387,Low,Resolved,Security,Email not working,Email not working reported by user 932,2025-07-22,2025-07-29,David,2025-07-22 03:45:11
+TCK-0388,Medium,Resolved,Other,Slow performance,Slow performance reported by user 404,2025-08-03,2025-08-12,Charlie,2025-08-03 03:45:11
+TCK-0389,High,Investigating,Access,VPN failure,VPN failure reported by user 602,2025-10-15,,Alice,2025-10-15 03:45:11
+TCK-0390,Low,Resolved,Security,Printer error,Printer error reported by user 466,2025-08-23,2025-09-02,Bob,2025-08-23 03:45:11
+TCK-0391,High,Closed,Network,Slow performance,Slow performance reported by user 390,2025-07-04,2025-07-07,Frank,2025-07-04 03:45:11
+TCK-0392,Medium,Closed,Other,Printer error,Printer error reported by user 368,2025-08-25,2025-09-03,David,2025-08-25 03:45:11
+TCK-0393,Low,Open,Security,System outage,System outage reported by user 188,2025-10-18,,Bob,2025-10-18 03:45:11
+TCK-0394,High,Closed,Hardware,Slow performance,Slow performance reported by user 267,2025-08-03,2025-08-09,Eve,2025-08-03 03:45:11
+TCK-0395,High,Resolved,Access,VPN failure,VPN failure reported by user 902,2025-11-17,2025-11-24,Alice,2025-11-17 03:45:11
+TCK-0396,Critical,Investigating,Security,Login issue,Login issue reported by user 391,2025-08-26,,Charlie,2025-08-26 03:45:11
+TCK-0397,High,Resolved,Network,VPN failure,VPN failure reported by user 521,2025-09-06,2025-09-15,Eve,2025-09-06 03:45:11
+TCK-0398,High,Resolved,Other,Email not working,Email not working reported by user 685,2025-06-13,2025-06-19,David,2025-06-13 03:45:11
+TCK-0399,Medium,Open,Network,VPN failure,VPN failure reported by user 226,2025-08-30,,Charlie,2025-08-30 03:45:11
+TCK-0400,Medium,Resolved,Hardware,VPN failure,VPN failure reported by user 931,2025-09-21,2025-09-26,Alice,2025-09-21 03:45:11
+TCK-0401,Critical,Resolved,Hardware,VPN failure,VPN failure reported by user 311,2025-11-16,2025-11-25,Bob,2025-11-16 03:45:11
+TCK-0402,Critical,Open,Hardware,Email not working,Email not working reported by user 497,2025-08-21,,Frank,2025-08-21 03:45:11
+TCK-0403,Critical,Resolved,Hardware,Email not working,Email not working reported by user 954,2025-08-25,2025-08-30,Charlie,2025-08-25 03:45:11
+TCK-0404,High,Resolved,Hardware,Printer error,Printer error reported by user 284,2025-07-07,2025-07-14,Bob,2025-07-07 03:45:11
+TCK-0405,Medium,Open,Other,System outage,System outage reported by user 859,2025-09-02,,David,2025-09-02 03:45:11
+TCK-0406,Low,Investigating,Network,Login issue,Login issue reported by user 467,2025-08-03,,Eve,2025-08-03 03:45:11
+TCK-0407,Critical,Closed,Software,Login issue,Login issue reported by user 827,2025-07-06,2025-07-13,Eve,2025-07-06 03:45:11
+TCK-0408,Critical,Open,Software,Email not working,Email not working reported by user 160,2025-08-23,,Frank,2025-08-23 03:45:11
+TCK-0409,Medium,Investigating,Security,Email not working,Email not working reported by user 566,2025-08-15,,Charlie,2025-08-15 03:45:11
+TCK-0410,Low,Closed,Security,VPN failure,VPN failure reported by user 758,2025-07-20,2025-07-29,Bob,2025-07-20 03:45:11
+TCK-0411,Critical,Resolved,Access,Email not working,Email not working reported by user 303,2025-11-10,2025-11-20,David,2025-11-10 03:45:11
+TCK-0412,High,Investigating,Access,Email not working,Email not working reported by user 936,2025-09-29,,Alice,2025-09-29 03:45:11
+TCK-0413,Low,Open,Network,System outage,System outage reported by user 266,2025-06-13,,Frank,2025-06-13 03:45:11
+TCK-0414,High,Investigating,Software,Slow performance,Slow performance reported by user 459,2025-10-25,,Charlie,2025-10-25 03:45:11
+TCK-0415,Low,Resolved,Hardware,VPN failure,VPN failure reported by user 601,2025-11-14,2025-11-19,David,2025-11-14 03:45:11
+TCK-0416,Low,Closed,Network,Printer error,Printer error reported by user 273,2025-10-05,2025-10-08,David,2025-10-05 03:45:11
+TCK-0417,High,Closed,Software,Slow performance,Slow performance reported by user 241,2025-07-15,2025-07-23,Charlie,2025-07-15 03:45:11
+TCK-0418,Critical,Resolved,Security,Email not working,Email not working reported by user 848,2025-07-28,2025-08-07,Alice,2025-07-28 03:45:11
+TCK-0419,High,Open,Other,Login issue,Login issue reported by user 191,2025-06-18,,Alice,2025-06-18 03:45:11
+TCK-0420,High,Open,Network,System outage,System outage reported by user 412,2025-11-21,,Bob,2025-11-21 03:45:11
+TCK-0421,High,Open,Security,VPN failure,VPN failure reported by user 731,2025-08-17,,David,2025-08-17 03:45:11
+TCK-0422,High,Resolved,Access,Slow performance,Slow performance reported by user 450,2025-09-13,2025-09-22,Frank,2025-09-13 03:45:11
+TCK-0423,Medium,Resolved,Access,Slow performance,Slow performance reported by user 727,2025-09-23,2025-10-01,Bob,2025-09-23 03:45:11
+TCK-0424,Critical,Closed,Access,Slow performance,Slow performance reported by user 749,2025-06-26,2025-07-06,Alice,2025-06-26 03:45:11
+TCK-0425,Critical,Investigating,Access,Slow performance,Slow performance reported by user 670,2025-09-12,,Alice,2025-09-12 03:45:11
+TCK-0426,Critical,Resolved,Security,Slow performance,Slow performance reported by user 325,2025-08-10,2025-08-11,Charlie,2025-08-10 03:45:11
+TCK-0427,Low,Resolved,Other,VPN failure,VPN failure reported by user 649,2025-08-13,2025-08-16,Charlie,2025-08-13 03:45:11
+TCK-0428,Low,Closed,Security,Email not working,Email not working reported by user 327,2025-08-24,2025-08-30,Frank,2025-08-24 03:45:11
+TCK-0429,High,Resolved,Software,System outage,System outage reported by user 274,2025-09-08,2025-09-14,Bob,2025-09-08 03:45:11
+TCK-0430,Low,Investigating,Access,Email not working,Email not working reported by user 591,2025-09-19,,Alice,2025-09-19 03:45:11
+TCK-0431,Medium,Closed,Software,Printer error,Printer error reported by user 936,2025-11-08,2025-11-10,Bob,2025-11-08 03:45:11
+TCK-0432,High,Resolved,Hardware,Slow performance,Slow performance reported by user 792,2025-08-02,2025-08-09,David,2025-08-02 03:45:11
+TCK-0433,Critical,Closed,Access,Email not working,Email not working reported by user 707,2025-10-05,2025-10-10,David,2025-10-05 03:45:11
+TCK-0434,High,Open,Software,VPN failure,VPN failure reported by user 285,2025-06-18,,Eve,2025-06-18 03:45:11
+TCK-0435,High,Resolved,Security,System outage,System outage reported by user 313,2025-07-01,2025-07-07,Frank,2025-07-01 03:45:11
+TCK-0436,Low,Open,Access,Slow performance,Slow performance reported by user 676,2025-06-11,,Frank,2025-06-11 03:45:11
+TCK-0437,Critical,Open,Access,System outage,System outage reported by user 946,2025-06-25,,Frank,2025-06-25 03:45:11
+TCK-0438,Medium,Closed,Access,Login issue,Login issue reported by user 820,2025-06-13,2025-06-22,Frank,2025-06-13 03:45:11
+TCK-0439,Medium,Investigating,Other,Slow performance,Slow performance reported by user 742,2025-09-03,,David,2025-09-03 03:45:11
+TCK-0440,High,Resolved,Software,Slow performance,Slow performance reported by user 739,2025-08-28,2025-08-31,David,2025-08-28 03:45:11
+TCK-0441,Low,Resolved,Software,Email not working,Email not working reported by user 888,2025-11-23,2025-11-24,David,2025-11-23 03:45:11
+TCK-0442,Low,Resolved,Access,Printer error,Printer error reported by user 245,2025-08-31,2025-09-10,Charlie,2025-08-31 03:45:11
+TCK-0443,High,Resolved,Other,VPN failure,VPN failure reported by user 104,2025-09-22,2025-09-27,Bob,2025-09-22 03:45:11
+TCK-0444,Medium,Closed,Other,VPN failure,VPN failure reported by user 682,2025-11-14,2025-11-21,Charlie,2025-11-14 03:45:11
+TCK-0445,Low,Open,Other,VPN failure,VPN failure reported by user 954,2025-06-25,,Alice,2025-06-25 03:45:11
+TCK-0446,Medium,Closed,Security,Printer error,Printer error reported by user 475,2025-09-30,2025-10-08,Bob,2025-09-30 03:45:11
+TCK-0447,High,Investigating,Software,Printer error,Printer error reported by user 663,2025-06-22,,Eve,2025-06-22 03:45:11
+TCK-0448,Medium,Investigating,Software,Email not working,Email not working reported by user 564,2025-11-16,,Eve,2025-11-16 03:45:11
+TCK-0449,Critical,Open,Network,Email not working,Email not working reported by user 204,2025-09-16,,Bob,2025-09-16 03:45:11
+TCK-0450,Critical,Closed,Access,Login issue,Login issue reported by user 640,2025-08-11,2025-08-14,Charlie,2025-08-11 03:45:11
+TCK-0451,Critical,Closed,Other,System outage,System outage reported by user 780,2025-10-19,2025-10-22,Eve,2025-10-19 03:45:11
+TCK-0452,Low,Investigating,Software,VPN failure,VPN failure reported by user 690,2025-09-21,,Bob,2025-09-21 03:45:11
+TCK-0453,Critical,Resolved,Software,Printer error,Printer error reported by user 261,2025-10-30,2025-10-31,Charlie,2025-10-30 03:45:11
+TCK-0454,High,Investigating,Access,Login issue,Login issue reported by user 881,2025-10-24,,Alice,2025-10-24 03:45:11
+TCK-0455,Low,Open,Hardware,Slow performance,Slow performance reported by user 291,2025-08-20,,David,2025-08-20 03:45:11
+TCK-0456,Low,Open,Hardware,System outage,System outage reported by user 483,2025-11-14,,Frank,2025-11-14 03:45:11
+TCK-0457,Medium,Investigating,Access,System outage,System outage reported by user 534,2025-08-04,,Bob,2025-08-04 03:45:11
+TCK-0458,Low,Open,Other,System outage,System outage reported by user 696,2025-09-14,,Alice,2025-09-14 03:45:11
+TCK-0459,High,Closed,Hardware,Email not working,Email not working reported by user 800,2025-11-20,2025-11-21,David,2025-11-20 03:45:11
+TCK-0460,Low,Open,Software,Slow performance,Slow performance reported by user 311,2025-09-07,,Eve,2025-09-07 03:45:11
+TCK-0461,Low,Open,Security,Slow performance,Slow performance reported by user 412,2025-07-02,,David,2025-07-02 03:45:11
+TCK-0462,Critical,Closed,Other,Slow performance,Slow performance reported by user 143,2025-07-15,2025-07-16,Bob,2025-07-15 03:45:11
+TCK-0463,High,Resolved,Hardware,System outage,System outage reported by user 788,2025-07-19,2025-07-23,David,2025-07-19 03:45:11
+TCK-0464,High,Resolved,Software,Printer error,Printer error reported by user 942,2025-11-27,2025-11-30,Bob,2025-11-27 03:45:11
+TCK-0465,Critical,Investigating,Hardware,System outage,System outage reported by user 136,2025-11-28,,Eve,2025-11-28 03:45:11
+TCK-0466,Medium,Open,Software,System outage,System outage reported by user 951,2025-08-26,,Bob,2025-08-26 03:45:11
+TCK-0467,Medium,Resolved,Access,Login issue,Login issue reported by user 890,2025-08-04,2025-08-14,Eve,2025-08-04 03:45:11
+TCK-0468,High,Closed,Access,Slow performance,Slow performance reported by user 542,2025-06-09,2025-06-19,Bob,2025-06-09 03:45:11
+TCK-0469,High,Resolved,Security,VPN failure,VPN failure reported by user 529,2025-11-14,2025-11-18,Bob,2025-11-14 03:45:11
+TCK-0470,Critical,Investigating,Hardware,Slow performance,Slow performance reported by user 180,2025-09-13,,David,2025-09-13 03:45:11
+TCK-0471,Low,Investigating,Network,Slow performance,Slow performance reported by user 737,2025-11-03,,Alice,2025-11-03 03:45:11
+TCK-0472,Medium,Resolved,Hardware,VPN failure,VPN failure reported by user 881,2025-06-25,2025-06-30,David,2025-06-25 03:45:11
+TCK-0473,Low,Investigating,Security,Login issue,Login issue reported by user 106,2025-12-02,,David,2025-12-02 03:45:11
+TCK-0474,Low,Closed,Network,Slow performance,Slow performance reported by user 775,2025-11-04,2025-11-08,Frank,2025-11-04 03:45:11
+TCK-0475,Medium,Resolved,Software,Printer error,Printer error reported by user 652,2025-06-20,2025-06-24,Eve,2025-06-20 03:45:11
+TCK-0476,Critical,Investigating,Other,Printer error,Printer error reported by user 898,2025-09-27,,Bob,2025-09-27 03:45:11
+TCK-0477,Low,Open,Security,Slow performance,Slow performance reported by user 927,2025-11-13,,Charlie,2025-11-13 03:45:11
+TCK-0478,Medium,Open,Security,Slow performance,Slow performance reported by user 758,2025-08-28,,Bob,2025-08-28 03:45:11
+TCK-0479,Medium,Open,Other,Email not working,Email not working reported by user 717,2025-11-08,,Eve,2025-11-08 03:45:11
+TCK-0480,Critical,Closed,Other,Slow performance,Slow performance reported by user 315,2025-11-21,2025-11-23,Alice,2025-11-21 03:45:11
+TCK-0481,Low,Closed,Other,System outage,System outage reported by user 388,2025-06-23,2025-06-30,Alice,2025-06-23 03:45:11
+TCK-0482,Medium,Closed,Access,Printer error,Printer error reported by user 236,2025-10-31,2025-11-03,Alice,2025-10-31 03:45:11
+TCK-0483,Medium,Resolved,Network,Slow performance,Slow performance reported by user 991,2025-07-20,2025-07-22,Charlie,2025-07-20 03:45:11
+TCK-0484,Critical,Closed,Software,Email not working,Email not working reported by user 621,2025-08-06,2025-08-12,Bob,2025-08-06 03:45:11
+TCK-0485,High,Closed,Network,System outage,System outage reported by user 938,2025-08-28,2025-09-01,Frank,2025-08-28 03:45:11
+TCK-0486,Critical,Open,Hardware,Email not working,Email not working reported by user 254,2025-09-14,,Alice,2025-09-14 03:45:11
+TCK-0487,Medium,Open,Network,VPN failure,VPN failure reported by user 895,2025-09-26,,David,2025-09-26 03:45:11
+TCK-0488,Low,Investigating,Access,Email not working,Email not working reported by user 955,2025-07-17,,Bob,2025-07-17 03:45:11
+TCK-0489,Medium,Resolved,Software,System outage,System outage reported by user 443,2025-08-17,2025-08-26,Alice,2025-08-17 03:45:11
+TCK-0490,High,Resolved,Other,Login issue,Login issue reported by user 306,2025-09-19,2025-09-29,David,2025-09-19 03:45:11
+TCK-0491,Medium,Investigating,Access,Email not working,Email not working reported by user 492,2025-10-13,,David,2025-10-13 03:45:11
+TCK-0492,Critical,Open,Hardware,Login issue,Login issue reported by user 526,2025-11-03,,Charlie,2025-11-03 03:45:11
+TCK-0493,High,Investigating,Hardware,Email not working,Email not working reported by user 543,2025-11-24,,Eve,2025-11-24 03:45:11
+TCK-0494,Critical,Investigating,Other,System outage,System outage reported by user 913,2025-08-14,,Charlie,2025-08-14 03:45:11
+TCK-0495,Low,Resolved,Other,Slow performance,Slow performance reported by user 883,2025-12-05,2025-12-13,David,2025-12-05 03:45:11
+TCK-0496,High,Investigating,Software,Printer error,Printer error reported by user 320,2025-10-31,,Frank,2025-10-31 03:45:11
+TCK-0497,Medium,Closed,Software,Email not working,Email not working reported by user 290,2025-08-28,2025-08-29,Eve,2025-08-28 03:45:11
+TCK-0498,Critical,Open,Other,Slow performance,Slow performance reported by user 509,2025-07-10,,David,2025-07-10 03:45:11
+TCK-0499,Medium,Resolved,Security,Printer error,Printer error reported by user 508,2025-09-10,2025-09-17,Bob,2025-09-10 03:45:11
+TCK-0500,High,Closed,Access,Email not working,Email not working reported by user 593,2025-06-27,2025-06-29,Eve,2025-06-27 03:45:11

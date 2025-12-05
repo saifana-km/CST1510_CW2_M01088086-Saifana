@@ -43,7 +43,7 @@ with tab_login:
             st.success(f"Welcome back, {login_username}! ")
 
             # Redirect to dashboard page
-            st.switch_page("pages/1_Dashboard.py")
+            st.switch_page("pages/1_Incidents_Dashboard.py")
         else:
             st.error("Invalid username or password.")
 

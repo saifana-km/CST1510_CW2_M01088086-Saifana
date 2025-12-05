@@ -15,20 +15,6 @@ def insert_it_ticket(ticket_id, priority, status, category, subject, description
     conn.close()
     return itticket_id
 
-def insert_incident(date, incident_type, severity, status, description, reported_by=None):
-    """Insert new incident."""
-    conn = connect_database()
-    cursor = conn.cursor()
-    cursor.execute("""
-        INSERT INTO cyber_incidents 
-        (date, incident_type, severity, status, description, reported_by)
-        VALUES (?, ?, ?, ?, ?, ?)
-    """, (date, incident_type, severity, status, description, reported_by))
-    conn.commit()
-    incident_id = cursor.lastrowid
-    conn.close()
-    return incident_id
-
 def get_all_tickets():
     """Get all tickets as DataFrame."""
     conn = connect_database()
@@ -66,10 +52,21 @@ def get_tickets_by_category_count(conn):
 def get_high_priority_by_status(conn):
     query = """
     SELECT status, COUNT(*) as count
-    FROM cyber_incidents
+    FROM it_tickets
     WHERE severity = 'High'
     GROUP BY status
     ORDER BY count DESC
     """
     df = pd.read_sql_query(query, conn)
+    return df
+
+def get_tickets_category_with_many_cases(conn, min_count=5):
+    query = """
+    SELECT category, COUNT(*) as count
+    FROM it_tickets
+    GROUP BY category
+    HAVING COUNT(*) > ?
+    ORDER BY count DESC
+    """
+    df = pd.read_sql_query(query, conn, params=(min_count,))
     return df

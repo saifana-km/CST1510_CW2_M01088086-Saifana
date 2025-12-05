@@ -55,18 +55,6 @@ def user_exists(username):
 
 # Function for user login, utilising verify_password() function
 def login_user(username, password):
-    """
-    Authenticate a user against the database.
-    
-    This is a COMPLETE IMPLEMENTATION as an example.
-    
-    Args:
-        username: User's login name
-        password: Plain text password to verify
-        
-    Returns:
-        tuple: (success: bool, message: str)
-    """
     conn = connect_database()
     cursor = conn.cursor()
     

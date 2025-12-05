@@ -7,19 +7,6 @@ import sqlite3
 DATA_DIR = Path("DATA")
 
 def register_user(username, password, role="user"):
-    """
-    Register a new user in the database.
-    
-    This is a COMPLETE IMPLEMENTATION as an example.
-    
-    Args:
-        username: User's login name
-        password: Plain text password (will be hashed)
-        role: User role (default: 'user')
-        
-    Returns:
-        tuple: (success: bool, message: str)
-    """
     conn = connect_database()
     cursor = conn.cursor()
     
@@ -46,18 +33,6 @@ def register_user(username, password, role="user"):
     return True, f"User '{username}' registered successfully!"
 
 def login_user(username, password):
-    """
-    Authenticate a user against the database.
-    
-    This is a COMPLETE IMPLEMENTATION as an example.
-    
-    Args:
-        username: User's login name
-        password: Plain text password to verify
-        
-    Returns:
-        tuple: (success: bool, message: str)
-    """
     conn = connect_database()
     cursor = conn.cursor()
     
@@ -80,15 +55,6 @@ def login_user(username, password):
         return False, "Invalid password."
 
 def migrate_users_from_file(conn, filepath=DATA_DIR / "users.csv"):
-    """
-    Migrate users from users.txt to the database.
-    
-    This is a COMPLETE IMPLEMENTATION as an example.
-    
-    Args:
-        conn: Database connection
-        filepath: Path to users.txt file
-    """
     conn = connect_database()
     
     if not filepath.exists():

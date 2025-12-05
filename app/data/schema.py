@@ -164,7 +164,7 @@ def setup_database_complete():
     
     # Step 4: Load CSV data
     print("\n[4/5] Loading CSV data...")
-    load_csv_to_table(conn, "DATA","it_tickets")
+    load_all_csv_data(conn, "DATA")
     
     # Step 5: Verify
     print("\n[5/5] Verifying database setup...")
@@ -188,5 +188,3 @@ def setup_database_complete():
     print("="*60)
     print(f"\n Database location: {DB_PATH.resolve()}")
     print("\nYou're ready for Week 9 (Streamlit web interface)!")
-
-setup_database_complete()
