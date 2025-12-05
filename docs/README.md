@@ -38,5 +38,15 @@ The neat structure of the Application allows easy access to python packages and 
 - Adding, modifying, and deleting data (CRUD) from the intelligence_platform database
 - Merging an connecting between tables and database
 ## Technical Implementation
-- CRUD Operations: for modifying data within the database (`intelligence_platform.db`)
-- Database: Merging and adding data from files to a bigger database
+- Migrated from file-based storage to a professional SQLite database (`intelligence_platform.db`)
+- Created a complete database schema with 4 tables  
+- Implemented secure authentication with bcrypt  
+- Loaded CSV data efficiently using pandas  
+- Built CRUD functions for all database operations  
+- Secured your queries against SQL injection  
+- Extracted insights using analytical SQL queries  
+
+# Week 9: Streamlit Interface
+Student Name: [Saifana Kuradiela Maryam] 
+Student ID: [M01088086]
+Course: CST1510 -CW2 - Multi-Domain Intelligence Platform
