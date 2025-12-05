@@ -51,7 +51,7 @@ with st.form("new_incident"):
     title = st.text_input("Incident Title")
     severity = st.selectbox("Severity",["Low","Medium","High","Critical"])
     status = st.selectbox("Status",["Open","Investigating","Resolved","Closed"])
-    description = st.text_input("Incident Description")
+    description = st.text_area("Incident Description")
     submitted = st.form_submit_button("Add Incident")
 
 if submitted and title:

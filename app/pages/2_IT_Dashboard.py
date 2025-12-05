@@ -50,3 +50,26 @@ usage = pd.DataFrame({
             "CPU":[45,52,78,82,67],
             "Memory":[6.2,6.8,8.5,9.1,8.2]
 })
+
+with st.form("new_ticket"):
+    subject = st.text_input("Subject")
+    category = st.text_input("Category")
+    description = st.text_area("Description")
+
+    priority = st.selectbox("Priority", ["Low", "Medium", "High", "Critical"])
+    status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
+
+    created_date = datetime.now().strftime("%Y-%m-%d")
+    assigned_to = st.text_input("Assigned To")
+
+    submitted = st.form_submit_button("Create Ticket")
+    
+resolved_date_str = None
+if status in ["Resolved", "Closed"]:
+    resolved_date = st.date_input("Resolved Date")
+    resolved_date_str = resolved_date.strftime("%Y-%m-%d")
+
+if submitted and subject:
+    ticket_id = insert_it_ticket(priority,status,category,subject,description,created_date,resolved_date_str, assigned_to or None)
+    st.success(f"Ticket {ticket_id} created successfully!")
+    st.rerun()

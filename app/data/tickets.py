@@ -2,18 +2,21 @@ import sqlite3
 import pandas as pd
 from data.db import connect_database
 
-def insert_it_ticket(ticket_id, priority, status, category, subject, description, created_date, resolved_date=None, assigned_to=None):
+def insert_it_ticket(priority, status, category, subject, description,
+                     created_date, resolved_date=None, assigned_to=None):
     conn = connect_database()
     cursor = conn.cursor()
     cursor.execute("""
-    INSERT INTO it_tickets 
-        (ticket_id, priority, status, category, subject, description, created_date, resolved_date, assigned_to) 
+        INSERT INTO it_tickets (ticket_id, priority, status, category, subject, description, created_date, resolved_date, assigned_to)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """, (ticket_id, priority, status, category, subject, description, created_date, resolved_date, assigned_to))
+    """, ("TEMP", priority, status, category, subject, description, created_date, resolved_date, assigned_to))
     conn.commit()
-    itticket_id = cursor.lastrowid
+    auto_id = cursor.lastrowid
+    ticket_id = f"TCK-{auto_id:04d}"
+    cursor.execute("UPDATE it_tickets SET ticket_id = ? WHERE id = ?", (ticket_id, auto_id))
+    conn.commit()
     conn.close()
-    return itticket_id
+    return ticket_id
 
 def get_all_tickets():
     """Get all tickets as DataFrame."""
