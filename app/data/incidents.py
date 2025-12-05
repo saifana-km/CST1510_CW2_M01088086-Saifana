@@ -1,5 +1,5 @@
 import pandas as pd
-from app.data.db import connect_database
+from data.db import connect_database
 
 def insert_incident(date, incident_type, severity, status, description, reported_by=None):
     """Insert new incident."""

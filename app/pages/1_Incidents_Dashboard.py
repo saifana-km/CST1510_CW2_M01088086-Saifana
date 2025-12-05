@@ -1,7 +1,8 @@
 import streamlit as st
+import pandas as pd
 from datetime import datetime
-from app.data.db import connect_database
-from app.data.incidents import (
+from data.db import connect_database
+from data.incidents import (
     get_all_incidents,
     insert_incident,
     update_incident_status,
@@ -22,25 +23,92 @@ if not st.session_state.logged_in:
     st.stop()
 
 # If logged in, show dashboard content
-st.title("📊 Cyber Incidents Dashboard")
+st.title("⚠️ Cyber Incident Records")
 st.success(f"Hello, **{st.session_state.username}**! You are logged in.")
 
 conn = connect_database('DATA/intelligence_platform.db')
 incidents = get_all_incidents()
 st.dataframe(incidents, use_container_width=True)
 
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.metric("Threats Detected",247,delta="+12")
+with col2:
+    st.metric("Vulnerabilities",8,delta="-3")
+with col3:
+    st.metric("Incidents",3,delta="+1")
+
+threat_data = {"Malware":89,"Phishing":67,"DDoS":45,"Intrusion":46}
+st.bar_chart(threat_data)
+
+# Incident Report
 with st.form("new_incident"):
     date = datetime.now().strftime("%Y-%m-%d")
     title = st.text_input("Incident Title")
     severity = st.selectbox("Severity",["Low","Medium","High","Critical"])
-    status = st.selectbox("Status",["Open","In Progress", "Resolved"])
+    status = st.selectbox("Status",["Open","Investigating","Resolved","Closed"])
     description = st.text_input("Incident Description")
     submitted = st.form_submit_button("Add Incident")
 
 if submitted and title:
-    insert_incident(date, title, severity, status, description, reported_by="user")
+    insert_incident(date, title, severity, status, description, reported_by=st.session_state.username)
     st.success("Incident added successfully.")
     st.rerun()
+
+#   Adding Records
+if "records" not in st.session_state:
+    st.session_state.records = []
+with st.form("add_record"):
+    name = st.text_input("Name")
+    email = st.text_input("Email")
+    role = st.selectbox("Role", ["User", "Admin"])
+    submitted = st.form_submit_button("Add Record")
+if submitted:
+    record = {"name": name, "email": email, "role": role}
+    st.session_state.records.append(record)
+    st.success("Record added!")
+
+#   Displaying Records
+if st.session_state.records:
+    st.subheader("All Records")
+    df = pd.DataFrame(st.session_state.records)
+    st.dataframe(df,use_container_width=True)
+else:
+    st.info("No records found")
+
+#   Updating record
+if st.session_state.records:
+    names = [r["name"] for r in st.session_state.records]
+    selected = st.selectbox("Select record", names)
+    idx = names.index(selected)
+    record = st.session_state.records[idx]
+    with st.form("update_form"):
+        new_email = st.text_input("Email", record["email"])
+        new_role = st.selectbox(
+            "Role",
+            ["User", "Admin"],
+            index=0 if record["role"] == "User" else 1)
+        submitted = st.form_submit_button("Update Record")
+    if submitted:
+        record["email"] = new_email
+        record["role"] = new_role
+        st.success("Record updated!")
+
+# Deleting record
+if st.session_state.records:
+    names = [r["name"] for r in st.session_state.records]
+    to_delete = st.selectbox("Select record to delete", names)
+    col1, col2 = st.columns([3, 1])
+
+    with col1:
+        st.warning(f"Delete {to_delete}?")
+    with col2:
+        if st.button("Delete"):
+            idx = names.index(to_delete)
+            st.session_state.records.pop(idx)
+            st.success("Record deleted!")
+            st.rerun()
 
 # Logout button
 st.divider()

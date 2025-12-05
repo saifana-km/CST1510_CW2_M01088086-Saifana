@@ -2,8 +2,8 @@ import sqlite3
 import os
 import pandas as pd
 from pathlib import Path
-from app.data.db import connect_database 
-from app.data.users import migrate_users_from_file
+from data.db import connect_database
+from data.users import migrate_users_from_file
 DB_PATH = Path("DATA") / "intelligence_platform.db"
 
 def create_users_table(conn):

@@ -23,40 +23,40 @@ def get_all_datasets():
     conn.close()
     return df
 
-def get_dataset_by_id(dataset_id):
+def get_dataset_by_name(dataset_name):
     """Get a single dataset by ID."""
     conn = sqlite3.connect("DATA/intelligence_platform.db")
-    df = pd.read_sql_query("SELECT * FROM datasets_metadata WHERE id = ?", conn, params=(dataset_id,))
+    df = pd.read_sql_query("SELECT * FROM datasets_metadata WHERE id = ?", conn, params=(dataset_name,))
     conn.close()
     return df
 
-def update_dataset_last_updated(dataset_id, new_date=None):
+def update_dataset_last_updated(dataset_name, new_date=None):
     """Update the last_updated field for a dataset."""
     if new_date is None:
         new_date = datetime.now().strftime("%Y-%m-%d")
     conn = sqlite3.connect("DATA/intelligence_platform.db")
     cursor = conn.cursor()
-    cursor.execute("UPDATE datasets_metadata SET last_updated = ? WHERE id = ?", (new_date, dataset_id))
+    cursor.execute("UPDATE datasets_metadata SET last_updated = ? WHERE id = ?", (new_date, dataset_name))
     conn.commit()
     rowcount = cursor.rowcount
     conn.close()
     return rowcount
 
-def update_dataset_record_count(dataset_id, new_count):
+def update_dataset_record_count(dataset_name, new_count):
     """Update the record_count for a dataset."""
     conn = sqlite3.connect("DATA/intelligence_platform.db")
     cursor = conn.cursor()
-    cursor.execute("UPDATE datasets_metadata SET record_count = ? WHERE id = ?", (new_count, dataset_id))
+    cursor.execute("UPDATE datasets_metadata SET record_count = ? WHERE id = ?", (new_count, dataset_name))
     conn.commit()
     rowcount = cursor.rowcount
     conn.close()
     return rowcount
 
-def delete_dataset(dataset_id):
+def delete_dataset(dataset_name):
     """Delete a dataset by ID."""
     conn = sqlite3.connect("DATA/intelligence_platform.db")
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM datasets_metadata WHERE id = ?", (dataset_id,))
+    cursor.execute("DELETE FROM datasets_metadata WHERE id = ?", (dataset_name,))
     conn.commit()
     rowcount = cursor.rowcount
     conn.close()
