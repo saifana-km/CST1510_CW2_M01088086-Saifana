@@ -26,3 +26,17 @@ This system allows users to register accounts and log in with proper passwords a
 - Data Storage: Plain text file (`users.txt`) with comma-separated values
 - Password Security: One-way hashing, no plaintext storage
 - Validation: Username (3-20 alphanumeric characters), Password (6-50 characters exlcuding space)
+
+# Week 8: Data Pipline & CRUD (SQL)
+Student Name: [Saifana Kuradiela Maryam] 
+Student ID: [M01088086]
+Course: CST1510 -CW2 - Multi-Domain Intelligence Platform
+## Project Description
+Application formation of a dashboard with data formatted with pre-determined schemas in a database
+The neat structure of the Application allows easy access to python packages and for debugging
+## Features
+- Adding, modifying, and deleting data (CRUD) from the intelligence_platform database
+- Merging an connecting between tables and database
+## Technical Implementation
+- CRUD Operations: for modifying data within the database (`intelligence_platform.db`)
+- Database: Merging and adding data from files to a bigger database
