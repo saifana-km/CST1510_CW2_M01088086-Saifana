@@ -6,14 +6,11 @@ DATA_DIR = Path("DATA")
 def get_user_by_username(username):
     conn = connect_database()
     cursor = conn.cursor()
-    cursor.execute(
-        "SELECT username, password_hash FROM users WHERE username = ?", 
-        (username,)
-    )
+    cursor.execute("SELECT username, password_hash, role FROM users WHERE username = ?", (username,))
     row = cursor.fetchone()
     conn.close()
     if row:
-        return {"username": row[0], "password": row[1]}
+        return {"username": row[0], "password_hash": row[1], "role": row[2]}
     return None
 
 def insert_user(username, password_hash, role='user'):

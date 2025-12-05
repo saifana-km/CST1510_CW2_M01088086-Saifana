@@ -1,5 +1,7 @@
 import streamlit as st
+import bcrypt
 from data.users import get_user_by_username, insert_user
+from services.user_service import register_user
 
 st.set_page_config(page_title="Login / Register", page_icon="🔑", layout="centered")
 
@@ -35,16 +37,23 @@ with tab_login:
 
     if st.button("Log in", type="primary"):
         user = get_user_by_username(login_username)
-        if user and user["password"] == login_password:
-            st.session_state.logged_in = True
-            st.session_state.username = login_username
-            st.success(f"Welcome back, {login_username}!")
-            st.switch_page("pages/1_Incidents_Dashboard.py")
+        if user:
+            stored_hash = user["password_hash"].encode("utf-8")
+            password_bytes = login_password.encode("utf-8")
+
+            if bcrypt.checkpw(password_bytes, stored_hash):
+                st.session_state.logged_in = True
+                st.session_state.username = login_username
+                st.success(f"Welcome back, {login_username}!")
+                st.switch_page("pages/1_Incidents_Dashboard.py")
+            else:
+                st.error("Invalid username or password.")
         else:
             st.error("Invalid username or password.")
 
 
 # ----- REGISTER TAB -----
+
 with tab_register:
     st.subheader("Register")
 
@@ -57,9 +66,10 @@ with tab_register:
             st.warning("Please fill in all fields.")
         elif new_password != confirm_password:
             st.error("Passwords do not match.")
-        elif get_user_by_username(new_username):
-            st.error("Username already exists. Choose another one.")
         else:
-            insert_user(new_username, new_password)
-            st.success("Account created! You can now log in from the Login tab.")
-            st.info("Tip: go to the Login tab and sign in with your new account.")
+            success, message = register_user(new_username, new_password, role="user")
+            if success:
+                st.success(message)
+                st.info("Tip: Go to the Login tab and sign in with your new account.")
+            else:
+                st.error(message)

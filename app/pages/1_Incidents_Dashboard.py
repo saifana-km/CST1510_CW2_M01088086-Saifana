@@ -26,6 +26,7 @@ if not st.session_state.logged_in:
 st.title("⚠️ Cyber Incident Records")
 st.success(f"Hello, **{st.session_state.username}**! You are logged in.")
 
+# Data display
 conn = connect_database('DATA/intelligence_platform.db')
 incidents = get_all_incidents()
 st.dataframe(incidents, use_container_width=True)
@@ -33,14 +34,16 @@ st.dataframe(incidents, use_container_width=True)
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.metric("Threats Detected",247,delta="+12")
+    st.metric("Total Incidents", len(incidents))
 with col2:
-    st.metric("Vulnerabilities",8,delta="-3")
+    vulnerabilities = incidents[incidents["severity"].isin(["High", "Critical"])].shape[0]
+    st.metric("Severe Vulnerabilities", vulnerabilities)
 with col3:
-    st.metric("Incidents",3,delta="+1")
+    open_incidents = (incidents["status"] == "Open").sum()
+    st.metric("Open Incidents", open_incidents)
 
-threat_data = {"Malware":89,"Phishing":67,"DDoS":45,"Intrusion":46}
-st.bar_chart(threat_data)
+threat_counts = incidents["incident_type"].value_counts().to_dict()
+st.bar_chart(threat_counts)
 
 # Incident Report
 with st.form("new_incident"):
