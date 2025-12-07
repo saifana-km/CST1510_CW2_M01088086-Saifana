@@ -11,7 +11,7 @@ from data.tickets import (
     insert_it_ticket,
     get_high_priority_by_status,
 )
-
+conn = connect_database()
 # Ensure state keys exist (in case user opens this page first)
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
@@ -36,40 +36,86 @@ st.dataframe(tickets, use_container_width=True)
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.metric("CPU Usage", "67%", delta="+5%")
-
+    st.metric("Total Tickets", len(tickets))
 with col2:
-    st.metric("Memory","8.2 GB", delta="+0.3 GB")
-
+    priority = tickets[tickets["priority"].isin(["High", "Critical"])].shape[0]
+    st.metric("High Priority", priority)
 with col3:
-    st.metric("Uptime","99.8%",delta="+0.1%")
+    unresolved = tickets[tickets["status"].isin(["Open", "Investigating"])].shape[0]
+    st.metric("Open Tickets", unresolved)
 
-usage = pd.DataFrame({
-    "time":["00:00","06:00","12:00",
-            "18:00","23:59"],
-            "CPU":[45,52,78,82,67],
-            "Memory":[6.2,6.8,8.5,9.1,8.2]
-})
+subject_counts = tickets["category"].value_counts().to_dict()
+st.bar_chart(subject_counts)
 
-with st.form("new_ticket"):
-    subject = st.text_input("Subject")
-    category = st.text_input("Category")
-    description = st.text_area("Description")
+st.subheader("Ticket Manager")
+cola, colb, colc, cold = st.columns(4)
+if "form" not in st.session_state:
+    st.session_state.form = None
 
-    priority = st.selectbox("Priority", ["Low", "Medium", "High", "Critical"])
-    status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
+with cola:
+    if st.button("Insert Ticket"):
+        st.session_state.form = "A"
+with colb:
+    if st.button("Update Ticket"):
+        st.session_state.form = "B"
+with colc:
+    if st.button("Search Ticket"):
+        st.session_state.form = "C"
+with cold:
+    if st.button("Delete Ticket"):
+        st.session_state.form = "D"
 
-    created_date = datetime.now().strftime("%Y-%m-%d")
-    assigned_to = st.text_input("Assigned To")
+# Conditional rendering of forms
+if st.session_state.form == "A":
+    with st.form("new_ticket"):
+        subject = st.text_input("Subject")
+        category = st.text_input("Category")
+        description = st.text_area("Description")
+        priority = st.selectbox("Priority", ["Low", "Medium", "High", "Critical"])
+        status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
+        created_date = datetime.now().strftime("%Y-%m-%d")
+        resolved_date = st.text_input("Resolved Date (YYYY-MM-DD)")
+        assigned_to = st.text_input("Assigned To")
+        submitted = st.form_submit_button("Create Ticket")
 
-    submitted = st.form_submit_button("Create Ticket")
-    
-resolved_date_str = None
-if status in ["Resolved", "Closed"]:
-    resolved_date = st.date_input("Resolved Date")
-    resolved_date_str = resolved_date.strftime("%Y-%m-%d")
+    if submitted:
+        ticket_id = insert_it_ticket(priority,status,category,subject,description,created_date,resolved_date, assigned_to or None)
+        st.success(f"Ticket {ticket_id} created successfully!")
+        st.rerun()
 
-if submitted and subject:
-    ticket_id = insert_it_ticket(priority,status,category,subject,description,created_date,resolved_date_str, assigned_to or None)
-    st.success(f"Ticket {ticket_id} created successfully!")
-    st.rerun()
+elif st.session_state.form == "B":
+    with st.form("update_ticket"):
+        ticket_id = st.text_input("Ticket ID")
+        new_status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
+        submitted = st.form_submit_button("Update Ticket")
+
+    if submitted:
+        ticket_id = update_ticket_status(conn,ticket_id,new_status)
+        st.success(f"Ticket {ticket_id} updated to {new_status} successfully!")
+        st.rerun()
+
+elif st.session_state.form == "C":
+    with st.form("search_ticket"):
+        email = st.text_input("Ticket ID")
+        filters = ["Category", "Cases", "Severe Priority"]
+        filters_choice = st.multiselect("Search Filter", filters)
+        submitted = st.form_submit_button("Search Ticket")
+    if submitted:
+        st.success(f"Search results updated.")
+
+elif st.session_state.form == "D":
+    with st.form("delete_ticket"):
+        ticket_id = st.text_input("Ticket ID")  
+        submitted = st.form_submit_button("Delete Ticket")
+
+    if submitted and ticket_id:
+        ticket_num = int(ticket_id)
+        formatted_id = f"TCK-{ticket_num:04d}"
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            st.warning(f"Are you sure you want to delete **{formatted_id}**?")
+        with col2:
+            if st.button("Confirm Delete"):
+                delete_ticket(conn,int(ticket_id))  
+                st.success("Record deleted!")
+                st.rerun()
