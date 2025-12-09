@@ -6,111 +6,163 @@ from data.incidents import (
     get_all_incidents,
     insert_incident,
     update_incident_status,
-    delete_incident
+    delete_incident,
+    search_incident
 )
 
-# Ensure state keys exist (in case user opens this page first)
+conn = connect_database()
+
+# Ensure session state keys exist
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 if "username" not in st.session_state:
     st.session_state.username = ""
+if "form" not in st.session_state:
+    st.session_state.form = None
 
-# Guard: if not logged in, send user back
+# Guard: require login
 if not st.session_state.logged_in:
-    st.error("You must be logged in to view the dashboard.")
+    st.error("You must be logged in to view the incidents dashboard.")
     if st.button("Go to login page"):
-        st.switch_page("Home.py")   # back to the first page
+        st.switch_page("Home.py")
     st.stop()
 
-# If logged in, show dashboard content
-st.title("⚠️ Cyber Incident Records")
+st.title("⚠️ Incidents Dashboard")
 st.success(f"Hello, **{st.session_state.username}**! You are logged in.")
 
-# Data display
+# Use same DB path as other pages (adjust if needed)
 conn = connect_database('DATA/intelligence_platform.db')
 incidents = get_all_incidents()
 st.dataframe(incidents, use_container_width=True)
 
 col1, col2, col3 = st.columns(3)
-
 with col1:
     st.metric("Total Incidents", len(incidents))
 with col2:
-    vulnerabilities = incidents[incidents["severity"].isin(["High", "Critical"])].shape[0]
-    st.metric("Severe Vulnerabilities", vulnerabilities)
+    high_sev = incidents[incidents.get("severity", "").isin(["High", "Critical"])].shape[0]
+    st.metric("High Severity", high_sev)
 with col3:
-    open_incidents = (incidents["status"] == "Open").sum()
-    st.metric("Open Incidents", open_incidents)
+    open_inc = incidents[incidents.get("status", "").isin(["Open", "Investigating"])].shape[0]
+    st.metric("Open Incidents", open_inc)
 
-threat_counts = incidents["incident_type"].value_counts().to_dict()
-st.bar_chart(threat_counts)
+# Simple breakdown chart if category column exists
+if "category" in incidents.columns:
+    cat_counts = incidents["category"].value_counts().to_dict()
+    st.bar_chart(cat_counts)
 
-# Incident Report
-with st.form("new_incident"):
-    date = datetime.now().strftime("%Y-%m-%d")
-    title = st.text_input("Incident Title")
-    severity = st.selectbox("Severity",["Low","Medium","High","Critical"])
-    status = st.selectbox("Status",["Open","Investigating","Resolved","Closed"])
-    description = st.text_area("Incident Description")
-    submitted = st.form_submit_button("Add Incident")
+st.subheader("Incident Manager")
+cola, colb, colc, cold = st.columns(4)
+with cola:
+    if st.button("Insert Incident"):
+        st.session_state.form = "A"
+with colb:
+    if st.button("Update Incident"):
+        st.session_state.form = "B"
+with colc:
+    if st.button("Search Incident"):
+        st.session_state.form = "C"
+with cold:
+    if st.button("Delete Incident"):
+        st.session_state.form = "D"
 
-if submitted and title:
-    insert_incident(date, title, severity, status, description, reported_by=st.session_state.username)
-    st.success("Incident added successfully.")
-    st.rerun()
+# Create
+if st.session_state.form == "A":
+    with st.form("new_incident"):
+        title = st.text_input("Title")
+        category = st.text_input("Category")
+        description = st.text_area("Description")
+        severity = st.selectbox("Severity", ["Low", "Medium", "High", "Critical"])
+        status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
+        created_date = datetime.now().strftime("%Y-%m-%d")
+        resolved_date = st.text_input("Resolved Date (YYYY-MM-DD)")
+        assigned_to = st.text_input("Assigned To")
+        submitted = st.form_submit_button("Create Incident")
 
-#   Adding Records
-if "records" not in st.session_state:
-    st.session_state.records = []
-with st.form("add_record"):
-    name = st.text_input("Name")
-    email = st.text_input("Email")
-    role = st.selectbox("Role", ["User", "Admin"])
-    submitted = st.form_submit_button("Add Record")
-if submitted:
-    record = {"name": name, "email": email, "role": role}
-    st.session_state.records.append(record)
-    st.success("Record added!")
-
-#   Displaying Records
-if st.session_state.records:
-    st.subheader("All Records")
-    df = pd.DataFrame(st.session_state.records)
-    st.dataframe(df,use_container_width=True)
-else:
-    st.info("No records found")
-
-#   Updating record
-if st.session_state.records:
-    names = [r["name"] for r in st.session_state.records]
-    selected = st.selectbox("Select record", names)
-    idx = names.index(selected)
-    record = st.session_state.records[idx]
-    with st.form("update_form"):
-        new_email = st.text_input("Email", record["email"])
-        new_role = st.selectbox(
-            "Role",
-            ["User", "Admin"],
-            index=0 if record["role"] == "User" else 1)
-        submitted = st.form_submit_button("Update Record")
     if submitted:
-        record["email"] = new_email
-        record["role"] = new_role
-        st.success("Record updated!")
+        incident_id = insert_incident(
+            severity, status, category, title, description, created_date, resolved_date or None, assigned_to or None
+        )
+        st.success(f"Incident {incident_id} created successfully!")
+        st.rerun()
 
-# Deleting record
-if st.session_state.records:
-    names = [r["name"] for r in st.session_state.records]
-    to_delete = st.selectbox("Select record to delete", names)
-    col1, col2 = st.columns([3, 1])
+# Search
+elif st.session_state.form == "C":
+    with st.form("search_incident"):
+        incident_num = st.text_input("Incident ID")
+        submitted = st.form_submit_button("Search Incident")
 
-    with col1:
-        st.warning(f"Delete {to_delete}?")
-    with col2:
-        if st.button("Delete"):
-            idx = names.index(to_delete)
-            st.session_state.records.pop(idx)
-            st.success("Record deleted!")
+    if submitted and incident_num:
+        # Use plain numeric IDs (no INC- prefix). Trim whitespace.
+        formatted_id = incident_num.strip()
+        # Optional validation: ensure numeric input
+        try:
+            int(formatted_id)
+        except ValueError:
+            st.warning("Please enter a numeric incident ID.")
+        else:
+            # Prefer in-memory dataframe
+            if "incidents" in locals() or "incidents" in globals():
+                if "incident_id" in incidents.columns:
+                    # Compare as strings to be robust to int/text DB column types
+                    match = incidents[incidents["incident_id"].astype(str) == formatted_id]
+                else:
+                    match = pd.DataFrame()
+                if not match.empty:
+                    st.write("### Incident Details")
+                    st.dataframe(match, use_container_width=True)
+                else:
+                    st.warning(f"No incident found with ID {formatted_id}")
+            else:
+                result = search_incident(conn, formatted_id)
+                if result is not None:
+                    st.write("### Incident Details")
+                    st.table(result)
+                else:
+                    st.warning(f"No incident found with ID {formatted_id}")
+
+# Delete
+elif st.session_state.form == "D":
+    with st.form("delete_incident"):
+        incident_id = st.text_input("Incident ID")
+        confirm = st.checkbox("I understand this will permanently delete the incident")
+        submitted = st.form_submit_button("Delete Incident")
+
+    if submitted and incident_id:
+        formatted_id = incident_id.strip()
+        try:
+            int(formatted_id)
+        except ValueError:
+            st.warning("Please enter a numeric incident ID.")
+        else:
+            if not confirm:
+                st.warning("Please confirm deletion by checking the box.")
+            else:
+                deleted = delete_incident(conn, formatted_id)
+                if deleted and deleted > 0:
+                    st.success(f"Incident {formatted_id} deleted!")
+                else:
+                    st.error(f"No incident found with ID {formatted_id}")
+                st.rerun()
+
+# Update
+elif st.session_state.form == "B":
+    with st.form("update_incident"):
+        incident_id = st.text_input("Incident ID")
+        new_status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
+        submitted = st.form_submit_button("Update Incident")
+
+    if submitted and incident_id:
+        formatted_id = incident_id.strip()
+        try:
+            int(formatted_id)
+        except ValueError:
+            st.warning("Please enter a numeric incident ID.")
+        else:
+            updated = update_incident_status(conn, formatted_id, new_status)
+            if updated:
+                st.success(f"Incident {formatted_id} updated to {new_status} successfully!")
+            else:
+                st.error(f"Failed to update incident {formatted_id}.")
             st.rerun()
 
 # Logout button

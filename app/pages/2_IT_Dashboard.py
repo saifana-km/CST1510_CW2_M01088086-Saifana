@@ -10,6 +10,7 @@ from data.tickets import (
     update_ticket_status,
     insert_it_ticket,
     get_high_priority_by_status,
+    search_ticket
 )
 conn = connect_database()
 # Ensure state keys exist (in case user opens this page first)
@@ -96,26 +97,57 @@ elif st.session_state.form == "B":
 
 elif st.session_state.form == "C":
     with st.form("search_ticket"):
-        email = st.text_input("Ticket ID")
-        filters = ["Category", "Cases", "Severe Priority"]
-        filters_choice = st.multiselect("Search Filter", filters)
+        ticket_num = st.text_input("Ticket Number (e.g. 0001)")  
         submitted = st.form_submit_button("Search Ticket")
-    if submitted:
-        st.success(f"Search results updated.")
+
+    if submitted and ticket_num:
+        # Ensure 4-digit padding: "7" → "0007"
+        formatted_id = f"TCK-{ticket_num.zfill(4)}"
+
+        # Use the already-loaded DataFrame instead of raw cursor/indexing
+        if "tickets" in locals() or "tickets" in globals():
+            match = tickets[tickets["ticket_id"] == formatted_id]
+            if not match.empty:
+                st.write("### Ticket Details")
+                st.dataframe(match, use_container_width=True)
+            else:
+                st.warning(f"No ticket found with ticket ID {formatted_id}")
+        else:
+            # fallback to DB query if DataFrame isn't available
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM it_tickets WHERE ticket_id = ?", (formatted_id,))
+            result = cursor.fetchone()
+            if result:
+                st.write("### Ticket Details")
+                st.table({
+                    "ID": [result[0]],
+                    "Ticket ID": [result[1]],
+                    "Priority": [result[2]],
+                    "Status": [result[3]],
+                    "Category": [result[4]],
+                    "Subject": [result[5]],
+                    "Description": [result[6]],
+                    "Created Date": [result[7]],
+                    "Resolved Date": [result[8]],
+                    "Assigned To": [result[9]],
+                    "Created At": [result[10]],
+                })
+            else:
+                st.warning(f"No ticket found with ticket ID {formatted_id}")
 
 elif st.session_state.form == "D":
     with st.form("delete_ticket"):
-        ticket_id = st.text_input("Ticket ID")  
+        ticket_id = st.text_input("Ticket ID (e.g. TCK-0001)")  
+        confirm = st.checkbox("I understand this will permanently delete the ticket")
         submitted = st.form_submit_button("Delete Ticket")
 
     if submitted and ticket_id:
-        ticket_num = int(ticket_id)
-        formatted_id = f"TCK-{ticket_num:04d}"
-        col1, col2 = st.columns([3, 1])
-        with col1:
-            st.warning(f"Are you sure you want to delete **{formatted_id}**?")
-        with col2:
-            if st.button("Confirm Delete"):
-                delete_ticket(conn,int(ticket_id))  
-                st.success("Record deleted!")
-                st.rerun()
+        if not confirm:
+            st.warning("Please confirm deletion by checking the box.")
+        else:
+            deleted = delete_ticket(conn, ticket_id)
+            if deleted and deleted > 0:
+                st.success(f"Ticket {ticket_id} deleted!")
+            else:
+                st.error(f"No ticket found with ID {ticket_id}")
+            st.rerun()

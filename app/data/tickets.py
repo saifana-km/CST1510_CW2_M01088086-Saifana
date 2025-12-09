@@ -2,21 +2,20 @@ import sqlite3
 import pandas as pd
 from data.db import connect_database
 
-def insert_it_ticket(priority, status, category, subject, description,
-                     created_date, resolved_date=None, assigned_to=None):
-    conn = connect_database()
+def insert_it_ticket(conn, priority, status, category, subject, description, created_date, resolved_date, assigned_to):
     cursor = conn.cursor()
+    # Auto-generate ticket_id with zero padding
+    cursor.execute("SELECT COUNT(*) FROM it_tickets")
+    count = cursor.fetchone()[0] + 1
+    ticket_id = f"TCK-{count:04d}"
+
     cursor.execute("""
         INSERT INTO it_tickets (ticket_id, priority, status, category, subject, description, created_date, resolved_date, assigned_to)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """, ("TEMP", priority, status, category, subject, description, created_date, resolved_date, assigned_to))
+    """, (ticket_id, priority, status, category, subject, description, created_date, resolved_date or None, assigned_to))
     conn.commit()
-    auto_id = cursor.lastrowid
-    ticket_id = f"TCK-{auto_id:04d}"
-    cursor.execute("UPDATE it_tickets SET ticket_id = ? WHERE id = ?", (ticket_id, auto_id))
-    conn.commit()
-    conn.close()
     return ticket_id
+
 
 def get_all_tickets():
     """Get all tickets as DataFrame."""
@@ -30,15 +29,13 @@ def get_all_tickets():
 
 def update_ticket_status(conn, ticket_id, new_status):
     cursor = conn.cursor()
-    sql = "UPDATE it_tickets SET status = ? WHERE id = ?"
-    cursor.execute(sql, (new_status, ticket_id))
+    cursor.execute("UPDATE it_tickets SET status = ? WHERE ticket_id = ?", (new_status, ticket_id))
     conn.commit()
-    return cursor.rowcount
+    return ticket_id
 
 def delete_ticket(conn, ticket_id):
     cursor = conn.cursor()
-    sql = "DELETE FROM it_tickets WHERE id = ?"
-    cursor.execute(sql, (ticket_id,))
+    cursor.execute("DELETE FROM it_tickets WHERE ticket_id = ?", (ticket_id,))
     conn.commit()
     return cursor.rowcount
 
@@ -73,3 +70,8 @@ def get_tickets_category_with_many_cases(conn, min_count=5):
     """
     df = pd.read_sql_query(query, conn, params=(min_count,))
     return df
+
+def search_ticket(conn, ticket_id):
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM it_tickets WHERE ticket_id = ?", (ticket_id,))
+    return cursor.fetchone()

@@ -70,3 +70,36 @@ def get_incident_types_with_many_cases(conn, min_count=5):
     """
     df = pd.read_sql_query(query, conn, params=(min_count,))
     return df
+
+def search_incident(conn, incident_id):
+    """
+    Search for an incident by its incident_id (e.g. "INC-0001").
+    Returns a dict suitable for streamlit.table (values as single-item lists) or None if not found.
+    """
+    cursor = conn.cursor()
+    try:
+        # Try the most likely table name first
+        cursor.execute("SELECT * FROM incidents WHERE incident_id = ?", (incident_id,))
+        row = cursor.fetchone()
+        if row:
+            cols = [d[0] for d in cursor.description]
+            return {c: [v] for c, v in zip(cols, row)}
+
+        # fallback: find any table that contains an incident_id column
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+        tables = [r[0] for r in cursor.fetchall()]
+        for tbl in tables:
+            cursor.execute(f"PRAGMA table_info('{tbl}')")
+            columns = [r[1] for r in cursor.fetchall()]
+            if "incident_id" in columns:
+                cursor.execute(f"SELECT * FROM {tbl} WHERE incident_id = ?", (incident_id,))
+                row = cursor.fetchone()
+                if row:
+                    cols = [d[0] for d in cursor.description]
+                    return {c: [v] for c, v in zip(cols, row)}
+
+    except Exception:
+        # silent fallback to None on error (caller will display warning)
+        return None
+
+    return None
