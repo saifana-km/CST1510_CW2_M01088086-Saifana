@@ -4,3 +4,4 @@ from app.services.user_service import register_user, login_user, migrate_users_f
 from app.data.incidents import insert_incident, get_all_incidents
 from pathlib import Path
 DATA_DIR = Path("DATA")
+

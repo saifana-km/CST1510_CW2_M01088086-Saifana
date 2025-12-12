@@ -1,7 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 
-st.set_page_config(page_title="AI Chat Bot", layout="centered")
+st.set_page_config(page_title="🤖 AI Chat Bot", layout="centered")
 
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
@@ -29,7 +29,7 @@ PERSONAS = {
 }
 
 if not st.session_state.logged_in:
-    st.error("You must be logged in to view the Metadata dashboard.")
+    st.error("You must be logged in to use the AI Chat Bot")
     if st.button("Go to login page"):
         st.switch_page("Home.py")
     st.stop()
@@ -47,7 +47,7 @@ with st.sidebar:
     st.session_state.ai_role = st.radio("", list(PERSONAS.keys()), 
                                         index=list(PERSONAS.keys()).index(st.session_state.ai_role))
 
-st.title("AI Chat Bot")
+st.title("🤖 AI Chat Bot")
 st.write(f"Specialist: **{st.session_state.ai_role}**")
 
 if st.session_state.ai_chat_history:
