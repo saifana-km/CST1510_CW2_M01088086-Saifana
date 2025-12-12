@@ -268,9 +268,69 @@ elif selection == "Ticket Manager":
 # AI Chat Bot Section
 # ---------------------------
 elif selection == "AI Chat Bot":
-    st.title("🤖 AI Chat Bot")
-    st.info("This page links to the AI Chat Bot — use the dedicated page for chat functionality.")
+    st.title("🤖 AI Chat Bot — IT Specialist")
+    st.info("This chat will connect you with our IT Specialist.")
 
+    # session keys
+    if "ai_chat_history" not in st.session_state:
+        st.session_state.ai_chat_history = []
+
+    # API key from secrets
+    api_key = st.secrets.get("OPENAI_API_KEY", None)
+    if not api_key:
+        st.warning("No API key found in .streamlit/secrets.toml — add OPENAI_API_KEY to enable chat.")
+
+    # model input (user can override)
+    model = st.text_input("Model", value="gpt-4o-mini", key="it_ai_model",
+                         help="Specify model name (kept blank will still attempt default).")
+
+    # Chat form
+    with st.form("it_chat_form", clear_on_submit=False):
+        user_input = st.text_area("Your message", placeholder="Ask the IT Specialist...", height=120)
+        col1, col2 = st.columns([1,1])
+        send = col1.form_submit_button("Send")
+        clear = col2.form_submit_button("Clear Conversation")
+
+    if clear:
+        st.session_state.ai_chat_history = []
+        st.experimental_rerun()
+
+    # Send message
+    if send and user_input:
+        if not api_key:
+            st.error("No API key configured in secrets; cannot call OpenAI.")
+        else:
+            system_prompt = (
+                "You are an IT support specialist. Provide troubleshooting steps, configuration guidance, "
+                "and pragmatic advice for typical IT issues (networks, servers, user support). Be concise and user-friendly. "
+                "Avoid enabling illegal or unsafe activities."
+            )
+            # build messages: system + history + user
+            history_msgs = [{"role": m["role"], "content": m["content"]} for m in st.session_state.ai_chat_history]
+            messages = [{"role": "system", "content": system_prompt}] + history_msgs + [{"role": "user", "content": user_input}]
+
+            try:
+                from openai import OpenAI
+                client = OpenAI(api_key=api_key)
+                resp = client.chat.completions.create(model=model or "gpt-4o-mini", messages=messages)
+                assistant_text = resp.choices[0].message.content
+            except Exception as e:
+                st.error(f"API request failed: {e}")
+                assistant_text = None
+
+            # append to history and rerun to show conversation
+            st.session_state.ai_chat_history.append({"role": "user", "content": user_input})
+            if assistant_text:
+                st.session_state.ai_chat_history.append({"role": "assistant", "content": assistant_text})
+            st.experimental_rerun()
+
+    # Render chat history
+    if st.session_state.ai_chat_history:
+        for msg in st.session_state.ai_chat_history:
+            if msg["role"] == "user":
+                st.chat_message("user").write(msg["content"])
+            else:
+                st.chat_message("assistant").write(msg["content"])
 # ---------------------------
 # Logout
 # ---------------------------

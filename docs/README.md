@@ -50,3 +50,5 @@ The neat structure of the Application allows easy access to python packages and 
 Student Name: [Saifana Kuradiela Maryam] 
 Student ID: [M01088086]
 Course: CST1510 -CW2 - Multi-Domain Intelligence Platform
+## Project Description
+- Application of knowledge of the Streamlit interface and its features to create a functioning and aesthetic dashboard

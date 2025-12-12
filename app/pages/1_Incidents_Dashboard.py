@@ -302,9 +302,71 @@ elif selection == "Incident Manager":
 # AI Chat Bot Section
 # ---------------------------
 elif selection == "AI Chat Bot":
-    st.title("🤖 AI Chat Bot")
-    st.info("This section is a placeholder for future AI chat functionality.")
+    # Minimal integrated chat (Cyber Security Specialist persona only)
+    st.title("🤖 AI Chat Bot — Cyber Security Specialist")
+    st.info("This chat will connect you with our Cyber Security Specialist.")
 
+    # session keys
+    if "ai_chat_history" not in st.session_state:
+        st.session_state.ai_chat_history = []
+
+    # API key from secrets
+    api_key = st.secrets.get("OPENAI_API_KEY", None)
+    if not api_key:
+        st.warning("No API key found in .streamlit/secrets.toml — add OPENAI_API_KEY to enable chat.")
+
+    # model input (user can override)
+    model = st.text_input("Model", value="gpt-4o-mini", key="incidents_ai_model",
+                         help="Specify model name (kept blank will still attempt default).")
+
+    # Chat form
+    with st.form("incidents_chat_form", clear_on_submit=False):
+        user_input = st.text_area("Your message", placeholder="Ask the Cyber Security Specialist...", height=120)
+        col1, col2 = st.columns([1,1])
+        send = col1.form_submit_button("Send")
+        clear = col2.form_submit_button("Clear Conversation")
+
+    # Clear conversation
+    if clear:
+        st.session_state.ai_chat_history = []
+        st.st.rerun()()
+
+    # Send message
+    if send and user_input:
+        if not api_key:
+            st.error("No API key configured in secrets; cannot call OpenAI.")
+        else:
+            system_prompt = (
+                "You are a helpful cyber security specialist. Provide clear, practical, and secure advice "
+                "about cybersecurity incidents, best practices, threat mitigation, and secure system design. "
+                "Keep recommendations safe and avoid enabling harmful or illegal activities."
+            )
+            # build messages: system + history + user
+            history_msgs = [{"role": m["role"], "content": m["content"]} for m in st.session_state.ai_chat_history]
+            messages = [{"role": "system", "content": system_prompt}] + history_msgs + [{"role": "user", "content": user_input}]
+
+            try:
+                from openai import OpenAI
+                client = OpenAI(api_key=api_key)
+                resp = client.chat.completions.create(model=model or "gpt-4o-mini", messages=messages)
+                assistant_text = resp.choices[0].message.content
+            except Exception as e:
+                st.error(f"API request failed: {e}")
+                assistant_text = None
+
+            # append to history and rerun to show conversation
+            st.session_state.ai_chat_history.append({"role": "user", "content": user_input})
+            if assistant_text:
+                st.session_state.ai_chat_history.append({"role": "assistant", "content": assistant_text})
+            st.rerun()
+
+    # Render chat history
+    if st.session_state.ai_chat_history:
+        for msg in st.session_state.ai_chat_history:
+            if msg["role"] == "user":
+                st.chat_message("user").write(msg["content"])
+            else:
+                st.chat_message("assistant").write(msg["content"])
 # ---------------------------
 # Logout
 # ---------------------------
