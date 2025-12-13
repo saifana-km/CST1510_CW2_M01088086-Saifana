@@ -80,45 +80,47 @@ if selection == "Analytics":
             except Exception:
                 pass
 
-    st.subheader("Filtered Datasets")
-    st.dataframe(datasets, use_container_width=True)
+    # Show full filtered table inside an expander (matches Incidents format)
+    with st.expander("Filtered Datasets (click to expand)", expanded=False):
+        st.dataframe(datasets, use_container_width=True)
 
-    # Visualizations via dropdown (pastel)
-    st.subheader("Visualizations")
-    chart_choice = st.selectbox("Choose visualization", [
-        "Datasets by Category",
-        "Record Count Distribution",
-        "Size (MB) Distribution"
-    ])
+    # Visualizations inside an expander with dropdown
+    with st.expander("Visualizations (click to expand)", expanded=False):
+        st.write("Choose a chart from the dropdown to display it.")
+        chart_choice = st.selectbox("Choose visualization", [
+            "Datasets by Category",
+            "Record Count Distribution",
+            "Size (MB) Distribution"
+        ])
 
-    if chart_choice == "Datasets by Category" and not datasets.empty and "category" in datasets.columns:
-        cat_counts = datasets["category"].value_counts().reset_index()
-        cat_counts.columns = ["category", "count"]
-        pastel_palette = ["#FAD9E6", "#DDEBF7", "#E8F8E0", "#FFF1D6", "#F3E8FF", "#FFE4F1"]
-        domain = cat_counts["category"].tolist()
-        palette = (pastel_palette * ((len(domain) // len(pastel_palette)) + 1))[:len(domain)]
-        chart = alt.Chart(cat_counts).mark_bar().encode(
-            x="category",
-            y="count",
-            color=alt.Color("category", scale=alt.Scale(domain=domain, range=palette))
-        )
-        st.altair_chart(chart, use_container_width=True)
+        if chart_choice == "Datasets by Category" and not datasets.empty and "category" in datasets.columns:
+            cat_counts = datasets["category"].value_counts().reset_index()
+            cat_counts.columns = ["category", "count"]
+            pastel_palette = ["#FAD9E6", "#DDEBF7", "#E8F8E0", "#FFF1D6", "#F3E8FF", "#FFE4F1"]
+            domain = cat_counts["category"].tolist()
+            palette = (pastel_palette * ((len(domain) // len(pastel_palette)) + 1))[:len(domain)]
+            chart = alt.Chart(cat_counts).mark_bar().encode(
+                x="category",
+                y="count",
+                color=alt.Color("category", scale=alt.Scale(domain=domain, range=palette))
+            )
+            st.altair_chart(chart, use_container_width=True)
 
-    if chart_choice == "Record Count Distribution" and not datasets.empty and "record_count" in datasets.columns:
-        rc = datasets[["dataset_name", "record_count"]].dropna()
-        hist = alt.Chart(rc).mark_bar(color="#AFCBFF").encode(
-            alt.X("record_count:Q", bin=alt.Bin(maxbins=40), title="Record Count"),
-            y='count()'
-        )
-        st.altair_chart(hist, use_container_width=True)
+        if chart_choice == "Record Count Distribution" and not datasets.empty and "record_count" in datasets.columns:
+            rc = datasets[["dataset_name", "record_count"]].dropna()
+            hist = alt.Chart(rc).mark_bar(color="#AFCBFF").encode(
+                alt.X("record_count:Q", bin=alt.Bin(maxbins=40), title="Record Count"),
+                y='count()'
+            )
+            st.altair_chart(hist, use_container_width=True)
 
-    if chart_choice == "Size (MB) Distribution" and not datasets.empty and "file_size_mb" in datasets.columns:
-        sz = datasets[["dataset_name", "file_size_mb"]].dropna()
-        hist = alt.Chart(sz).mark_bar(color="#FFD7A6").encode(
-            alt.X("file_size_mb:Q", bin=alt.Bin(maxbins=40), title="File Size (MB)"),
-            y='count()'
-        )
-        st.altair_chart(hist, use_container_width=True)
+        if chart_choice == "Size (MB) Distribution" and not datasets.empty and "file_size_mb" in datasets.columns:
+            sz = datasets[["dataset_name", "file_size_mb"]].dropna()
+            hist = alt.Chart(sz).mark_bar(color="#FFD7A6").encode(
+                alt.X("file_size_mb:Q", bin=alt.Bin(maxbins=40), title="File Size (MB)"),
+                y='count()'
+            )
+            st.altair_chart(hist, use_container_width=True)
 
     # Metrics
     st.subheader("Key Metrics")
@@ -133,7 +135,7 @@ if selection == "Analytics":
         st.metric("Total Size (MB)", f"{total_size:.1f}")
 
 # ---------------------------
-# Metadata Manager Section
+# Metadata Manager Section (match Incidents format)
 # ---------------------------
 elif selection == "Metadata Manager":
     st.header("🛠️ Metadata Manager")
@@ -143,6 +145,11 @@ elif selection == "Metadata Manager":
     datasets = get_all_datasets()
     if datasets is None:
         datasets = pd.DataFrame()
+
+    # Display full datasets table (like Incidents Manager)
+    st.subheader("All Datasets")
+    st.dataframe(datasets, use_container_width=True)
+    st.divider()
 
     cola, colb, colc, cold = st.columns(4)
     with cola:
@@ -158,7 +165,7 @@ elif selection == "Metadata Manager":
         if st.button("Search / Delete"):
             st.session_state.form = "D"
 
-    # Create
+    # Create (uses insert_dataset(dataset_name, category, source, last_updated=None, record_count=None, file_size_mb=None))
     if st.session_state.form == "A":
         with st.form("new_metadata"):
             dataset_name = st.text_input("Dataset Name", help="e.g. customers.csv")
@@ -173,11 +180,18 @@ elif selection == "Metadata Manager":
             if not dataset_name or not category or not source:
                 st.warning("Please provide dataset name, category and source.")
             else:
-                new_id = insert_dataset(dataset_name, category, source, last_updated or None, int(record_count), float(file_size_mb))
+                new_id = insert_dataset(
+                    dataset_name,
+                    category,
+                    source,
+                    last_updated or None,
+                    int(record_count),
+                    float(file_size_mb)
+                )
                 st.success(f"Metadata record created (id={new_id}).")
                 st.rerun()
 
-    # Update last_updated
+    # Update last_updated (update_dataset_last_updated(dataset_name, new_date))
     elif st.session_state.form == "B":
         with st.form("update_last"):
             dataset_id = st.text_input("Dataset ID (numeric)", help="Use the numeric 'id' shown in the table")
@@ -197,7 +211,7 @@ elif selection == "Metadata Manager":
                     st.error(f"No dataset found with ID {id_val}.")
                 st.rerun()
 
-    # Update record_count
+    # Update record_count (update_dataset_record_count(dataset_name, new_count))
     elif st.session_state.form == "C":
         with st.form("update_count"):
             dataset_id = st.text_input("Dataset ID (numeric)", help="Use the numeric 'id' shown in the table")
@@ -217,7 +231,7 @@ elif selection == "Metadata Manager":
                     st.error(f"No dataset found with ID {id_val}.")
                 st.rerun()
 
-    # Search and Delete combined
+    # Search and Delete combined (uses get_dataset_by_name and delete_dataset)
     elif st.session_state.form == "D":
         with st.form("search_delete"):
             query = st.text_input("Search by ID or Name (enter numeric id or part of dataset name)")
@@ -230,6 +244,7 @@ elif selection == "Metadata Manager":
 
         if search_btn and query:
             q = query.strip()
+            # try numeric id lookup first using get_dataset_by_name (function expects id param)
             try:
                 id_val = int(q)
                 df = get_dataset_by_name(id_val)
@@ -265,30 +280,71 @@ elif selection == "Metadata Manager":
 # AI Chat Bot Section
 # ---------------------------
 elif selection == "AI Chat Bot":
-    st.header("🤖 AI Chat Bot — AI Data Science Specialist")
-    st.info("Chat with the AI Data Science Specialist persona.")
+    st.title("🤖 Chat GPT - OpenAI API")
+    st.caption("Data Science Specialist - Powered by GPT-4o-mini")
 
     # session history
     if "ai_chat_history" not in st.session_state:
         st.session_state.ai_chat_history = []
 
-    # API key (from secrets) and model input
+    # API key (from secrets)
     api_key = st.secrets.get("OPENAI_API_KEY", None)
     if not api_key:
         st.warning("No API key found in .streamlit/secrets.toml — add OPENAI_API_KEY to enable chat.")
-    model = st.text_input("Model", value="gpt-4o-mini", key="ds_ai_model", help="Specify model name")
+
+    # 👉 Fixed model (always gpt-4o-mini)
+    model = "gpt-4o-mini"
+
+    # Sidebar controls
+    with st.sidebar:
+        st.subheader("Chat Controls")
+
+        # Messages counter
+        message_count = len(st.session_state.ai_chat_history)
+        st.metric("Messages", message_count)
+
+        # Temperature slider
+        temperature = st.slider(
+            "Temperature",
+            min_value=0.0,
+            max_value=2.0,
+            value=1.0,
+            step=0.1,
+            help="Higher values make output more random"
+        )
+
+        # Clear chat button
+        if st.button("🗑 Clear Chat", use_container_width=True):
+            st.session_state.ai_chat_history = []
+            st.rerun()
+
+    # Render chat history ABOVE the input form
+    if st.session_state.ai_chat_history:
+        for msg in st.session_state.ai_chat_history:
+            if msg["role"] == "user":
+                st.chat_message("user").write(msg["content"])
+            else:
+                st.chat_message("assistant").write(msg["content"])
+    else:
+        st.info("Start the conversation by typing a message below.")
 
     # Chat form
     with st.form("ds_chat_form", clear_on_submit=False):
-        user_input = st.text_area("Your message", placeholder="Ask the Data Science Specialist...", height=140)
+        user_input = st.text_area(
+            "Your message",
+            placeholder="Ask the Data Science Specialist...",
+            height=140
+        )
         col1, col2 = st.columns([1, 1])
         send = col1.form_submit_button("Send")
         clear = col2.form_submit_button("Clear Conversation")
 
+    # Clear conversation (form button)
     if clear:
         st.session_state.ai_chat_history = []
-        st.experimental_rerun()
+        st.rerun()
 
+    # Send message
     if send and user_input:
         if not api_key:
             st.error("No API key configured; cannot call OpenAI.")
@@ -303,7 +359,11 @@ elif selection == "AI Chat Bot":
             try:
                 from openai import OpenAI
                 client = OpenAI(api_key=api_key)
-                resp = client.chat.completions.create(model=model or "gpt-4o-mini", messages=messages)
+                resp = client.chat.completions.create(
+                    model=model,
+                    messages=messages,
+                    temperature=temperature
+                )
                 assistant_text = resp.choices[0].message.content
             except Exception as e:
                 st.error(f"API request failed: {e}")
@@ -312,15 +372,7 @@ elif selection == "AI Chat Bot":
             st.session_state.ai_chat_history.append({"role": "user", "content": user_input})
             if assistant_text:
                 st.session_state.ai_chat_history.append({"role": "assistant", "content": assistant_text})
-            st.experimental_rerun()
-
-    # Render chat history
-    if st.session_state.ai_chat_history:
-        for msg in st.session_state.ai_chat_history:
-            if msg["role"] == "user":
-                st.chat_message("user").write(msg["content"])
-            else:
-                st.chat_message("assistant").write(msg["content"])
+            st.rerun()
 
 # ---------------------------
 # Logout

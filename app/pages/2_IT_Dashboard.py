@@ -14,6 +14,9 @@ from data.tickets import (
     search_ticket
 )
 
+# Page config (no theme/background CSS)
+st.set_page_config(page_title="IT Tickets", layout="wide")
+
 # ---------------------------
 # Session state setup
 # ---------------------------
@@ -93,59 +96,83 @@ if selection == "Analytics":
     if "status" in tickets_df.columns:
         tickets_df = tickets_df[tickets_df["status"].isin(status_filter)]
 
-    # Display filtered table
-    st.subheader("Filtered Tickets")
-    st.dataframe(tickets_df, use_container_width=True)
+    # ---------------------------
+    # Display Filtered Data (inside an expander)
+    # ---------------------------
+    with st.expander("Filtered Tickets (click to expand)", expanded=False):
+        st.dataframe(tickets_df, use_container_width=True)
 
-    # Visualisations (pastel)
-    st.subheader("Visualizations")
+    # ---------------------------
+    # Visualizations (inside an expander + dropdown)
+    # ---------------------------
+    with st.expander("Visualizations (click to expand)", expanded=False):
+        st.write("Choose a chart from the dropdown to display it.")
+        chart_choice = st.selectbox("Select chart", [
+            "Tickets by Priority",
+            "Tickets by Status",
+            "Tickets by Category",
+            "Ticket Trend Over Time"
+        ])
 
-    if "priority" in tickets_df.columns:
-        st.write("### Tickets by Priority")
-        prior_counts = tickets_df["priority"].value_counts().reset_index()
-        prior_counts.columns = ["priority", "count"]
-        prior_chart = alt.Chart(prior_counts).mark_bar().encode(
-            x="priority",
-            y="count",
-            color=alt.Color("priority",
-                            scale=alt.Scale(
-                                domain=["Critical", "High", "Medium", "Low"],
-                                range=["#FFD1D1", "#FFE9C9", "#D7E9FF", "#E6F7E9"]
-                            ))
-        )
-        st.altair_chart(prior_chart, use_container_width=True)
+        # Tickets by Priority
+        if chart_choice == "Tickets by Priority" and "priority" in tickets_df.columns and not tickets_df.empty:
+            prior_counts = tickets_df["priority"].value_counts().reset_index()
+            prior_counts.columns = ["priority", "count"]
+            prior_chart = alt.Chart(prior_counts).mark_bar().encode(
+                x="priority",
+                y="count",
+                color=alt.Color("priority",
+                                scale=alt.Scale(
+                                    domain=["Critical", "High", "Medium", "Low"],
+                                    range=["#FFD1D1", "#FFE9C9", "#D7E9FF", "#E6F7E9"]
+                                ))
+            )
+            st.altair_chart(prior_chart, use_container_width=True)
 
-    if "status" in tickets_df.columns:
-        st.write("### Tickets by Status")
-        status_counts = tickets_df["status"].value_counts().reset_index()
-        status_counts.columns = ["status", "count"]
-        status_chart = alt.Chart(status_counts).mark_bar().encode(
-            x="status",
-            y="count",
-            color=alt.Color("status",
-                            scale=alt.Scale(
-                                domain=["Open", "Investigating", "Resolved", "Closed"],
-                                range=["#DDEFFC", "#FFF6D6", "#EAF7E9", "#F3EAFB"]
-                            ))
-        )
-        st.altair_chart(status_chart, use_container_width=True)
+        # Tickets by Status
+        if chart_choice == "Tickets by Status" and "status" in tickets_df.columns and not tickets_df.empty:
+            status_counts = tickets_df["status"].value_counts().reset_index()
+            status_counts.columns = ["status", "count"]
+            status_chart = alt.Chart(status_counts).mark_bar().encode(
+                x="status",
+                y="count",
+                color=alt.Color("status",
+                                scale=alt.Scale(
+                                    domain=["Open", "Investigating", "Resolved", "Closed"],
+                                    range=["#DDEFFC", "#FFF6D6", "#EAF7E9", "#F3EAFB"]
+                                ))
+            )
+            st.altair_chart(status_chart, use_container_width=True)
 
-    if "category" in tickets_df.columns:
-        st.write("### Tickets by Category")
-        cat_counts = tickets_df["category"].value_counts().reset_index()
-        cat_counts.columns = ["category", "count"]
-        pastel_palette = ["#FAD9E6", "#DDEBF7", "#E8F8E0", "#FFF1D6", "#F3E8FF", "#FFE4F1"]
-        domain = cat_counts["category"].tolist()
-        palette = (pastel_palette * ((len(domain) // len(pastel_palette)) + 1))[:len(domain)]
-        cat_chart = alt.Chart(cat_counts).mark_bar().encode(
-            x="category",
-            y="count",
-            color=alt.Color("category",
-                            scale=alt.Scale(domain=domain, range=palette))
-        )
-        st.altair_chart(cat_chart, use_container_width=True)
+        # Tickets by Category
+        if chart_choice == "Tickets by Category" and "category" in tickets_df.columns and not tickets_df.empty:
+            cat_counts = tickets_df["category"].value_counts().reset_index()
+            cat_counts.columns = ["category", "count"]
+            pastel_palette = ["#FAD9E6", "#DDEBF7", "#E8F8E0", "#FFF1D6", "#F3E8FF", "#FFE4F1"]
+            domain = cat_counts["category"].tolist()
+            palette = (pastel_palette * ((len(domain) // len(pastel_palette)) + 1))[:len(domain)]
+            cat_chart = alt.Chart(cat_counts).mark_bar().encode(
+                x="category",
+                y="count",
+                color=alt.Color("category",
+                                scale=alt.Scale(domain=domain, range=palette))
+            )
+            st.altair_chart(cat_chart, use_container_width=True)
 
-    # Metrics
+        # Ticket trend over time
+        if chart_choice == "Ticket Trend Over Time" and "created_date" in tickets_df.columns and not tickets_df.empty:
+            try:
+                time_series = pd.to_datetime(tickets_df["created_date"]).dt.date.value_counts().sort_index().reset_index()
+                time_series.columns = ["date", "count"]
+                time_chart = alt.Chart(time_series).mark_line(color="#9BB7D4", point=True).encode(
+                    x=alt.X("date:T"),
+                    y=alt.Y("count:Q")
+                )
+                st.altair_chart(time_chart, use_container_width=True)
+            except Exception:
+                st.warning("Unable to render time series for created_date.")
+
+    # Metrics (no deltas shown in analytics)
     st.subheader("Key Metrics")
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -158,15 +185,22 @@ if selection == "Analytics":
         st.metric("Open Tickets", open_count)
 
 # ---------------------------
-# Ticket Manager Section
+# Ticket Manager Section (reworked to follow Incidents format)
 # ---------------------------
 elif selection == "Ticket Manager":
     st.title("🎫 Ticket Manager")
     st.markdown("*Create, update, search, and delete IT tickets.*")
     st.divider()
 
-    # Load tickets for manager actions (use helper)
+    # Load tickets for manager actions
     tickets = get_all_tickets()
+    if tickets is None:
+        tickets = pd.DataFrame()
+
+    # Display the full it_tickets table for the manager
+    st.subheader("All Tickets")
+    st.dataframe(tickets, use_container_width=True)
+    st.divider()
 
     cola, colb, colc, cold = st.columns(4)
     with cola:
@@ -182,7 +216,7 @@ elif selection == "Ticket Manager":
         if st.button("Delete Ticket"):
             st.session_state.form = "D"
 
-    # Create
+    # Create (insert_it_ticket(conn, priority, status, category, subject, description, created_date, resolved_date, assigned_to))
     if st.session_state.form == "A":
         with st.form("new_ticket"):
             subject = st.text_input("Subject")
@@ -196,80 +230,128 @@ elif selection == "Ticket Manager":
             submitted = st.form_submit_button("Create Ticket")
 
         if submitted:
-            ticket_id = insert_it_ticket(priority, status, category, subject, description, created_date, resolved_date or None, assigned_to or None)
+            ticket_id = insert_it_ticket(
+                conn,
+                priority,
+                status,
+                category,
+                subject,
+                description,
+                created_date,
+                (resolved_date or None),
+                (assigned_to or None)
+            )
             st.success(f"Ticket {ticket_id} created successfully!")
-            st.rerun()
-
-    # Update
-    elif st.session_state.form == "B":
-        with st.form("update_ticket"):
-            ticket_id = st.text_input("Ticket ID (numeric id or ticket_id string)")
-            new_status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
-            submitted = st.form_submit_button("Update Ticket")
-
-        if submitted and ticket_id:
-            # try numeric id first, otherwise use provided string
-            formatted = ticket_id.strip()
-            updated = update_ticket_status(conn, formatted, new_status)
-            if updated:
-                st.success(f"Ticket {formatted} updated to {new_status} successfully!")
-            else:
-                st.error(f"Failed to update ticket {formatted}.")
             st.rerun()
 
     # Search
     elif st.session_state.form == "C":
         with st.form("search_ticket"):
-            ticket_num = st.text_input("Ticket Number (numeric id or e.g. 0001)")
+            query = st.text_input("Search by numeric id or ticket id (e.g. 1 or TCK-0001)")
             submitted = st.form_submit_button("Search Ticket")
 
-        if submitted and ticket_num:
-            q = ticket_num.strip()
-            # if looks numeric, try to match primary id; also support formatted ticket_id
-            if tickets is None:
-                tickets = get_all_tickets()
-            if tickets is not None and not tickets.empty:
-                # check both id and ticket_id columns
+        if submitted and query:
+            q = query.strip()
+            # prefer DataFrame search if available
+            if not tickets.empty:
+                # search numeric id (column 'id') or ticket_id column
                 matches = pd.DataFrame()
-                if "id" in tickets.columns:
-                    matches = matches.append(tickets[tickets["id"].astype(str) == q], ignore_index=True)
-                if "ticket_id" in tickets.columns:
-                    # allow passing just number like 7 -> TCK-0007
-                    formatted_ticket_id = f"TCK-{q.zfill(4)}" if q.isdigit() else q
-                    matches = matches.append(tickets[tickets["ticket_id"] == formatted_ticket_id], ignore_index=True)
-                matches = matches.drop_duplicates()
+                try:
+                    if q.isdigit() and "id" in tickets.columns:
+                        matches = tickets[tickets["id"].astype(str) == q]
+                except Exception:
+                    matches = pd.DataFrame()
+                if matches.empty and "ticket_id" in tickets.columns:
+                    formatted_tid = f"TCK-{int(q):04d}" if q.isdigit() else q
+                    matches = tickets[tickets["ticket_id"] == formatted_tid]
                 if not matches.empty:
                     st.write("### Ticket Details")
                     st.dataframe(matches, use_container_width=True)
                 else:
-                    st.warning(f"No ticket found matching '{q}'")
+                    # fallback to DB search function
+                    row = search_ticket(conn, q if not q.isdigit() else f"TCK-{int(q):04d}")
+                    if row:
+                        df = pd.DataFrame([row], columns=[c[0] for c in conn.execute("PRAGMA table_info(it_tickets)").fetchall()])
+                        st.dataframe(df, use_container_width=True)
+                    else:
+                        st.warning(f"No ticket found matching '{q}'")
             else:
-                st.warning("No tickets available to search.")
+                # no tickets DataFrame -> use DB search
+                row = search_ticket(conn, q if not q.isdigit() else f"TCK-{int(q):04d}")
+                if row:
+                    st.write("### Ticket Details")
+                    # return row as single-row table (columns unknown -> show tuple)
+                    st.write(row)
+                else:
+                    st.warning(f"No ticket found matching '{q}'")
 
     # Delete
     elif st.session_state.form == "D":
         with st.form("delete_ticket"):
-            ticket_id = st.text_input("Ticket ID (numeric id or ticket_id string)")
+            ticket_identifier = st.text_input("Ticket ID (numeric id or ticket_id string)")
             confirm = st.checkbox("I understand this will permanently delete the ticket")
             submitted = st.form_submit_button("Delete Ticket")
 
-        if submitted and ticket_id:
+        if submitted and ticket_identifier:
             if not confirm:
                 st.warning("Please confirm deletion by checking the box.")
             else:
-                deleted = delete_ticket(conn, ticket_id.strip())
-                if deleted and deleted > 0:
-                    st.success(f"Ticket {ticket_id} deleted!")
+                tid_raw = ticket_identifier.strip()
+                # normalize numeric id to ticket_id format if needed
+                if tid_raw.isdigit():
+                    tid = f"TCK-{int(tid_raw):04d}"
                 else:
-                    st.error(f"No ticket found with ID {ticket_id}")
+                    tid = tid_raw
+                deleted = delete_ticket(conn, tid)
+                if deleted and deleted > 0:
+                    st.success(f"Ticket {tid} deleted!")
+                else:
+                    st.error(f"No ticket found with ID {ticket_identifier}")
                 st.rerun()
+
+    # Update
+    elif st.session_state.form == "B":
+        with st.form("update_ticket"):
+            ticket_identifier = st.text_input("Ticket ID (numeric id or ticket_id string)")
+            new_status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
+            submitted = st.form_submit_button("Update Ticket")
+
+        if submitted and ticket_identifier:
+            tid_raw = ticket_identifier.strip()
+            if tid_raw.isdigit():
+                tid = f"TCK-{int(tid_raw):04d}"
+            else:
+                tid = tid_raw
+            updated = update_ticket_status(conn, tid, new_status)
+            if updated:
+                st.success(f"Ticket {tid} updated to {new_status} successfully!")
+            else:
+                st.error(f"Failed to update ticket {ticket_identifier}.")
+            st.rerun()
+
+    # Show current metrics (refresh live counts)
+    tickets_current = get_all_tickets()
+    if tickets_current is None:
+        tickets_current = pd.DataFrame()
+    total_current = len(tickets_current)
+    high_current = tickets_current[tickets_current["priority"].isin(["High", "Critical"])].shape[0] if "priority" in tickets_current.columns else 0
+    open_current = tickets_current[tickets_current["status"].isin(["Open", "Investigating"])].shape[0] if "status" in tickets_current.columns else 0
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Total Tickets", total_current)
+    with col2:
+        st.metric("High Priority", high_current)
+    with col3:
+        st.metric("Open Tickets", open_current)
 
 # ---------------------------
 # AI Chat Bot Section
 # ---------------------------
 elif selection == "AI Chat Bot":
-    st.title("🤖 AI Chat Bot — IT Specialist")
-    st.info("This chat will connect you with our IT Specialist.")
+    # IT Specialist persona only
+    st.title("🤖 Chat GPT - OpenAI API")
+    st.caption("IT Specialist - Powered by GPT-4o-mini")
 
     # session keys
     if "ai_chat_history" not in st.session_state:
@@ -280,20 +362,57 @@ elif selection == "AI Chat Bot":
     if not api_key:
         st.warning("No API key found in .streamlit/secrets.toml — add OPENAI_API_KEY to enable chat.")
 
-    # model input (user can override)
-    model = st.text_input("Model", value="gpt-4o-mini", key="it_ai_model",
-                         help="Specify model name (kept blank will still attempt default).")
+    # 👉 Fixed model (always gpt-4o-mini)
+    model = "gpt-4o-mini"
+
+    # Sidebar controls
+    with st.sidebar:
+        st.subheader("Chat Controls")
+
+        # Messages counter
+        message_count = len(st.session_state.ai_chat_history)
+        st.metric("Messages", message_count)
+
+        # Temperature slider
+        temperature = st.slider(
+            "Temperature",
+            min_value=0.0,
+            max_value=2.0,
+            value=1.0,
+            step=0.1,
+            help="Higher values make output more random"
+        )
+
+        # Clear chat button
+        if st.button("🗑 Clear Chat", use_container_width=True):
+            st.session_state.ai_chat_history = []
+            st.rerun()
+
+    # Render chat history ABOVE the input form
+    if st.session_state.ai_chat_history:
+        for msg in st.session_state.ai_chat_history:
+            if msg["role"] == "user":
+                st.chat_message("user").write(msg["content"])
+            else:
+                st.chat_message("assistant").write(msg["content"])
+    else:
+        st.info("Start the conversation by typing a message below.")
 
     # Chat form
     with st.form("it_chat_form", clear_on_submit=False):
-        user_input = st.text_area("Your message", placeholder="Ask the IT Specialist...", height=120)
-        col1, col2 = st.columns([1,1])
+        user_input = st.text_area(
+            "Your message",
+            placeholder="Ask the IT Specialist...",
+            height=120
+        )
+        col1, col2 = st.columns([1, 1])
         send = col1.form_submit_button("Send")
         clear = col2.form_submit_button("Clear Conversation")
 
+    # Clear conversation (form button)
     if clear:
         st.session_state.ai_chat_history = []
-        st.experimental_rerun()
+        st.rerun()
 
     # Send message
     if send and user_input:
@@ -312,7 +431,11 @@ elif selection == "AI Chat Bot":
             try:
                 from openai import OpenAI
                 client = OpenAI(api_key=api_key)
-                resp = client.chat.completions.create(model=model or "gpt-4o-mini", messages=messages)
+                resp = client.chat.completions.create(
+                    model=model,
+                    messages=messages,
+                    temperature=temperature   # 👈 use slider value here
+                )
                 assistant_text = resp.choices[0].message.content
             except Exception as e:
                 st.error(f"API request failed: {e}")
@@ -322,15 +445,8 @@ elif selection == "AI Chat Bot":
             st.session_state.ai_chat_history.append({"role": "user", "content": user_input})
             if assistant_text:
                 st.session_state.ai_chat_history.append({"role": "assistant", "content": assistant_text})
-            st.experimental_rerun()
+            st.rerun()
 
-    # Render chat history
-    if st.session_state.ai_chat_history:
-        for msg in st.session_state.ai_chat_history:
-            if msg["role"] == "user":
-                st.chat_message("user").write(msg["content"])
-            else:
-                st.chat_message("assistant").write(msg["content"])
 # ---------------------------
 # Logout
 # ---------------------------
