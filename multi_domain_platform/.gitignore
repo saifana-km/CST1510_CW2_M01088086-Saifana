@@ -1,0 +1,7 @@
+# Python example
+__pycache__/
+*.pyc
+.env
+.vscode/
+.idea/
+.streamlit/secrets.toml
