@@ -19,7 +19,7 @@ st.set_page_config(page_title="IT Tickets", layout="wide")
 # ---------------------------
 # Session state setup
 # ---------------------------
-conn = connect_database('DATA/intelligence_platform.db')
+conn = connect_database()
 
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False

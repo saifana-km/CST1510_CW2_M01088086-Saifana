@@ -65,7 +65,39 @@ Each domain will have an AI Chat Bot with their respective specialty roles
 - .toml file in .streamlit folder has a placeholder API key, must be replaced with own API key to run AI
 - Run file using "streamlit run {filepath}"
 - User login / register page > dashboard access (if correct) > {domains:} > logout
-    **Domains:**
+    - **Domains:**
     - Cybersecurity: Analytics > CRUD Operations > AI Chat Bot
     - Data Science: Analytics > CRUD Operations > AI Chat Bot
     - IT Operations: Analytics > CRUD Operations > AI Chat Bot
+
+# Week 11: Dashboard Implementation (OOP)
+## Week 11 Project Description
+Adjustment to overall project in the format of OOP for a cleaner, more polished program structure
+Created models and classes for easier data package usages
+### Features
+- Similar website features to week 10
+- Class models, for straight forward imports and cleaner code
+- Features getters and setters within classes
+### Technical Implementation
+- .toml file in .streamlit folder has a placeholder API key, must be replaced with own API key to run AI
+- Run file using "streamlit run {filepath}"
+- User login / register page > dashboard access (if correct) > {domains:} > logout
+    - **Domains:**
+    - Cybersecurity: Analytics > CRUD Operations > AI Chat Bot
+    - Data Science: Analytics > CRUD Operations > AI Chat Bot
+    - IT Operations: Analytics > CRUD Operations > AI Chat Bot
+
+# Instructions to Run App:
+1. Check requirements.txt file to view any downloadable modules not included within default Python package
+2. Add own API key to the secrets.toml file under the .streamlit folder under Week07-Week10_App or Week11_App
+    - (TIP: File path should be like {projectroot}/.streamlit/secrets.toml)
+3. Unzip app package and run from 1_Home.py file, or run from terminal "streamlit run {projectroot}/1_Home.py"
+4. Will display Home page with authentication features, namely: Login/ Register
+5. Register or login, after successful attempts > takes user to the first domain page "Cybersecurity"
+6. Navigate on the page through the tabs: Analytics > Record Mangement > AI Chat Bot
+- Analytics: Filters will adjust for all visualizations,  users may freely navigate between charts and dropdown menus
+- Record Management: Users may freely navigate through CRUD operation buttons, and check record chart for updates
+- AI Chat Bot: Users may chat freely with specialist AI Chat Bots
+    - (TIP: If issues arise with the API key, check whether the secrets.toml file has the correct API key)
+7. Navigate through each page: Cybersecurity > Data Science > IT Operations and repeat step 6 freely
+8. Log out

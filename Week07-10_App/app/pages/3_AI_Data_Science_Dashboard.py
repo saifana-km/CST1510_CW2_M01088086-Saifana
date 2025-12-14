@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 import sqlite3
+from data.db import connect_database
 from datetime import datetime
 from data.datasets import (
     insert_dataset,
@@ -14,13 +15,13 @@ from data.datasets import (
     get_large_datasets
 )
 
-DB_PATH = "DATA/intelligence_platform.db"
-
 st.set_page_config(page_title="Datasets Metadata", layout="wide")
 
 # ---------------------------
 # Session state setup
 # ---------------------------
+conn = connect_database()
+
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 if "username" not in st.session_state:
@@ -264,7 +265,7 @@ elif selection == "Metadata Manager":
                 id_val = int(q)
                 df = get_dataset_by_name(id_val)
             except ValueError:
-                conn = sqlite3.connect(DB_PATH)
+                conn = connect_database()
                 df = pd.read_sql_query("SELECT * FROM datasets_metadata WHERE dataset_name LIKE ? ORDER BY id DESC", conn, params=(f"%{q}%",))
                 conn.close()
 

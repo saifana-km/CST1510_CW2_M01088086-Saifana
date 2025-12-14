@@ -1,2 +1,4 @@
 pandas
 bcrypt==4.2.0
+streamlit
+altair

@@ -3,11 +3,12 @@ from services.auth_manager import AuthManager
 from pathlib import Path
 import streamlit as st
 
-# Resolve DB path relative to package root (two levels up from file when needed)
-ROOT = Path(__file__).resolve().parents[0]  # file is in package root already
+ROOT = Path(__file__).resolve().parents[0] 
 DB_PATH = str(ROOT / "database" / "platform.db")
 
+# ---------------------------
 # Initialize database and auth manager
+# ---------------------------
 db = DatabaseManager(DB_PATH)
 try:
     db.connect()
@@ -17,7 +18,9 @@ except Exception as e:
 
 auth = AuthManager(db)
 
-# Session state defaults
+# ---------------------------
+# Session state setup
+# ---------------------------
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
@@ -29,7 +32,7 @@ if "role" not in st.session_state:
 
 st.title("🔐 Welcome")
 
-# If already logged in, go straight to dashboard (optional)
+
 if st.session_state.logged_in:
     st.success(f"Already logged in as **{st.session_state.username}**.")
     if st.sidebar.button("Log out"):
@@ -44,11 +47,14 @@ if st.session_state.logged_in:
         st.switch_page("pages/2_🛡️_Cybersecurity.py")  # adjust path to your dashboard page
     st.stop()  # Don’t show login/register again
 
-
-# ---------- Tabs: Login / Register ----------
+# ---------------------------
+# Tabs: Login / Register
+# ---------------------------
 tab_login, tab_register = st.tabs(["Login", "Register"])
 
-# ----- LOGIN TAB -----
+# ---------------------------
+# Login Tab
+# ---------------------------
 with tab_login:
     st.subheader("Login")
 
@@ -67,7 +73,9 @@ with tab_login:
             st.error("Invalid username or password.")
 
 
-# ----- REGISTER TAB -----
+# ---------------------------
+# Register Tab
+# ---------------------------
 with tab_register:
     st.subheader("Register")
 
