@@ -44,9 +44,6 @@ selection = st.sidebar.selectbox("Go to", SECTIONS)
 # ---------------------------
 # Analytics Section
 # ---------------------------
-# ---------------------------
-# Analytics Section (inline)
-# ---------------------------
 import altair as alt
 
 if selection == "Analytics":
@@ -55,7 +52,7 @@ if selection == "Analytics":
         st.markdown("*Analysis and visualization of recent, and past Cybersecurity incidents.*")
     st.divider()
 
-    # Load incidents directly from DB
+    # Loading incidents
     incidents = pd.read_sql("SELECT * FROM cyber_incidents", conn)
 
     # ---------------------------
@@ -95,13 +92,13 @@ if selection == "Analytics":
     incidents = incidents[incidents["status"].isin(status_filter)]
 
     # ---------------------------
-    # Display Filtered Data (inside an expander)
+    # Display Filtered Data (in expander)
     # ---------------------------
     with st.expander("Filtered Incidents (click to expand)", expanded=False):
         st.dataframe(incidents, use_container_width=True)
 
     # ---------------------------
-    # Visualizations (inside an expander + dropdown)
+    # Visualizations (in expander + dropdown)
     # ---------------------------
     with st.expander("Visualizations (click to expand)", expanded=False):
         st.write("Choose a chart from the dropdown to display it.")
@@ -167,7 +164,7 @@ if selection == "Analytics":
             st.altair_chart(type_chart, use_container_width=True)
 
     # ---------------------------
-    # Metrics (unchanged)
+    # Metrics
     # ---------------------------
     st.subheader("Key Metrics")
     col1, col2, col3 = st.columns(3)
@@ -210,7 +207,7 @@ elif selection == "Incidents Manager":
         if st.button("Delete Incident"):
             st.session_state.form = "D"
 
-    # Create (match insert_incident(date, incident_type, severity, status, description, reported_by=None))
+    # A. Creating New Incident
     if st.session_state.form == "A":
         with st.form("new_incident"):
             incident_type = st.text_input("Incident Type", help="e.g. Phishing, Malware, Unauthorized Access")
@@ -222,7 +219,6 @@ elif selection == "Incidents Manager":
             submitted = st.form_submit_button("Create Incident")
 
         if submitted:
-            # call insert_incident following incidents.py signature
             incident_id = insert_incident(
                 created_date,
                 incident_type,
@@ -234,7 +230,28 @@ elif selection == "Incidents Manager":
             st.success(f"Incident {incident_id} created successfully!")
             st.rerun()
 
-    # Search (uses numeric id search on dataframe OR search_incident(conn, incident_id) for non-numeric)
+    # B. Updating Existing Incident
+    elif st.session_state.form == "B":
+        with st.form("update_incident"):
+            incident_id = st.text_input("Incident ID # (numeric)")
+            new_status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
+            submitted = st.form_submit_button("Update Incident")
+
+        if submitted and incident_id:
+            formatted_id = incident_id.strip()
+            try:
+                int_id = int(formatted_id)
+            except ValueError:
+                st.warning("Please enter the numeric incident ID (e.g. 500).")
+            else:
+                updated = update_incident_status(conn, int_id, new_status)
+                if updated:
+                    st.success(f"Incident {formatted_id} updated to {new_status} successfully!")
+                else:
+                    st.error(f"Failed to update incident {formatted_id}.")
+                st.rerun()
+
+    # C. Searching for an Incident
     elif st.session_state.form == "C":
         with st.form("search_incident"):
             query = st.text_input("Search by numeric id or incident identifier (e.g. INC-0001)")
@@ -268,7 +285,7 @@ elif selection == "Incidents Manager":
                 else:
                     st.warning(f"No incident found with ID {int_q}")
 
-    # Delete (delete_incident(conn, incident_id) expects conn + numeric id)
+    # D. Deleting Existing Incident
     elif st.session_state.form == "D":
         with st.form("delete_incident"):
             incident_id = st.text_input("Incident ID # (numeric)")
@@ -292,35 +309,13 @@ elif selection == "Incidents Manager":
                         st.error(f"No incident found with ID {formatted_id}")
                     st.rerun()
 
-    # Update (update_incident_status(conn, incident_id, new_status) already matches signature)
-    elif st.session_state.form == "B":
-        with st.form("update_incident"):
-            incident_id = st.text_input("Incident ID # (numeric)")
-            new_status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
-            submitted = st.form_submit_button("Update Incident")
-
-        if submitted and incident_id:
-            formatted_id = incident_id.strip()
-            try:
-                int_id = int(formatted_id)
-            except ValueError:
-                st.warning("Please enter the numeric incident ID (e.g. 500).")
-            else:
-                updated = update_incident_status(conn, int_id, new_status)
-                if updated:
-                    st.success(f"Incident {formatted_id} updated to {new_status} successfully!")
-                else:
-                    st.error(f"Failed to update incident {formatted_id}.")
-                st.rerun()
 # ---------------------------
 # AI Chat Bot Section
 # ---------------------------
 elif selection == "AI Chat Bot":
-    # Cyber Security Specialist persona only
     st.title("🤖 Chat GPT - OpenAI API")
     st.caption("Cyber Security Specialist - Powered by GPT-4o-mini")
 
-    # session keys
     if "ai_chat_history" not in st.session_state:
         st.session_state.ai_chat_history = []
 
@@ -329,7 +324,7 @@ elif selection == "AI Chat Bot":
     if not api_key:
         st.warning("No API key found in .streamlit/secrets.toml — add OPENAI_API_KEY to enable chat.")
 
-    # 👉 Fixed model (always gpt-4o-mini)
+    # Model to be utilised:
     model = "gpt-4o-mini"
 
     # Sidebar controls
@@ -355,7 +350,6 @@ elif selection == "AI Chat Bot":
             st.session_state.ai_chat_history = []
             st.rerun()
 
-    # Render chat history ABOVE the input form
     if st.session_state.ai_chat_history:
         for msg in st.session_state.ai_chat_history:
             if msg["role"] == "user":
@@ -376,7 +370,7 @@ elif selection == "AI Chat Bot":
         send = col1.form_submit_button("Send")
         clear = col2.form_submit_button("Clear Conversation")
 
-    # Clear conversation (form button)
+    # Clear conversation
     if clear:
         st.session_state.ai_chat_history = []
         st.rerun()
@@ -385,10 +379,9 @@ elif selection == "AI Chat Bot":
     if send and user_input:
         if not api_key:
             st.error("No API key configured in secrets; cannot call OpenAI.")
-        else:
+        else: # Cyber Security Specialist persona
             system_prompt = """You are a cybersecurity expert assistant.
             Analyze incidents, threats, and provide technical guidance."""
-            # build messages: system + history + user
             history_msgs = [{"role": m["role"], "content": m["content"]} for m in st.session_state.ai_chat_history]
             messages = [{"role": "system", "content": system_prompt}] + history_msgs + [{"role": "user", "content": user_input}]
 
@@ -398,14 +391,13 @@ elif selection == "AI Chat Bot":
                 resp = client.chat.completions.create(
                     model=model,
                     messages=messages,
-                    temperature=temperature   # 👈 use slider value here
+                    temperature=temperature
                 )
                 assistant_text = resp.choices[0].message.content
             except Exception as e:
                 st.error(f"API request failed: {e}")
                 assistant_text = None
 
-            # append to history and rerun to show conversation
             st.session_state.ai_chat_history.append({"role": "user", "content": user_input})
             if assistant_text:
                 st.session_state.ai_chat_history.append({"role": "assistant", "content": assistant_text})

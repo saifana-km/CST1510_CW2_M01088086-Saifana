@@ -1,8 +1,9 @@
 import pandas as pd
 from data.db import connect_database
 
+# -----------------------------------------------------------------------------
 # CRUD Operation Functions for Cybersecurity Incidents Table
-#-----------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 def insert_incident(date, incident_type, severity, status, description, reported_by=None):
     """Insert new incident."""
     conn = connect_database()

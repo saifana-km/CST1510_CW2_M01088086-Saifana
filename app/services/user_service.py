@@ -6,6 +6,9 @@ from data.schema import create_users_table
 import sqlite3
 DATA_DIR = Path("DATA")
 
+# -----------------------------------------------------------------------------
+# Week 07 Migration : User Registration and Login Functions
+#------------------------------------------------------------------------------
 def register_user(username, password, role="user"):
     conn = connect_database()
     cursor = conn.cursor()

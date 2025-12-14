@@ -14,7 +14,6 @@ from data.tickets import (
     search_ticket
 )
 
-# Page config (no theme/background CSS)
 st.set_page_config(page_title="IT Tickets", layout="wide")
 
 # ---------------------------
@@ -41,7 +40,7 @@ if not st.session_state.logged_in:
 st.success(f"Hello, **{st.session_state.username}**! You are logged in.")
 
 # ---------------------------
-# Navigation (Analytics / Ticket Manager / AI Chat Bot)
+# Dropdown Navigation
 # ---------------------------
 SECTIONS = ["Analytics", "Ticket Manager", "AI Chat Bot"]
 st.sidebar.title("Navigation")
@@ -55,10 +54,12 @@ if selection == "Analytics":
     st.markdown("*Visualise ticket trends, priorities and category breakdowns.*")
     st.divider()
 
-    # Load tickets directly from DB for analytics
+    # Load tickets 
     tickets_df = pd.read_sql("SELECT * FROM it_tickets", conn)
 
-    # Sidebar filters
+    # ---------------------------
+    # Sidebar Filters
+    # ---------------------------
     st.sidebar.subheader("Filters")
     if not tickets_df.empty and "created_date" in tickets_df.columns:
         try:
@@ -75,7 +76,6 @@ if selection == "Analytics":
                 (pd.to_datetime(tickets_df["created_date"]) <= date_range[1])
             ]
         except Exception:
-            # ignore date parsing errors
             pass
 
     # Priority filter
@@ -97,13 +97,13 @@ if selection == "Analytics":
         tickets_df = tickets_df[tickets_df["status"].isin(status_filter)]
 
     # ---------------------------
-    # Display Filtered Data (inside an expander)
+    # Display Filtered Data (in expander)
     # ---------------------------
     with st.expander("Filtered Tickets (click to expand)", expanded=False):
         st.dataframe(tickets_df, use_container_width=True)
 
     # ---------------------------
-    # Visualizations (inside an expander + dropdown)
+    # Visualizations (in expander + dropdown)
     # ---------------------------
     with st.expander("Visualizations (click to expand)", expanded=False):
         st.write("Choose a chart from the dropdown to display it.")
@@ -172,7 +172,9 @@ if selection == "Analytics":
             except Exception:
                 st.warning("Unable to render time series for created_date.")
 
-    # Metrics (no deltas shown in analytics)
+    # ---------------------------
+    # Metrics
+    # ---------------------------
     st.subheader("Key Metrics")
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -216,7 +218,7 @@ elif selection == "Ticket Manager":
         if st.button("Delete Ticket"):
             st.session_state.form = "D"
 
-    # Create (insert_it_ticket(conn, priority, status, category, subject, description, created_date, resolved_date, assigned_to))
+    # A. Creating New Ticket
     if st.session_state.form == "A":
         with st.form("new_ticket"):
             subject = st.text_input("Subject")
@@ -244,7 +246,27 @@ elif selection == "Ticket Manager":
             st.success(f"Ticket {ticket_id} created successfully!")
             st.rerun()
 
-    # Search
+    # B. Updating Existing Ticket Status
+    elif st.session_state.form == "B":
+        with st.form("update_ticket"):
+            ticket_identifier = st.text_input("Ticket ID (numeric id or ticket_id string)")
+            new_status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
+            submitted = st.form_submit_button("Update Ticket")
+
+        if submitted and ticket_identifier:
+            tid_raw = ticket_identifier.strip()
+            if tid_raw.isdigit():
+                tid = f"TCK-{int(tid_raw):04d}"
+            else:
+                tid = tid_raw
+            updated = update_ticket_status(conn, tid, new_status)
+            if updated:
+                st.success(f"Ticket {tid} updated to {new_status} successfully!")
+            else:
+                st.error(f"Failed to update ticket {ticket_identifier}.")
+            st.rerun()
+
+    # C. Searching Existing Tickets
     elif st.session_state.form == "C":
         with st.form("search_ticket"):
             query = st.text_input("Search by numeric id or ticket id (e.g. 1 or TCK-0001)")
@@ -252,9 +274,7 @@ elif selection == "Ticket Manager":
 
         if submitted and query:
             q = query.strip()
-            # prefer DataFrame search if available
             if not tickets.empty:
-                # search numeric id (column 'id') or ticket_id column
                 matches = pd.DataFrame()
                 try:
                     if q.isdigit() and "id" in tickets.columns:
@@ -268,7 +288,6 @@ elif selection == "Ticket Manager":
                     st.write("### Ticket Details")
                     st.dataframe(matches, use_container_width=True)
                 else:
-                    # fallback to DB search function
                     row = search_ticket(conn, q if not q.isdigit() else f"TCK-{int(q):04d}")
                     if row:
                         df = pd.DataFrame([row], columns=[c[0] for c in conn.execute("PRAGMA table_info(it_tickets)").fetchall()])
@@ -276,16 +295,14 @@ elif selection == "Ticket Manager":
                     else:
                         st.warning(f"No ticket found matching '{q}'")
             else:
-                # no tickets DataFrame -> use DB search
                 row = search_ticket(conn, q if not q.isdigit() else f"TCK-{int(q):04d}")
                 if row:
                     st.write("### Ticket Details")
-                    # return row as single-row table (columns unknown -> show tuple)
                     st.write(row)
                 else:
                     st.warning(f"No ticket found matching '{q}'")
 
-    # Delete
+    # D. Deleting Existing Tickets
     elif st.session_state.form == "D":
         with st.form("delete_ticket"):
             ticket_identifier = st.text_input("Ticket ID (numeric id or ticket_id string)")
@@ -309,51 +326,13 @@ elif selection == "Ticket Manager":
                     st.error(f"No ticket found with ID {ticket_identifier}")
                 st.rerun()
 
-    # Update
-    elif st.session_state.form == "B":
-        with st.form("update_ticket"):
-            ticket_identifier = st.text_input("Ticket ID (numeric id or ticket_id string)")
-            new_status = st.selectbox("Status", ["Open", "Investigating", "Resolved", "Closed"])
-            submitted = st.form_submit_button("Update Ticket")
-
-        if submitted and ticket_identifier:
-            tid_raw = ticket_identifier.strip()
-            if tid_raw.isdigit():
-                tid = f"TCK-{int(tid_raw):04d}"
-            else:
-                tid = tid_raw
-            updated = update_ticket_status(conn, tid, new_status)
-            if updated:
-                st.success(f"Ticket {tid} updated to {new_status} successfully!")
-            else:
-                st.error(f"Failed to update ticket {ticket_identifier}.")
-            st.rerun()
-
-    # Show current metrics (refresh live counts)
-    tickets_current = get_all_tickets()
-    if tickets_current is None:
-        tickets_current = pd.DataFrame()
-    total_current = len(tickets_current)
-    high_current = tickets_current[tickets_current["priority"].isin(["High", "Critical"])].shape[0] if "priority" in tickets_current.columns else 0
-    open_current = tickets_current[tickets_current["status"].isin(["Open", "Investigating"])].shape[0] if "status" in tickets_current.columns else 0
-
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.metric("Total Tickets", total_current)
-    with col2:
-        st.metric("High Priority", high_current)
-    with col3:
-        st.metric("Open Tickets", open_current)
-
 # ---------------------------
 # AI Chat Bot Section
 # ---------------------------
 elif selection == "AI Chat Bot":
-    # IT Specialist persona only
     st.title("🤖 Chat GPT - OpenAI API")
     st.caption("IT Specialist - Powered by GPT-4o-mini")
 
-    # session keys
     if "ai_chat_history" not in st.session_state:
         st.session_state.ai_chat_history = []
 
@@ -362,7 +341,7 @@ elif selection == "AI Chat Bot":
     if not api_key:
         st.warning("No API key found in .streamlit/secrets.toml — add OPENAI_API_KEY to enable chat.")
 
-    # 👉 Fixed model (always gpt-4o-mini)
+    # Fixed model
     model = "gpt-4o-mini"
 
     # Sidebar controls
@@ -388,7 +367,6 @@ elif selection == "AI Chat Bot":
             st.session_state.ai_chat_history = []
             st.rerun()
 
-    # Render chat history ABOVE the input form
     if st.session_state.ai_chat_history:
         for msg in st.session_state.ai_chat_history:
             if msg["role"] == "user":
@@ -418,13 +396,12 @@ elif selection == "AI Chat Bot":
     if send and user_input:
         if not api_key:
             st.error("No API key configured in secrets; cannot call OpenAI.")
-        else:
+        else: # IT Specialist persona only
             system_prompt = (
                 "You are an IT support specialist. Provide troubleshooting steps, configuration guidance, "
                 "and pragmatic advice for typical IT issues (networks, servers, user support). Be concise and user-friendly. "
                 "Avoid enabling illegal or unsafe activities."
             )
-            # build messages: system + history + user
             history_msgs = [{"role": m["role"], "content": m["content"]} for m in st.session_state.ai_chat_history]
             messages = [{"role": "system", "content": system_prompt}] + history_msgs + [{"role": "user", "content": user_input}]
 
@@ -434,14 +411,13 @@ elif selection == "AI Chat Bot":
                 resp = client.chat.completions.create(
                     model=model,
                     messages=messages,
-                    temperature=temperature   # 👈 use slider value here
+                    temperature=temperature 
                 )
                 assistant_text = resp.choices[0].message.content
             except Exception as e:
                 st.error(f"API request failed: {e}")
                 assistant_text = None
 
-            # append to history and rerun to show conversation
             st.session_state.ai_chat_history.append({"role": "user", "content": user_input})
             if assistant_text:
                 st.session_state.ai_chat_history.append({"role": "assistant", "content": assistant_text})

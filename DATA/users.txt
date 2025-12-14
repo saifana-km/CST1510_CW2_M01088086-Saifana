@@ -1,0 +1,5 @@
+alice,$2b$12$V9iprXL4qB0Hy4j/lEZEaeQJgaPMF.rJqru.2UkgxTU9y834Jj8ry,user
+saifana,$2b$12$vf4nfSBuIblOVpo28QR9mOC6Of8Kk8nwN/QljKtlgK.i7EEiEgamO,user
+shaiah,$2b$12$pYW.zPGDLYtMpV8ALJvSleHBcxA9vqsLx6wTD4tLmzOHowmWqeT.2,user
+khalisah,$2b$12$0ZaIv4D9xVzKNyQrUDs6IO.z.LDXY4x9iSEGuo.9I2jwk3.ijCewi,user
+

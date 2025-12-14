@@ -5,6 +5,9 @@ from services.user_service import register_user
 
 st.set_page_config(page_title="Login / Register", page_icon="🔑", layout="centered")
 
+# ---------------------------
+# Session state setup
+# ---------------------------
 if "users" not in st.session_state:
     st.session_state.users = {}
 
@@ -16,19 +19,21 @@ if "username" not in st.session_state:
 
 st.title("🔐 Welcome")
 
-# If already logged in, go straight to dashboard (optional)
+# If already logged in, go straight to dashboard
 if st.session_state.logged_in:
     st.success(f"Already logged in as **{st.session_state.username}**.")
     if st.button("Go to dashboard"):
-        # Use the official navigation API to switch pages
-        st.switch_page("pages/1_Incidents_Dashboard.py")  # path is relative to Home.py :contentReference[oaicite:1]{index=1}
+        st.switch_page("pages/1_Incidents_Dashboard.py")
     st.stop()  # Don’t show login/register again
 
-
-# ---------- Tabs: Login / Register ----------
+# ---------------------------
+# Tabs: Login / Register
+# ---------------------------
 tab_login, tab_register = st.tabs(["Login", "Register"])
 
-# ----- LOGIN TAB -----
+# ---------------------------
+# Login Tab
+# ---------------------------
 with tab_login:
     st.subheader("Login")
 
@@ -52,7 +57,9 @@ with tab_login:
             st.error("Invalid username or password.")
 
 
-# ----- REGISTER TAB -----
+# ---------------------------
+# Register Tab
+# ---------------------------
 
 with tab_register:
     st.subheader("Register")

@@ -6,9 +6,10 @@ from data.db import connect_database
 from data.users import migrate_users_from_file
 DB_PATH = Path("DATA") / "intelligence_platform.db"
 
+# -----------------------------------------------------------------------------
 # Table schema for database for all domains + user-sensitive data
 # schemas: Users, Cyber Incidents, Datasets Metadata, IT Tickets
-#-----------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 def create_users_table(conn):
     cursor = conn.cursor()
     

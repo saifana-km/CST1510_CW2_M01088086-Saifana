@@ -16,10 +16,11 @@ from data.datasets import (
 
 DB_PATH = "DATA/intelligence_platform.db"
 
-# Page config
 st.set_page_config(page_title="Datasets Metadata", layout="wide")
 
-# Ensure session state keys exist
+# ---------------------------
+# Session state setup
+# ---------------------------
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 if "username" not in st.session_state:
@@ -27,7 +28,9 @@ if "username" not in st.session_state:
 if "form" not in st.session_state:
     st.session_state.form = None
 
-# Require login
+# ---------------------------
+# Guard: require login
+# ---------------------------
 if not st.session_state.logged_in:
     st.error("You must be logged in to view the dashboard.")
     if st.button("Go to login page"):
@@ -37,7 +40,9 @@ if not st.session_state.logged_in:
 st.title("🗂️ Datasets Metadata Manager")
 st.success(f"Hello, **{st.session_state.username}**! You are logged in.")
 
-# Navigation sections (Analytics / Metadata Manager / AI Chat Bot)
+# ---------------------------
+# Dropdown Navigation
+# ---------------------------
 SECTIONS = ["Analytics", "Metadata Manager", "AI Chat Bot"]
 st.sidebar.title("Navigation")
 selection = st.sidebar.selectbox("Go to", SECTIONS)
@@ -50,13 +55,17 @@ if selection == "Analytics":
     st.markdown("*Overview of datasets metadata, counts and size distribution.*")
     st.divider()
 
+    # Load all datasets
     datasets = get_all_datasets()
     if datasets is None:
         datasets = pd.DataFrame()
 
-    # Filters
+    # ---------------------------
+    # Sidebar Filters
+    # ---------------------------
     st.sidebar.subheader("Filters")
     if not datasets.empty:
+        # Category filter
         if "category" in datasets.columns:
             cats = ["All"] + sorted(datasets["category"].dropna().unique().tolist())
             cat_sel = st.sidebar.selectbox("Category", cats)
@@ -80,11 +89,15 @@ if selection == "Analytics":
             except Exception:
                 pass
 
-    # Show full filtered table inside an expander (matches Incidents format)
+    # ---------------------------
+    # Display Filtered Data (in expander)
+    # ---------------------------
     with st.expander("Filtered Datasets (click to expand)", expanded=False):
         st.dataframe(datasets, use_container_width=True)
 
-    # Visualizations inside an expander with dropdown
+    # ---------------------------
+    # Visualizations (in expander + dropdown)
+    # ---------------------------
     with st.expander("Visualizations (click to expand)", expanded=False):
         st.write("Choose a chart from the dropdown to display it.")
         chart_choice = st.selectbox("Choose visualization", [
@@ -93,6 +106,7 @@ if selection == "Analytics":
             "Size (MB) Distribution"
         ])
 
+        # Datasets by Category
         if chart_choice == "Datasets by Category" and not datasets.empty and "category" in datasets.columns:
             cat_counts = datasets["category"].value_counts().reset_index()
             cat_counts.columns = ["category", "count"]
@@ -106,6 +120,7 @@ if selection == "Analytics":
             )
             st.altair_chart(chart, use_container_width=True)
 
+        # Record Count Distribution
         if chart_choice == "Record Count Distribution" and not datasets.empty and "record_count" in datasets.columns:
             rc = datasets[["dataset_name", "record_count"]].dropna()
             hist = alt.Chart(rc).mark_bar(color="#AFCBFF").encode(
@@ -114,6 +129,7 @@ if selection == "Analytics":
             )
             st.altair_chart(hist, use_container_width=True)
 
+        # Size (MB) Distribution
         if chart_choice == "Size (MB) Distribution" and not datasets.empty and "file_size_mb" in datasets.columns:
             sz = datasets[["dataset_name", "file_size_mb"]].dropna()
             hist = alt.Chart(sz).mark_bar(color="#FFD7A6").encode(
@@ -135,7 +151,7 @@ if selection == "Analytics":
         st.metric("Total Size (MB)", f"{total_size:.1f}")
 
 # ---------------------------
-# Metadata Manager Section (match Incidents format)
+# Metadata Manager Section
 # ---------------------------
 elif selection == "Metadata Manager":
     st.header("🛠️ Metadata Manager")
@@ -165,7 +181,7 @@ elif selection == "Metadata Manager":
         if st.button("Search / Delete"):
             st.session_state.form = "D"
 
-    # Create (uses insert_dataset(dataset_name, category, source, last_updated=None, record_count=None, file_size_mb=None))
+    # A. Creating New Metadata Record
     if st.session_state.form == "A":
         with st.form("new_metadata"):
             dataset_name = st.text_input("Dataset Name", help="e.g. customers.csv")
@@ -191,7 +207,7 @@ elif selection == "Metadata Manager":
                 st.success(f"Metadata record created (id={new_id}).")
                 st.rerun()
 
-    # Update last_updated (update_dataset_last_updated(dataset_name, new_date))
+    # B. Updating Last Updated Date
     elif st.session_state.form == "B":
         with st.form("update_last"):
             dataset_id = st.text_input("Dataset ID (numeric)", help="Use the numeric 'id' shown in the table")
@@ -211,7 +227,7 @@ elif selection == "Metadata Manager":
                     st.error(f"No dataset found with ID {id_val}.")
                 st.rerun()
 
-    # Update record_count (update_dataset_record_count(dataset_name, new_count))
+    # C. Updating Record Count
     elif st.session_state.form == "C":
         with st.form("update_count"):
             dataset_id = st.text_input("Dataset ID (numeric)", help="Use the numeric 'id' shown in the table")
@@ -231,7 +247,7 @@ elif selection == "Metadata Manager":
                     st.error(f"No dataset found with ID {id_val}.")
                 st.rerun()
 
-    # Search and Delete combined (uses get_dataset_by_name and delete_dataset)
+    # D. Search and Delete combined for Records
     elif st.session_state.form == "D":
         with st.form("search_delete"):
             query = st.text_input("Search by ID or Name (enter numeric id or part of dataset name)")
@@ -244,7 +260,6 @@ elif selection == "Metadata Manager":
 
         if search_btn and query:
             q = query.strip()
-            # try numeric id lookup first using get_dataset_by_name (function expects id param)
             try:
                 id_val = int(q)
                 df = get_dataset_by_name(id_val)
@@ -292,7 +307,7 @@ elif selection == "AI Chat Bot":
     if not api_key:
         st.warning("No API key found in .streamlit/secrets.toml — add OPENAI_API_KEY to enable chat.")
 
-    # 👉 Fixed model (always gpt-4o-mini)
+    # Fixed model for Data Science Specialist
     model = "gpt-4o-mini"
 
     # Sidebar controls
@@ -318,7 +333,6 @@ elif selection == "AI Chat Bot":
             st.session_state.ai_chat_history = []
             st.rerun()
 
-    # Render chat history ABOVE the input form
     if st.session_state.ai_chat_history:
         for msg in st.session_state.ai_chat_history:
             if msg["role"] == "user":
@@ -348,7 +362,7 @@ elif selection == "AI Chat Bot":
     if send and user_input:
         if not api_key:
             st.error("No API key configured; cannot call OpenAI.")
-        else:
+        else: # Data Science specialist persona only
             system_prompt = (
                 "You are an AI & Data Science expert. Provide guidance on data modelling, ML workflow, "
                 "evaluation, tooling, and reproducible experiments. Give clear, actionable suggestions and explain trade-offs."

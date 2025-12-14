@@ -3,8 +3,9 @@ from pathlib import Path
 import sqlite3
 DATA_DIR = Path("DATA")
 
+#------------------------------------------------------------------------------
 # CRUD Operation Functions for Users Table
-#-----------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 def get_user_by_username(username):
     conn = connect_database()
     cursor = conn.cursor()
