@@ -72,43 +72,6 @@ class AuthManager:
             (username, password_hash, role),
         )
 
-    # --- Migrate users from file ---
-    def migrate_users_from_file(self, filepath: Path = DATA_DIR / "users.txt") -> None:
-        """Bulk import users from a text file (username,password_hash)."""
-        if not filepath.exists():
-            print(f"⚠️ File not found: {filepath}")
-            print("   No users to migrate.")
-            return
-
-        conn = sqlite3.connect(self._db._db_path)  # direct sqlite3 for bulk ops
-        cursor = conn.cursor()
-        migrated_count = 0
-
-        with open(filepath, "r") as f:
-            for line in f:
-                line = line.strip()
-                if not line:
-                    continue
-
-                parts = line.split(",")
-                if len(parts) >= 2:
-                    username = parts[0]
-                    password_hash = parts[1]
-
-                    try:
-                        cursor.execute(
-                            "INSERT OR IGNORE INTO users (username, password_hash, role) VALUES (?, ?, ?)",
-                            (username, password_hash, "user"),
-                        )
-                        if cursor.rowcount > 0:
-                            migrated_count += 1
-                    except sqlite3.Error as e:
-                        print(f"Error migrating user {username}: {e}")
-
-        conn.commit()
-        conn.close()
-        print(f"✅ Migrated {migrated_count} users from {filepath.name}")
-
     # --- Logout (for Streamlit apps) ---
     def logout_user(self) -> None:
         """Clear current user from Streamlit session state."""

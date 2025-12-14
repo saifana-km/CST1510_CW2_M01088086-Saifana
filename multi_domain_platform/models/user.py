@@ -12,3 +12,4 @@ class User:
         return hasher.check_password(plain_password, self.__password_hash)  
     def __str__(self) -> str:
         return f"User({self.__username}, role={self.__role})"
+        # user.py

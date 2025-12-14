@@ -1,12 +1,20 @@
-import streamlit as st
 from services.database_manager import DatabaseManager
 from services.auth_manager import AuthManager
+from pathlib import Path
+import streamlit as st
 
-# Configure page
-st.set_page_config(page_title="Login / Register", page_icon="🔑", layout="centered")
+# Resolve DB path relative to package root (two levels up from file when needed)
+ROOT = Path(__file__).resolve().parents[0]  # file is in package root already
+DB_PATH = str(ROOT / "database" / "platform.db")
 
 # Initialize database and auth manager
-db = DatabaseManager("database/platform.db")
+db = DatabaseManager(DB_PATH)
+try:
+    db.connect()
+except Exception as e:
+    st.error(f"Could not open database at {DB_PATH}: {e}")
+    st.stop()
+
 auth = AuthManager(db)
 
 # Session state defaults
@@ -24,6 +32,14 @@ st.title("🔐 Welcome")
 # If already logged in, go straight to dashboard (optional)
 if st.session_state.logged_in:
     st.success(f"Already logged in as **{st.session_state.username}**.")
+    if st.sidebar.button("Log out"):
+        st.session_state.logged_in = False
+        st.session_state.username = ""
+        st.info("You have been logged out.")
+        try:
+            st.switch_page("1_Home.py")
+        except Exception:
+            st.rerun()
     if st.button("Go to dashboard"):
         st.switch_page("pages/2_🛡️_Cybersecurity.py")  # adjust path to your dashboard page
     st.stop()  # Don’t show login/register again
