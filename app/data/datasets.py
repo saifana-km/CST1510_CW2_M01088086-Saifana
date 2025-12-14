@@ -2,6 +2,8 @@ import sqlite3
 import pandas as pd
 from datetime import datetime
 
+# CRUD Operation Functions for Data Science Datasets Metadata Table
+#-----------------------------------------------------------------------------
 def insert_dataset(dataset_name, category, source, last_updated=None, record_count=None, file_size_mb=None):
     """Insert a new dataset metadata record."""
     conn = sqlite3.connect("DATA/intelligence_platform.db")

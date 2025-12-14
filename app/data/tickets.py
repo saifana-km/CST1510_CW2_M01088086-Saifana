@@ -2,6 +2,8 @@ import sqlite3
 import pandas as pd
 from data.db import connect_database
 
+# CRUD Operation Functions for IT Tickets Table
+#-----------------------------------------------------------------------------
 def insert_it_ticket(conn, priority, status, category, subject, description, created_date, resolved_date, assigned_to):
     cursor = conn.cursor()
     # Auto-generate ticket_id with zero padding
